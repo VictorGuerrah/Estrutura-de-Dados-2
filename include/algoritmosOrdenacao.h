@@ -12,6 +12,7 @@ class algoritmosOrdenacao
         void insertionSort();
         void swap(int *a, int *b);
         void imprime();
+        void randomiza();
         void quickSort();
         int particao();
 

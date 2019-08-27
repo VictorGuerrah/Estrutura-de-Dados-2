@@ -1,27 +1,57 @@
 #include "algoritmosOrdenacao.h"
 #include "iostream"
+#include <stdlib.h>
+
 using namespace std;
 
+///Construtor
 algoritmosOrdenacao::algoritmosOrdenacao(int *vetor, int tam){
     vetor1=vetor;
     tam1=tam;
 }
 
+///Destrutor
 algoritmosOrdenacao::~algoritmosOrdenacao()
 {
     //dtor
 }
 
-//BubbleSort
-//A ideia é percorrer o vector diversas vezes, e a cada passagem fazer flutuar para o topo o maior elemento da sequência.
-//No melhor caso o algoritmo e de ordem n, no pior caso n^2.
-//A complexidade é quadratica, por isso ele não pe recomendado para programas que precisem de velocidade e operem com quantidade
-//elevada de dados
+/// Funções Auxiliares
+//*******************************************************************************************************************************
+
+///Função de Troca
 void algoritmosOrdenacao::swap(int *a, int *b){
     int temp=*a;
     *a=*b;
     *b=temp;
 }
+
+///imprime o vetor
+void algoritmosOrdenacao::imprime(){
+    for(int i=0;i<tam1;i++){
+        cout<<vetor1[i]<<" ";
+    }
+    cout<<endl;
+}
+///Radomiza a ordem dos elementos no vetor
+void algoritmosOrdenacao::randomiza(){
+    int indice;
+    for(int i = 0; i < tam1; i++){
+        vetor1[i] = rand() % 999;
+
+    }
+}
+
+//*******************************************************************************************************************************
+
+///Funções de Ordenação
+//*******************************************************************************************************************************
+
+///BubbleSort
+//A ideia é percorrer o vetor diversas vezes, e a cada passagem fazer "flutuar" para o topo o maior elemento da sequência.
+//No melhor caso o algoritmo  de ordem n, no pior caso n^2.
+//A complexidade é quadratica, por isso ele não pe recomendado para programas que precisem de velocidade e operem com quantidade
+//elevada de dados
 void algoritmosOrdenacao::bubbleSort(){
     for(int i=0;i<tam1-1;i++){
         for(int j=0;j<tam1-i-1;j++){
@@ -32,7 +62,7 @@ void algoritmosOrdenacao::bubbleSort(){
     }
 }
 
-//Selection Sort
+///Selection Sort
 //A ideia é passar sempre o menor valor do vetor para a primeira posicao e assim sucessivamente
 //Complexidade no melhor caso O(n^2) - Complexidade no pior caso O(n^2)
 //É um dos mais lentos para vetores grandes. Não e estável
@@ -50,7 +80,7 @@ void algoritmosOrdenacao::selectionSort(){
     }
 }
 
-//Insertion sort
+///Insertion sort
 //A ideia é percorrer as posicoes do vetor
 //Estavel, bom para pequenas entradas
 //Melhor caso O(n) - Pior caso O(n^2)
@@ -66,13 +96,6 @@ for(int i=1; i<tam1;i++){
 }
 }
 
-//imprime o vetor
-void algoritmosOrdenacao::imprime(){
-    for(int i=0;i<tam1;i++){
-        cout<<vetor1[i]<<" ";
-    }
-    cout<<endl;
-}
 
 //QuickSort recursivo
 //O algoritmo adota a estratégia de divisão e conquista. A estratégia consiste em rearranjar as chaves
@@ -80,9 +103,5 @@ void algoritmosOrdenacao::imprime(){
 //é um algoritmmo não estável
 //No pior caso possui complexidade O(n^2) - No melhor caso possui complexidade O(log2n)
 void algoritmosOrdenacao::quickSort(){
-     int i,j,pivo,aux;
-     i=0;
-     j=tam1-1;
-     pivo=vetor1
 
 }
