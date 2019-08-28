@@ -10,9 +10,9 @@ class algoritmosOrdenacao
         void bubbleSort();//Todos
         void selectionSort();//Todos
         void insertionSort();//Todos
-        void heapSort();//VICTOR
-        void heapfy(int* arvore,int indice);//VICTOR
-        void buildMaxHeap(int* arvore);//VICTOR
+        void heapSort();//Victor
+        void heapfy(int* arvore,int indice);//Victor
+        void buildMaxHeap(int* arvore);//Victor
         void swap(int *a, int *b);
         void imprime();
         void randomiza();

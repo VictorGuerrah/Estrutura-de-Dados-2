@@ -1,4 +1,5 @@
 #include <stdlib.h>
+#include <registro.h>
 
 using namespace std;
 
