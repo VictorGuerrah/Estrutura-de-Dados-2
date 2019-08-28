@@ -8,6 +8,8 @@ using namespace std;
 algoritmosOrdenacao::algoritmosOrdenacao(int *vetor, int tam){
     vetor1=vetor;
     tam1=tam;
+    inicio1=0;
+    fim1=tam-1;
 }
 
 ///Destrutor
@@ -16,10 +18,10 @@ algoritmosOrdenacao::~algoritmosOrdenacao()
     //dtor
 }
 
-/// Funções Auxiliares
+/// FunÃ§Ãµes Auxiliares
 //*******************************************************************************************************************************
 
-///Função de Troca
+///FunÃ§Ã£o de Troca
 void algoritmosOrdenacao::swap(int *a, int *b){
     int temp=*a;
     *a=*b;
@@ -44,13 +46,13 @@ void algoritmosOrdenacao::randomiza(){
 
 //*******************************************************************************************************************************
 
-///Funções de Ordenação
+///FunÃ§Ãµes de OrdenaÃ§Ã£o
 //*******************************************************************************************************************************
 
 ///BubbleSort
-//A ideia é percorrer o vetor diversas vezes, e a cada passagem fazer "flutuar" para o topo o maior elemento da sequência.
+//A ideia Ã© percorrer o vetor diversas vezes, e a cada passagem fazer "flutuar" para o topo o maior elemento da sequÃªncia.
 //No melhor caso o algoritmo  de ordem n, no pior caso n^2.
-//A complexidade é quadratica, por isso ele não pe recomendado para programas que precisem de velocidade e operem com quantidade
+//A complexidade Ã© quadratica, por isso ele nÃ£o pe recomendado para programas que precisem de velocidade e operem com quantidade
 //elevada de dados
 void algoritmosOrdenacao::bubbleSort(){
     for(int i=0;i<tam1-1;i++){
@@ -63,9 +65,9 @@ void algoritmosOrdenacao::bubbleSort(){
 }
 
 ///Selection Sort
-//A ideia é passar sempre o menor valor do vetor para a primeira posicao e assim sucessivamente
+//A ideia Ã© passar sempre o menor valor do vetor para a primeira posicao e assim sucessivamente
 //Complexidade no melhor caso O(n^2) - Complexidade no pior caso O(n^2)
-//É um dos mais lentos para vetores grandes. Não e estável
+//Ã‰ um dos mais lentos para vetores grandes. NÃ£o e estÃ¡vel
 void algoritmosOrdenacao::selectionSort(){
     for(int i=0;i<tam1;i++){
         int imen=i;
@@ -81,7 +83,7 @@ void algoritmosOrdenacao::selectionSort(){
 }
 
 ///Insertion sort
-//A ideia é percorrer as posicoes do vetor
+//A ideia Ã© percorrer as posicoes do vetor
 //Estavel, bom para pequenas entradas
 //Melhor caso O(n) - Pior caso O(n^2)
 void algoritmosOrdenacao::insertionSort(){
@@ -98,13 +100,42 @@ for(int i=1; i<tam1;i++){
 
 
 //QuickSort recursivo
-//O algoritmo adota a estratégia de divisão e conquista. A estratégia consiste em rearranjar as chaves
+//O algoritmo adota a estratÃ©gia de divisÃ£o e conquista. A estratÃ©gia consiste em rearranjar as chaves
 //de modo que as chaves menores precedam as maiores.
-//é um algoritmmo não estável
+//Ã© um algoritmmo nÃ£o estÃ¡vel
 //No pior caso possui complexidade O(n^2) - No melhor caso possui complexidade O(log2n)
 void algoritmosOrdenacao::quickSort(){
-
+        quickSortAux(vetor1,inicio1,fim1);
 }
+
+void algoritmosOrdenacao::quickSortAux(int *vetor, int inicio, int fim){
+    int i, j, pivo, aux;
+    i=inicio;
+    j=fim-1;
+    pivo=vetor[(inicio+fim)/2];
+    while(i<=j){
+        while(vetor[i]<pivo&&i<fim){
+            i++;
+        }
+        while(vetor[j]>pivo&&j>inicio){
+            j--;
+        }
+        if(i<=j){
+            aux=vetor[i];
+            vetor[i]=vetor[j];
+            vetor[j]=aux;
+            i++;
+            j--;
+        }
+    }
+    if(j>inicio){
+        quickSortAux(vetor,inicio,j+1);
+    }
+    if(i<fim){
+        quickSortAux(vetor,i,fim);
+    }
+}
+
 
 void algoritmosOrdenacao::heapfy(int* arvore, int indice){
     int maior = indice; //inicializaa maior como raiz
@@ -116,11 +147,11 @@ void algoritmosOrdenacao::heapfy(int* arvore, int indice){
     if(l  < tam1 && arvore[l] > arvore[maior]){
         maior = l;
     }
-    // Se o filho da direita for o maior até agora
+    // Se o filho da direita for o maior atÃ© agora
     if(r < tam1 && arvore[r] > arvore[maior]){
         maior = r;
     }
-    //Se o maior não for a raiz
+    //Se o maior nÃ£o for a raiz
     if(maior != indice){
         aux = arvore[maior];
         arvore[maior] = arvore[indice];
@@ -128,7 +159,7 @@ void algoritmosOrdenacao::heapfy(int* arvore, int indice){
         heapfy(arvore, maior);
     }
 }
-//Constrói a heap
+//ConstrÃ³i a heap
 void algoritmosOrdenacao::buildMaxHeap(int* arvore){
     for(int i = tam1 / 2 - 1; i >= 0; i--){
         heapfy(arvore, i);
