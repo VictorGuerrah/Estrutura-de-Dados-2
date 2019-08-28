@@ -10,7 +10,7 @@ using namespace std;
 int main()
 {
     int vet[TAMANHO]; // criando vetor
-    algoritmosOrdenacao a(vet, TAMANHO); //instanciando objeto para ordenação
+    algoritmosOrdenacao a(vet, TAMANHO); //instanciando objeto para ordenaÃ§Ã£o
     a.randomiza(); // aleatorizando elementos do vetor
 
 
@@ -43,6 +43,14 @@ int main()
     a.imprime();
     cout << "Heap Sort: ";
     a.heapSort();
+    a.imprime();
+    
+    ///Teste Quick Sort Recursivo
+    a.randomiza();
+    cout << endl << "Vetor: ";
+    a.imprime();
+    cout<<"Quick Sort Recursivo: ";
+    a.quickSort();
     a.imprime();
 
     return 0;
