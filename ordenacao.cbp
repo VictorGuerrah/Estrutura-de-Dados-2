@@ -35,8 +35,10 @@
 			<Add option="-fexceptions" />
 		</Compiler>
 		<Unit filename="include/algoritmosOrdenacao.h" />
+		<Unit filename="include/registro.h" />
 		<Unit filename="main.cpp" />
 		<Unit filename="src/algoritmosOrdenacao.cpp" />
+		<Unit filename="src/registro.cpp" />
 		<Extensions>
 			<code_completion />
 			<envvars />
