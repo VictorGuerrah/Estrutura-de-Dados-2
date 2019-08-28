@@ -11,7 +11,7 @@ class algoritmosOrdenacao
         void selectionSort();
         void insertionSort();
         void heapSort();
-        void maxHeapfy(int* arvore,int indice);
+        void heapfy(int* arvore,int indice);
         void buildMaxHeap(int* arvore);
         void swap(int *a, int *b);
         void imprime();

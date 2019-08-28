@@ -106,43 +106,48 @@ void algoritmosOrdenacao::quickSort(){
 
 }
 
-void algoritmosOrdenacao::maxHeapfy(int* arvore, int indice){
-    int l = arvore[(2 * indice) + 1];
-    int r = arvore[(2 * indice) + 2];
-    int maior = 0;
+void algoritmosOrdenacao::heapfy(int* arvore, int indice){
+    int maior = indice; //inicializaa maior como raiz
+    int l = 2 * indice + 1;
+    int r = 2 * indice + 2;
     int aux;
-    if(l  <= tam1 && arvore[l] > arvore[indice]){
+
+    // Se o filho da esquerda for maior que a raiz
+    if(l  < tam1 && arvore[l] > arvore[maior]){
         maior = l;
-    } else{
-        maior = indice;
     }
-    if(r <= tam1 && arvore[r] > arvore[maior]){
+    // Se o filho da direita for o maior até agora
+    if(r < tam1 && arvore[r] > arvore[maior]){
         maior = r;
     }
+    //Se o maior não for a raiz
     if(maior != indice){
-        aux = arvore[indice];
-        arvore[indice] = arvore[maior];
-        arvore[maior] = aux;
-        maxHeapfy(arvore, maior);
+        aux = arvore[maior];
+        arvore[maior] = arvore[indice];
+        arvore[indice] = aux;
+        heapfy(arvore, maior);
     }
 }
-
+//Constrói a heap
 void algoritmosOrdenacao::buildMaxHeap(int* arvore){
-    for(int i = tam1 / 2; i >= 1; i--){
-        maxHeapfy(arvore, i);
+    for(int i = tam1 / 2 - 1; i >= 0; i--){
+        heapfy(arvore, i);
     }
 }
-
+///Heap Sort
 void algoritmosOrdenacao::heapSort(){
     int tamanho = tam1;
     buildMaxHeap(vetor1);
-    int aux;
-    for(int i = tam1; i >=2; i--){
-        aux = vetor1[i];
-        vetor1[i] = vetor1[1];
-        vetor1[i] = aux;
+    //Extrai elemento da heap um por um
+    for(int i = tam1 - 1; i >= 0; i--){
+        //troca a raiz atual com o final da heap
+        int aux = vetor1[i];
+        vetor1[i] = vetor1[0];
+        vetor1[0] = aux;
+        //Diminui o tamanho da heap
         tam1 -= 1;
-        maxHeapfy(vetor1, 1);
+        //Chama heapfy na heap reduzida
+       heapfy(vetor1, 0);
     }
     tam1 = tamanho;
 }
