@@ -1,13 +1,13 @@
 # depslib dependency file v1.0
-1566931414 source:c:\users\victor\desktop\victor\faculdade\disciplinas\estrutura de dados 2\estrutura-de-dados-2\main.cpp
+1566945337 source:c:\users\victor\desktop\victor\faculdade\disciplinas\estrutura de dados 2\estrutura-de-dados-2\main.cpp
 	<iostream>
 	"algoritmosOrdenacao.h"
 	<stdio.h>
 	<stdlib.h>
 
-1566853366 c:\users\victor\desktop\victor\faculdade\disciplinas\estrutura de dados 2\estrutura-de-dados-2\include\algoritmosordenacao.h
+1566945263 c:\users\victor\desktop\victor\faculdade\disciplinas\estrutura de dados 2\estrutura-de-dados-2\include\algoritmosordenacao.h
 
-1566931594 source:c:\users\victor\desktop\victor\faculdade\disciplinas\estrutura de dados 2\estrutura-de-dados-2\src\algoritmosordenacao.cpp
+1566948146 source:c:\users\victor\desktop\victor\faculdade\disciplinas\estrutura de dados 2\estrutura-de-dados-2\src\algoritmosordenacao.cpp
 	"algoritmosOrdenacao.h"
 	"iostream"
 	<stdlib.h>

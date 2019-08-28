@@ -35,7 +35,14 @@ int main()
     a.imprime();
     cout << "Insertion Sort: ";
     a.insertionSort();
-    a.insertionSort();
+    a.imprime();
+
+    ///Teste Heap Sort
+    a.randomiza();
+    cout << endl << "Vetor: ";
+    a.imprime();
+    cout << "Heap Sort: ";
+    a.heapSort();
     a.imprime();
 
     return 0;

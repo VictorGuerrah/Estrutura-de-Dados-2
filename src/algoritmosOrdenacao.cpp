@@ -105,3 +105,44 @@ for(int i=1; i<tam1;i++){
 void algoritmosOrdenacao::quickSort(){
 
 }
+
+void algoritmosOrdenacao::maxHeapfy(int* arvore, int indice){
+    int l = arvore[(2 * indice) + 1];
+    int r = arvore[(2 * indice) + 2];
+    int maior = 0;
+    int aux;
+    if(l  <= tam1 && arvore[l] > arvore[indice]){
+        maior = l;
+    } else{
+        maior = indice;
+    }
+    if(r <= tam1 && arvore[r] > arvore[maior]){
+        maior = r;
+    }
+    if(maior != indice){
+        aux = arvore[indice];
+        arvore[indice] = arvore[maior];
+        arvore[maior] = aux;
+        maxHeapfy(arvore, maior);
+    }
+}
+
+void algoritmosOrdenacao::buildMaxHeap(int* arvore){
+    for(int i = tam1 / 2; i >= 1; i--){
+        maxHeapfy(arvore, i);
+    }
+}
+
+void algoritmosOrdenacao::heapSort(){
+    int tamanho = tam1;
+    buildMaxHeap(vetor1);
+    int aux;
+    for(int i = tam1; i >=2; i--){
+        aux = vetor1[i];
+        vetor1[i] = vetor1[1];
+        vetor1[i] = aux;
+        tam1 -= 1;
+        maxHeapfy(vetor1, 1);
+    }
+    tam1 = tamanho;
+}

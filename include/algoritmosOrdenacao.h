@@ -10,6 +10,9 @@ class algoritmosOrdenacao
         void bubbleSort();
         void selectionSort();
         void insertionSort();
+        void heapSort();
+        void maxHeapfy(int* arvore,int indice);
+        void buildMaxHeap(int* arvore);
         void swap(int *a, int *b);
         void imprime();
         void randomiza();
