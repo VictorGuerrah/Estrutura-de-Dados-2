@@ -44,13 +44,21 @@ int main()
     cout << "Heap Sort: ";
     a.heapSort();
     a.imprime();
-    
+
     ///Teste Quick Sort Recursivo
     a.randomiza();
     cout << endl << "Vetor: ";
     a.imprime();
     cout<<"Quick Sort Recursivo: ";
     a.quickSort();
+    a.imprime();
+
+    ///Teste Quick Sort Iterativo
+    a.randomiza();
+    cout << endl << "Vetor: ";
+    a.imprime();
+    cout<<"Quick Sort Iterativo: ";
+    a.quickSortIterativo();
     a.imprime();
 
     return 0;

@@ -19,3 +19,24 @@
 1567015892 c:\users\victor\desktop\victor\faculdade\disciplinas\estrutura de dados 2\estrutura-de-dados-2\include\registro.h
 	<iostream>
 
+1567090330 source:c:\users\pedro\desktop\estrutura-de-dados-2\main.cpp
+	<iostream>
+	"algoritmosOrdenacao.h"
+	<stdio.h>
+	<stdlib.h>
+
+1567090077 c:\users\pedro\desktop\estrutura-de-dados-2\include\algoritmosordenacao.h
+
+1567089488 source:c:\users\pedro\desktop\estrutura-de-dados-2\src\registro.cpp
+	<stdlib.h>
+	<registro.h>
+
+1567089488 c:\users\pedro\desktop\estrutura-de-dados-2\include\registro.h
+	<iostream>
+
+1567090823 source:c:\users\pedro\desktop\estrutura-de-dados-2\src\algoritmosordenacao.cpp
+	"algoritmosOrdenacao.h"
+	"iostream"
+	<stdlib.h>
+	<stack>
+

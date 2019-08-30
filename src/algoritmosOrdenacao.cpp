@@ -1,7 +1,7 @@
 #include "algoritmosOrdenacao.h"
 #include "iostream"
 #include <stdlib.h>
-
+#include<stack>
 using namespace std;
 
 ///Construtor
@@ -135,6 +135,63 @@ void algoritmosOrdenacao::quickSortAux(int *vetor, int inicio, int fim){
         quickSortAux(vetor,i,fim);
     }
 }
+
+//Quicksort iterativo
+int algoritmosOrdenacao::partitionQuickSort(int vet[], int inicio, int fim)
+{
+    int x = vet[fim];
+    int i = (inicio - 1);
+
+    for (int j = inicio; j <= fim - 1; j++) {
+        if (vet[j] <= x) {
+            i++;
+            swap(&vet[i], &vet[j]);
+        }
+    }
+    swap(&vet[i + 1], &vet[fim]);
+    return (i + 1);
+}
+void algoritmosOrdenacao::quickSortIterativo(){
+
+
+
+    stack<int>pilha;
+
+
+    pilha.push(-1);
+
+    pilha.push(inicio1);
+    pilha.push(fim1);
+
+
+    while(pilha.top()>=0){
+
+        fim1=pilha.top();
+        pilha.pop();
+        inicio1=pilha.top();
+        pilha.pop();
+
+
+        int particao = partitionQuickSort(vetor1, inicio1, fim1);
+
+         if (particao - 1 > inicio1) {
+            pilha.push(inicio1);
+            pilha.push(particao - 1);
+        }
+
+        if (particao + 1 < fim1) {
+            pilha.push(particao + 1);
+            pilha.push(fim1);
+        }
+
+    }
+
+
+}
+
+
+
+
 
 
 void algoritmosOrdenacao::heapfy(int* arvore, int indice){
