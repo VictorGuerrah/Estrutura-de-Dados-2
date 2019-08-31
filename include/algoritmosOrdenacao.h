@@ -20,6 +20,9 @@ class algoritmosOrdenacao
         void quickSortAux(int *vetor, int inicio, int fim); //Camila
         void quickSortIterativo();
         int partitionQuickSort(int *vetor,int inicio,int fim);
+        void mergeSort(int *vetor, int inicio, int fim);
+        void intercala(int *vetor, int inicio, int meio, int fim);
+        void mergeSortAux();
     protected:
 
     private:

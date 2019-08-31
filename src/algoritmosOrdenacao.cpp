@@ -10,6 +10,8 @@ algoritmosOrdenacao::algoritmosOrdenacao(int *vetor, int tam){
     tam1=tam;
     inicio1=0;
     fim1=tam-1;
+    cout << inicio1;
+    cout << fim1;
 }
 
 ///Destrutor
@@ -105,6 +107,7 @@ for(int i=1; i<tam1;i++){
 //é um algoritmmo não estável
 //No pior caso possui complexidade O(n^2) - No melhor caso possui complexidade O(log2n)
 void algoritmosOrdenacao::quickSort(){
+
         quickSortAux(vetor1,inicio1,fim1);
 }
 
@@ -189,11 +192,6 @@ void algoritmosOrdenacao::quickSortIterativo(){
 
 }
 
-
-
-
-
-
 void algoritmosOrdenacao::heapfy(int* arvore, int indice){
     int maior = indice; //inicializaa maior como raiz
     int l = 2 * indice + 1;
@@ -238,4 +236,71 @@ void algoritmosOrdenacao::heapSort(){
        heapfy(vetor1, 0);
     }
     tam1 = tamanho;
+}
+
+void algoritmosOrdenacao::mergeSortAux(){
+        cout << inicio1 <<  endl;
+        cout << fim1 << endl;
+        mergeSort(vetor1,inicio1,fim1);
+
+}
+
+
+void algoritmosOrdenacao::mergeSort(int *vetor, int inicio, int fim)
+{
+
+
+    if(inicio < fim)
+    {
+
+        int meio = (inicio+fim)/2;
+        mergeSort(vetor, inicio, meio);
+        mergeSort(vetor, meio+1, fim);
+        intercala(vetor, inicio, meio, fim);
+
+    }
+}
+
+
+void algoritmosOrdenacao::intercala(int *vetor, int inicio, int meio, int fim)
+{
+    int i, j, k;
+
+    int n1 = meio - inicio;
+    int n2 = fim - meio;
+
+    int vetIni[n1], vetFim[n2];
+
+    for(i=0; i< n1; i++)
+        vetIni[i] = vetor[inicio + i];
+    for(j=0; j< n2; j++)
+        vetFim[j] = vetor[meio+1+j];
+    i = 0;
+    j = 0;
+    k = inicio;
+
+    while(i< n1 && j < n2)
+    {
+       if(vetIni[i] <= vetFim[j])
+    {
+        vetor[k] = vetIni[i];
+        i++;
+    }
+    else
+    {
+        vetor[k]=vetFim[j];
+        j++;
+    }
+    k++;
+    }
+
+    while (i < n1)
+    {
+
+
+        vetor[k] = vetIni[i];
+        i++;
+        k++;
+    }
+
 }
