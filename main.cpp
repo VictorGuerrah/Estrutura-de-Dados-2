@@ -53,11 +53,11 @@ int main()
     a.quickSort();
     a.imprime();
 
-    ///Teste Quick Sort Iterativo
+    ///Teste Quick Sort Hibrido
     a.randomiza();
     cout << endl << "Vetor: ";
     a.imprime();
-    cout<<"Quick Sort Iterativo: ";
+    cout<<"Quick Sort Hibrido: ";
     a.auxQuickSortHibrido();
     a.imprime();
 
