@@ -345,3 +345,44 @@ void algoritmosOrdenacao::intercala(int *vetor, int inicio, int meio, int fim)
     }
 
 }
+
+void algoritmosOrdenacao::countSort(){
+    int m = 0;
+
+    //Encontra o maior valor do vetor
+    for(int i = 0; i < tam1; i++){
+        if(vetor1[i] > m){
+            m = vetor1[i];
+        }
+    }
+
+    m += 1;
+
+    int vetorAuxiliar[m];
+
+    //Inicializa vetor auxiliar com 0
+    for(int i = 0; i < m; i++){
+            vetorAuxiliar[i] = 0;
+        }
+    //Conta as ocorrencias de cada elemento do vetor
+    for(int i = 0; i < tam1; i++){
+            vetorAuxiliar[vetor1[i]]++;
+        }
+
+    // Ordena os indices do vetor auxiliar
+    int sum = 0;
+    for(int i = 1; i < m; i++){
+        int dum = vetorAuxiliar[i];
+        vetorAuxiliar[i] = sum;
+        sum += dum;
+    }
+    int vetorOrdenado[tam1];
+    for(int i = 0; i < tam1; i++){
+        vetorOrdenado[vetorAuxiliar[vetor1[i]]] = vetor1[i];
+        vetorAuxiliar[vetor1[i]]++;
+    }
+    //Retorna os valores ordenados para o vetor de entrada
+    for (int i = 0; i < tam1; i++){
+        vetor1[i] = vetorOrdenado[i];
+    }
+}
