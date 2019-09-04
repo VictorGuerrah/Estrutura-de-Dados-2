@@ -69,6 +69,14 @@ int main()
     cout<<"Merge Sort: ";
     a.mergeSortAux();
     a.imprime();
+    
+            ///Teste Count Sort
+    a.randomiza();
+    cout << endl << "Vetor: ";
+    a.imprime();
+    cout<<"Count Sort: ";
+    a.countSort();
+    a.imprime();
 
     return 0;
 }
