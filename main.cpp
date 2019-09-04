@@ -58,7 +58,7 @@ int main()
     cout << endl << "Vetor: ";
     a.imprime();
     cout<<"Quick Sort Iterativo: ";
-    a.quickSortIterativo();
+    a.auxQuickSortHibrido();
     a.imprime();
 
 
