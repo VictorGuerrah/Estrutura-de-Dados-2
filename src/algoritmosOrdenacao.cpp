@@ -258,7 +258,7 @@ void algoritmosOrdenacao::buildMaxHeap(int* arvore)
         heapfy(arvore, i);
     }
 }
-///Heap Sort
+///Heap Sortsrc
 void algoritmosOrdenacao::heapSort()
 {
     int tamanho = tam1;
@@ -280,14 +280,13 @@ void algoritmosOrdenacao::heapSort()
 
 void algoritmosOrdenacao::mergeSortAux()
 {
-    cout << inicio1 <<  endl;
-    cout << fim1 << endl;
+
     mergeSort(vetor1,inicio1,fim1);
 
 }
 
 
-void algoritmosOrdenacao::mergeSort(int *vetor, int inicio, int fim)
+void algoritmosOrdenacao::mergeSort(int vetor[], int inicio, int fim)
 {
 
 
@@ -303,46 +302,50 @@ void algoritmosOrdenacao::mergeSort(int *vetor, int inicio, int fim)
 }
 
 
-void algoritmosOrdenacao::intercala(int *vetor, int inicio, int meio, int fim)
+void algoritmosOrdenacao::intercala(int vetor[], int inicio, int meio, int fim)
 {
-    int i, j, k;
 
-    int n1 = meio - inicio;
-    int n2 = fim - meio;
+int i, j, k;
+int n1 = meio-inicio +1;
+int n2 = fim-meio+2;
 
-    int vetIni[n1], vetFim[n2];
+int L[n1], R[n2];
 
-    for(i=0; i< n1; i++)
-        vetIni[i] = vetor[inicio + i];
-    for(j=0; j< n2; j++)
-        vetFim[j] = vetor[meio+1+j];
-    i = 0;
-    j = 0;
-    k = inicio;
+for(int i = 0; i < n1; i++)
+    L[i] = vetor[inicio+i];
+for(int j = 0; j < n2; j++)
+    R[j] = vetor[meio+1+j];
 
-    while(i< n1 && j < n2)
+i = 0;
+j = 0;
+k = inicio;
+
+while(i < n1 && j < n2)
+{
+    if(L[i] <= R[j])
     {
-        if(vetIni[i] <= vetFim[j])
-        {
-            vetor[k] = vetIni[i];
-            i++;
-        }
-        else
-        {
-            vetor[k]=vetFim[j];
-            j++;
-        }
-        k++;
-    }
-
-    while (i < n1)
-    {
-
-
-        vetor[k] = vetIni[i];
+        vetor[k] = L[i];
         i++;
-        k++;
     }
+    else
+    {
+
+        vetor[k] = R[j];
+        j++;
+    }
+    k++;
+
+
+}
+
+while(j < n2)
+{
+    vetor[k] = R[j];
+    j++;
+    k++;
+
+
+}
 
 }
 
