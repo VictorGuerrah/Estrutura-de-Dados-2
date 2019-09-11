@@ -10,9 +10,8 @@ algoritmosOrdenacao::algoritmosOrdenacao(int *vetor, int tam)
     vetor1=vetor;
     tam1=tam;
     inicio1=0;
-    fim1=tam-1;
-    cout << inicio1;
-    cout << fim1;
+    fim1=tam;
+
 }
 
 ///Destrutor
@@ -305,56 +304,69 @@ void algoritmosOrdenacao::mergeSort(int vetor[], int inicio, int fim)
 void algoritmosOrdenacao::intercala(int vetor[], int inicio, int meio, int fim)
 {
 
-int i, j, k;
-int n1 = meio-inicio +1;
-int n2 = fim-meio+2;
+    int i, j, k;
+    int n1 = meio-inicio +1;
+    int n2 = fim-meio;
 
-int L[n1], R[n2];
+    int L[n1], R[n2];
 
-for(int i = 0; i < n1; i++)
-    L[i] = vetor[inicio+i];
-for(int j = 0; j < n2; j++)
-    R[j] = vetor[meio+1+j];
+    for(int i = 0; i < n1; i++)
+        L[i] = vetor[inicio+i];
+    for(int j = 0; j < n2; j++)
+        R[j] = vetor[meio+1+j];
 
-i = 0;
-j = 0;
-k = inicio;
+    i = 0;
+    j = 0;
+    k = inicio;
 
-while(i < n1 && j < n2)
-{
-    if(L[i] <= R[j])
+    while(i < n1 && j < n2)
     {
+        if(L[i] <= R[j])
+        {
+            vetor[k] = L[i];
+            i++;
+        }
+        else
+        {
+
+            vetor[k] = R[j];
+            j++;
+        }
+        k++;
+
+
+    }
+
+    while(i < n1)
+    {
+
         vetor[k] = L[i];
         i++;
-    }
-    else
-    {
+        k++;
 
+
+    }
+
+    while(j < n2)
+    {
         vetor[k] = R[j];
         j++;
+        k++;
+
+
     }
-    k++;
-
 
 }
 
-while(j < n2)
+void algoritmosOrdenacao::countSort()
 {
-    vetor[k] = R[j];
-    j++;
-    k++;
-
-
-}
-
-}
-
-void algoritmosOrdenacao::countSort(){
     int m = 0;
 
     //Encontra o maior valor do vetor
-    for(int i = 0; i < tam1; i++){
-        if(vetor1[i] > m){
+    for(int i = 0; i < tam1; i++)
+    {
+        if(vetor1[i] > m)
+        {
             m = vetor1[i];
         }
     }
@@ -364,28 +376,33 @@ void algoritmosOrdenacao::countSort(){
     int vetorAuxiliar[m];
 
     //Inicializa vetor auxiliar com 0
-    for(int i = 0; i < m; i++){
-            vetorAuxiliar[i] = 0;
-        }
+    for(int i = 0; i < m; i++)
+    {
+        vetorAuxiliar[i] = 0;
+    }
     //Conta as ocorrencias de cada elemento do vetor
-    for(int i = 0; i < tam1; i++){
-            vetorAuxiliar[vetor1[i]]++;
-        }
+    for(int i = 0; i < tam1; i++)
+    {
+        vetorAuxiliar[vetor1[i]]++;
+    }
 
     // Ordena os indices do vetor auxiliar
     int sum = 0;
-    for(int i = 1; i < m; i++){
+    for(int i = 1; i < m; i++)
+    {
         int dum = vetorAuxiliar[i];
         vetorAuxiliar[i] = sum;
         sum += dum;
     }
     int vetorOrdenado[tam1];
-    for(int i = 0; i < tam1; i++){
+    for(int i = 0; i < tam1; i++)
+    {
         vetorOrdenado[vetorAuxiliar[vetor1[i]]] = vetor1[i];
         vetorAuxiliar[vetor1[i]]++;
     }
     //Retorna os valores ordenados para o vetor de entrada
-    for (int i = 0; i < tam1; i++){
+    for (int i = 0; i < tam1; i++)
+    {
         vetor1[i] = vetorOrdenado[i];
     }
 }

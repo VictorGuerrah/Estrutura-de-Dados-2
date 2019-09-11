@@ -24,9 +24,9 @@ class algoritmosOrdenacao
         void auxQuickSortHibrido();//Pedro
         void QuickSortHibrido(int* vetor,int inicio,int fim);//Pedro
         int particaoQuickSort(int *vetor,int inicio,int fim);//Pedro
-        void mergeSort(int *vetor, int inicio, int fim);
-        void intercala(int vetor[], int inicio, int meio, int fim);
-        void mergeSortAux();
+        void mergeSort(int *vetor, int inicio, int fim); //Daniel
+        void intercala(int vetor[], int inicio, int meio, int fim); //Daniel
+        void mergeSortAux(); //Daniel
     protected:
 
     private:
