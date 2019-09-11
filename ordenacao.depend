@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1568223151 source:/ice/Estrutura-de-Dados-2-master/main.cpp
+1568225828 source:/ice/Estrutura-de-Dados-2-master/main.cpp
 	<iostream>
 	"algoritmosOrdenacao.h"
 	<stdio.h>
@@ -14,7 +14,7 @@
 1568147440 /ice/Estrutura-de-Dados-2-master/include/registro.h
 	<iostream>
 
-1568223766 source:/ice/Estrutura-de-Dados-2-master/src/algoritmosOrdenacao.cpp
+1568225859 source:/ice/Estrutura-de-Dados-2-master/src/algoritmosOrdenacao.cpp
 	"algoritmosOrdenacao.h"
 	"iostream"
 	<stdlib.h>

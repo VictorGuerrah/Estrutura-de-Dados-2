@@ -10,7 +10,7 @@ algoritmosOrdenacao::algoritmosOrdenacao(int *vetor, int tam)
     vetor1=vetor;
     tam1=tam;
     inicio1=0;
-    fim1=tam;
+    fim1=tam-1;
 
 }
 
@@ -132,7 +132,7 @@ void algoritmosOrdenacao::quickSortAux(int *vetor, int inicio, int fim)
 {
     int i, j, pivo, aux;
     i=inicio;
-    j=fim-1;
+    j=fim;
     pivo=vetor[(inicio+fim)/2];
     while(i<=j)
     {
@@ -303,15 +303,16 @@ void algoritmosOrdenacao::mergeSort(int vetor[], int inicio, int fim)
 
 void algoritmosOrdenacao::intercala(int vetor[], int inicio, int meio, int fim)
 {
-
     int i, j, k;
-    int n1 = meio-inicio +1;
+    int n1 = meio-inicio+1;
     int n2 = fim-meio;
+
 
     int L[n1], R[n2];
 
     for(int i = 0; i < n1; i++)
         L[i] = vetor[inicio+i];
+
     for(int j = 0; j < n2; j++)
         R[j] = vetor[meio+1+j];
 
@@ -346,7 +347,6 @@ void algoritmosOrdenacao::intercala(int vetor[], int inicio, int meio, int fim)
 
 
     }
-
     while(j < n2)
     {
         vetor[k] = R[j];
@@ -355,7 +355,6 @@ void algoritmosOrdenacao::intercala(int vetor[], int inicio, int meio, int fim)
 
 
     }
-
 }
 
 void algoritmosOrdenacao::countSort()

@@ -53,6 +53,7 @@ int main()
     a.quickSort();
     a.imprime();
 
+
     ///Teste Quick Sort Hibrido
     a.randomiza();
     cout << endl << "Vetor: ";
@@ -62,23 +63,8 @@ int main()
     a.imprime();
 
 
+
     ///Teste Merge Sort
-    a.randomiza();
-    cout << endl << "Vetor: ";
-    a.imprime();
-    cout<<"Merge Sort: ";
-    a.mergeSortAux();
-    a.imprime();
-
-      ///Teste Merge Sort
-    a.randomiza();
-    cout << endl << "Vetor: ";
-    a.imprime();
-    cout<<"Merge Sort: ";
-    a.mergeSortAux();
-    a.imprime();
-
-      ///Teste Merge Sort
     a.randomiza();
     cout << endl << "Vetor: ";
     a.imprime();
