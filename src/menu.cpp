@@ -101,70 +101,110 @@ void menu::exibirMenu(){
         cin >> escolha;
         switch(escolha){
         case 1:
+        {
             cout << "Vetor: ";
             a.imprime();
             cout << "Bubble Sort: ";
             arquivo.open ("bubbleSort.txt");
+            auto start = std::chrono::high_resolution_clock::now();
             a.bubbleSort();
-            arquivo << "teste";
-            escolha = 0;
+            auto finish = std::chrono::high_resolution_clock::now();
+            std::chrono::duration<double> elapsed = finish - start;
+            std::cout << "Elapsed time: " << elapsed.count() << " s\n";
+            a.imprime();
             break;
+        }
         case 2:
+        {
             cout << endl << "Vetor: ";
             a.imprime();
             cout << "Selection Sort: ";
+            auto start = std::chrono::high_resolution_clock::now();
             a.selectionSort();
+            auto finish = std::chrono::high_resolution_clock::now();
+            std::chrono::duration<double> elapsed = finish - start;
+            std::cout << "Elapsed time: " << elapsed.count() << " s\n";
             a.imprime();
-            escolha = 0;
             break;
+        }
         case 3:
+        {
             cout << endl << "Vetor: ";
             a.imprime();
             cout << "Insertion Sort: ";
+            auto start = std::chrono::high_resolution_clock::now();
             a.insertionSort();
+            auto finish = std::chrono::high_resolution_clock::now();
+            std::chrono::duration<double> elapsed = finish - start;
+            std::cout << "Elapsed time: " << elapsed.count() << " s\n";
             a.imprime();
-            escolha = 0;
             break;
+        }
         case 4:
+        {
             cout << endl << "Vetor: ";
             a.imprime();
             cout << "Heap Sort: ";
+            auto start = std::chrono::high_resolution_clock::now();
             a.heapSort();
+            auto finish = std::chrono::high_resolution_clock::now();
+            std::chrono::duration<double> elapsed = finish - start;
+            std::cout << "Elapsed time: " << elapsed.count() << " s\n";
             a.imprime();
-            escolha = 0;
+        }
             break;
         case 5:
+        {
             cout << endl << "Vetor: ";
             a.imprime();
             cout<<"Quick Sort Recursivo: ";
+            auto start = std::chrono::high_resolution_clock::now();
             a.quickSort();
+            auto finish = std::chrono::high_resolution_clock::now();
+            std::chrono::duration<double> elapsed = finish - start;
+            std::cout << "Elapsed time: " << elapsed.count() << " s\n";
             a.imprime();
-            escolha = 0;
             break;
+        }
         case 6:
+        {
             cout << endl << "Vetor: ";
             a.imprime();
             cout<<"Quick Sort Hibrido: ";
+            auto start = std::chrono::high_resolution_clock::now();
             a.auxQuickSortHibrido();
+            auto finish = std::chrono::high_resolution_clock::now();
+            std::chrono::duration<double> elapsed = finish - start;
+            std::cout << "Elapsed time: " << elapsed.count() << " s\n";
             a.imprime();
-            escolha = 0;
             break;
+        }
         case 7:
+        {
             cout << endl << "Vetor: ";
             a.imprime();
             cout<<"Merge Sort: ";
+            auto start = std::chrono::high_resolution_clock::now();
             a.mergeSortAux();
+            auto finish = std::chrono::high_resolution_clock::now();
+            std::chrono::duration<double> elapsed = finish - start;
+            std::cout << "Elapsed time: " << elapsed.count() << " s\n";
             a.imprime();
-            escolha = 0;
             break;
+        }
         case 8:
+        {
             cout << endl << "Vetor: ";
             a.imprime();
             cout<<"Count Sort: ";
+            auto start = std::chrono::high_resolution_clock::now();
             a.countSort();
+            auto finish = std::chrono::high_resolution_clock::now();
+            std::chrono::duration<double> elapsed = finish - start;
+            std::cout << "Elapsed time: " << elapsed.count() << " s\n";
             a.imprime();
-            escolha = 0;
             break;
+        }
         case 0:
             break;
         default:
