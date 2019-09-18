@@ -17,6 +17,63 @@ menu::~menu()
     //dtor
 }
 
+/*
+ **********************************************************************************************
+ *                                                                                            *
+ * Funcao responsavel pela leitura de um bloco de dados de tamanho N do arquivo e armazena-lo *
+ * em uma lista de registros                                                                  *
+ *                                                                                            *
+ **********************************************************************************************
+ */
+void menu::leituraArquivo(int N, list<registro>& lista){
+    fstream bbg;
+    int linha=0;
+    bbg.open("bgg-13m-reviews.csv", ios::in);
+    if(bbg.is_open()){
+        int num = 0;//numero de linhas no arquivo
+        string str,palavra;
+        while(bbg){
+            getline(bbg,str);
+            num++;
+        }
+        //reinicializando o arquivo
+        bbg.clear();
+        bbg.seekg(0, ios::beg);
+
+        getline(bbg,str);
+        srand(time(NULL));//inicializando semente de randomizacao
+        int random = num-N;
+        random = rand() % random;
+        int cont = 0;
+        int contN = 0;
+	while(getline(bbg, str)){
+            stringstream s(str);
+            if(contN >= random && contN <=random+N){
+                registro reg;
+                getline(s, palavra, ',');
+                getline(s, palavra, ',');
+                reg.setUser(palavra);
+                getline(s, palavra, ',');
+                reg.setRating(stoi(palavra));
+                getline(s, palavra, ',');
+                if(palavra != ""){
+                     contN--;
+                }
+                else{
+                    getline(s, palavra, ',');
+                    reg.setId(stoi(palavra));
+                    lista.push_back(reg);
+                }
+            }
+            contN++;
+            s.clear();
+	}
+    }
+    else{
+    	cout<<"erro ao abrir o arquivo"<<endl;
+    }
+}
+
 void menu::exibirMenu(){
     int escolha = -1;
     int vet[TAMANHO]; // criando vetor
