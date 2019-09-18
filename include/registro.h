@@ -1,6 +1,9 @@
 #ifndef REGISTRO_H
 #define REGISTRO_H
 #include <iostream>
+#include <string.h>
+
+using namespace std;
 
 class registro{
     public:
@@ -10,8 +13,8 @@ class registro{
             void setId(int id);
             int getId();
 
-            void setUser(char user);
-            char getUser();
+            void setUser(string user);
+            string getUser();
 
             void setRating(int rating);
             int getRating();
@@ -20,7 +23,7 @@ class registro{
 
     private:
             int id;
-            char user;
+            string user;
             int rating;
 };
 

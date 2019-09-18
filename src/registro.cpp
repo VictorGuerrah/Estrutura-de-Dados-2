@@ -1,5 +1,5 @@
 #include <stdlib.h>
-#include <registro.h>
+#include "registro.h"
 
 using namespace std;
 
@@ -21,11 +21,11 @@ int registro::getId(){
     return id;
 }
 
-void registro::setUser(char user){
+void registro::setUser(string user){
     this->user = user;
 }
 
-char registro::getUser(){
+string registro::getUser(){
     return user;
 }
 

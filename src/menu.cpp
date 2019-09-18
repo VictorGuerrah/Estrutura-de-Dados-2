@@ -4,6 +4,8 @@
 #include "algoritmosOrdenacao.h"
 #include <stdlib.h>
 #include <fstream>
+//Tamanho do bloco a ser pego no arquivo:
+#define TAM 100 
 
 using namespace std;
 
@@ -75,6 +77,9 @@ void menu::leituraArquivo(int N, list<registro>& lista){
 }
 
 void menu::exibirMenu(){
+
+    list<registro> regs;
+    leituraArquivo(TAM,regs);
     int escolha = -1;
     int vet[TAMANHO]; // criando vetor
     algoritmosOrdenacao a(vet, TAMANHO); //instanciando objeto para ordenação

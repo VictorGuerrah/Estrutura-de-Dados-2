@@ -5,14 +5,15 @@
 #include <list>
 #include <iterator>
 
+using namespace std;
+
 class menu
 {
     public:
         menu();
         ~menu();
         void exibirMenu();
-        void leituraArquivo(int N, list<registro>& lista);
-
+	void leituraArquivo(int N, list<registro>& lista);
     private:
 };
 
