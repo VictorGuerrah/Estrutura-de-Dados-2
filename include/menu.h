@@ -4,6 +4,7 @@
 #include <bits/stdc++.h>
 #include <list>
 #include <iterator>
+#include <vector>
 
 using namespace std;
 
@@ -13,7 +14,7 @@ class menu
         menu();
         ~menu();
         void exibirMenu();
-	void leituraArquivo(int N, list<registro>& lista);
+	void leituraArquivo(int N, list<registro>& lista, vector<int>& listaId);
     private:
 };
 

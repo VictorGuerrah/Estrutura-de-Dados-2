@@ -1,11 +1,13 @@
 #ifndef ALGORITMOSORDENACAO_H
 #define ALGORITMOSORDENACAO_H
+#include <iostream>
 
+using namespace std;
 
 class algoritmosOrdenacao
 {
     public:
-        algoritmosOrdenacao(int *vetor, int tam);
+        algoritmosOrdenacao(int* vetor, int tam);
         virtual ~algoritmosOrdenacao();
         void bubbleSort();//Todos
         void selectionSort();//Todos
@@ -30,7 +32,8 @@ class algoritmosOrdenacao
     protected:
 
     private:
-        int *vetor1, tam1, inicio1, fim1;
+	int* vetor1;
+        int tam1, inicio1, fim1;
 
 };
 

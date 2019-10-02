@@ -1,9 +1,12 @@
 #include "menu.h"
+#include <bits/stdc++.h>
 #define TAMANHO 8
 #include <iostream>
 #include "algoritmosOrdenacao.h"
 #include <stdlib.h>
 #include <fstream>
+#include <vector>
+
 //Tamanho do bloco a ser pego no arquivo:
 #define TAM 100 
 
@@ -27,7 +30,7 @@ menu::~menu()
  *                                                                                            *
  **********************************************************************************************
  */
-void menu::leituraArquivo(int N, list<registro>& lista){
+void menu::leituraArquivo(int N, list<registro>& lista, vector<int>& listaId){
     fstream bbg;
     int linha=0;
     bbg.open("bgg-13m-reviews.csv", ios::in);
@@ -53,23 +56,17 @@ void menu::leituraArquivo(int N, list<registro>& lista){
             if(contN >= random && contN <=random+N){
                 registro reg;
                 getline(s, palavra, ',');
+		reg.setId(stoi(palavra));
+		listaId.push_back(stoi(palavra));
                 getline(s, palavra, ',');
                 reg.setUser(palavra);
                 getline(s, palavra, ',');
                 reg.setRating(stoi(palavra));
-                getline(s, palavra, ',');
-                if(palavra != ""){
-                     contN--;
-                }
-                else{
-                    getline(s, palavra, ',');
-                    reg.setId(stoi(palavra));
-                    lista.push_back(reg);
-                }
             }
             contN++;
             s.clear();
 	}
+	cout<<endl;
     }
     else{
     	cout<<"erro ao abrir o arquivo"<<endl;
@@ -79,12 +76,17 @@ void menu::leituraArquivo(int N, list<registro>& lista){
 void menu::exibirMenu(){
 
     list<registro> regs;
-    leituraArquivo(TAM,regs);
+    vector<int> ids;
+    random_shuffle(ids.begin(), ids.end());
+    leituraArquivo(TAM, regs, ids);
     int escolha = -1;
     int vet[TAMANHO]; // criando vetor
-    algoritmosOrdenacao a(vet, TAMANHO); //instanciando objeto para ordenação
+    algoritmosOrdenacao a(vet, TAM); //instanciando objeto para ordenação
     a.randomiza(); // aleatorizando elementos do vetor
-
+/*    for(vector<int>::iterator it = ids.begin(); it != ids.end(); ++it)
+	cout<<*it<< "  ";
+    cout<<endl;
+*/    
     ofstream arquivo;
 
     cout << "Insira o que deseja fazer: " << endl;
