@@ -81,7 +81,7 @@ void menu::exibirMenu(){
     leituraArquivo(TAM, regs, ids);
     int escolha = -1;
     int vet[TAMANHO]; // criando vetor
-    algoritmosOrdenacao a(vet, TAM); //instanciando objeto para ordenação
+    algoritmosOrdenacao a(ids, TAM); //instanciando objeto para ordenação
     a.randomiza(); // aleatorizando elementos do vetor
 /*    for(vector<int>::iterator it = ids.begin(); it != ids.end(); ++it)
 	cout<<*it<< "  ";

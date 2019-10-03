@@ -2,10 +2,11 @@
 #include "iostream"
 #include <stdlib.h>
 #include<stack>
+
 using namespace std;
 
 ///Construtor
-algoritmosOrdenacao::algoritmosOrdenacao(int *vetor, int tam)
+algoritmosOrdenacao::algoritmosOrdenacao(vector<int>& vetor, int tam)
 {
     vetor1=vetor;
     tam1=tam;
@@ -24,7 +25,7 @@ algoritmosOrdenacao::~algoritmosOrdenacao()
 //*******************************************************************************************************************************
 
 ///Função de Troca
-void algoritmosOrdenacao::swap(int *a, int *b)
+void algoritmosOrdenacao::swap(int* a, int* b)
 {
     int temp=*a;
     *a=*b;
@@ -34,9 +35,9 @@ void algoritmosOrdenacao::swap(int *a, int *b)
 ///imprime o vetor
 void algoritmosOrdenacao::imprime()
 {
-    for(int i=0; i<tam1; i++)
+    for(vector<int>::iterator i=vetor1.begin(); i!=vetor1.end(); ++i)
     {
-        cout<<vetor1[i]<<" ";
+        cout<<*i<<" ";
     }
     cout<<endl;
 }
@@ -44,9 +45,9 @@ void algoritmosOrdenacao::imprime()
 void algoritmosOrdenacao::randomiza()
 {
     int indice;
-    for(int i = 0; i < tam1; i++)
+    for(vector<int>::iterator i = vetor1.begin(); i != vetor1.end(); ++i)
     {
-        vetor1[i] = rand() % 999;
+        *i = rand() % 999;
 
     }
 }
@@ -67,7 +68,7 @@ void algoritmosOrdenacao::bubbleSort()
     {
         for(int j=0; j<tam1-i-1; j++)
         {
-            if(vetor1[j]>vetor1[j+1])
+            if(vetor1.at(j)>vetor1.at(j+1))
             {
                 swap(&vetor1[j],&vetor1[j+1]);
             }
@@ -86,14 +87,14 @@ void algoritmosOrdenacao::selectionSort()
         int imen=i;
         for(int iseg=i+1; iseg<tam1; iseg++)
         {
-            if(vetor1[iseg]<vetor1[imen])
+            if(vetor1.at(iseg)<vetor1.at(imen))
             {
                 imen=iseg;
             }
         }
-        int aux=vetor1[i];
-        vetor1[i]=vetor1[imen];
-        vetor1[imen]=aux;
+        int aux=vetor1.at(i);
+        vetor1.at(i)=vetor1.at(imen);
+        vetor1.at(imen)=aux;
     }
 }
 
@@ -105,14 +106,14 @@ void algoritmosOrdenacao::insertionSort()
 {
     for(int i=1; i<tam1; i++)
     {
-        int escolhido = vetor1[i];
+        int escolhido = vetor1.at(i);
         int j=i-1;
-        while((j>=0)&&(vetor1[j]>escolhido))
+        while((j>=0)&&(vetor1.at(j)>escolhido))
         {
-            vetor1[j+1]=vetor1[j];
+            vetor1.at(j+1)=vetor1.at(j);
             j--;
         }
-        vetor1[j+1]=escolhido;
+        vetor1.at(j+1)=escolhido;
     }
 }
 
@@ -128,27 +129,27 @@ void algoritmosOrdenacao::quickSort()
     quickSortAux(vetor1,inicio1,fim1);
 }
 
-void algoritmosOrdenacao::quickSortAux(int *vetor, int inicio, int fim)
+void algoritmosOrdenacao::quickSortAux(vector<int>& vetor, int inicio, int fim)
 {
     int i, j, pivo, aux;
     i=inicio;
     j=fim;
-    pivo=vetor[(inicio+fim)/2];
+    pivo=vetor.at((inicio+fim)/2);
     while(i<=j)
     {
-        while(vetor[i]<pivo&&i<fim)
+        while(vetor.at(i)<pivo&&i<fim)
         {
             i++;
         }
-        while(vetor[j]>pivo&&j>inicio)
+        while(vetor.at(j)>pivo&&j>inicio)
         {
             j--;
         }
         if(i<=j)
         {
-            aux=vetor[i];
-            vetor[i]=vetor[j];
-            vetor[j]=aux;
+            aux=vetor.at(i);
+            vetor.at(i)=vetor.at(j);
+            vetor.at(j)=aux;
             i++;
             j--;
         }
@@ -164,20 +165,20 @@ void algoritmosOrdenacao::quickSortAux(int *vetor, int inicio, int fim)
 }
 
 //Quicksort e Insertinsort
-int algoritmosOrdenacao::particaoQuickSort(int vet[], int inicio, int fim)
+int algoritmosOrdenacao::particaoQuickSort(vector<int>& vetor, int inicio, int fim)
 {
-    int x = vet[fim];
+    int x = vetor.at(fim);
     int i = (inicio - 1);
 
     for (int j = inicio; j <= fim - 1; j++)
     {
-        if (vet[j] <= x)
+        if (vetor.at(j) <= x)
         {
             i++;
-            swap(&vet[i], &vet[j]);
+            swap(&vetor[i], &vetor[j]);
         }
     }
-    swap(&vet[i + 1], &vet[fim]);
+    swap(&vetor[i+1], &vetor[fim]);
     return (i + 1);
 }
 
@@ -190,7 +191,7 @@ void algoritmosOrdenacao::auxQuickSortHibrido()
 
 
 }
-void algoritmosOrdenacao::QuickSortHibrido(int* vetor,int inicio,int fim)
+void algoritmosOrdenacao::QuickSortHibrido(vector<int>& vetor,int inicio,int fim)
 {
 
     while (inicio < fim)
@@ -219,11 +220,10 @@ void algoritmosOrdenacao::QuickSortHibrido(int* vetor,int inicio,int fim)
         }
     }
 
-
 }
 
 
-void algoritmosOrdenacao::heapfy(int* arvore, int indice)
+void algoritmosOrdenacao::heapfy(vector<int>& arvore, int indice)
 {
     int maior = indice; //inicializaa maior como raiz
     int l = 2 * indice + 1;
@@ -231,26 +231,26 @@ void algoritmosOrdenacao::heapfy(int* arvore, int indice)
     int aux;
 
     // Se o filho da esquerda for maior que a raiz
-    if(l  < tam1 && arvore[l] > arvore[maior])
+    if(l  < tam1 && arvore.at(l) > arvore.at(maior))
     {
         maior = l;
     }
     // Se o filho da direita for o maior até agora
-    if(r < tam1 && arvore[r] > arvore[maior])
+    if(r < tam1 && arvore.at(r) > arvore.at(maior))
     {
         maior = r;
     }
     //Se o maior não for a raiz
     if(maior != indice)
     {
-        aux = arvore[maior];
-        arvore[maior] = arvore[indice];
-        arvore[indice] = aux;
+        aux = arvore.at(maior);
+        arvore.at(maior) = arvore.at(indice);
+        arvore.at(indice) = aux;
         heapfy(arvore, maior);
     }
 }
 //Constrói a heap
-void algoritmosOrdenacao::buildMaxHeap(int* arvore)
+void algoritmosOrdenacao::buildMaxHeap(vector<int>& arvore)
 {
     for(int i = tam1 / 2 - 1; i >= 0; i--)
     {
@@ -266,9 +266,9 @@ void algoritmosOrdenacao::heapSort()
     for(int i = tam1 - 1; i >= 0; i--)
     {
         //troca a raiz atual com o final da heap
-        int aux = vetor1[i];
-        vetor1[i] = vetor1[0];
-        vetor1[0] = aux;
+        int aux = vetor1.at(i);
+        vetor1.at(i) = vetor1.at(0);
+        vetor1.at(0) = aux;
         //Diminui o tamanho da heap
         tam1 -= 1;
         //Chama heapfy na heap reduzida
@@ -285,7 +285,7 @@ void algoritmosOrdenacao::mergeSortAux()
 }
 
 
-void algoritmosOrdenacao::mergeSort(int vetor[], int inicio, int fim)
+void algoritmosOrdenacao::mergeSort(vector<int>& vetor, int inicio, int fim)
 {
 
 
@@ -301,7 +301,7 @@ void algoritmosOrdenacao::mergeSort(int vetor[], int inicio, int fim)
 }
 
 
-void algoritmosOrdenacao::intercala(int vetor[], int inicio, int meio, int fim)
+void algoritmosOrdenacao::intercala(vector<int>& vetor, int inicio, int meio, int fim)
 {
     int i, j, k;
     int n1 = meio-inicio+1;
@@ -311,10 +311,10 @@ void algoritmosOrdenacao::intercala(int vetor[], int inicio, int meio, int fim)
     int L[n1], R[n2];
 
     for(int i = 0; i < n1; i++)
-        L[i] = vetor[inicio+i];
+        L[i] = vetor.at(inicio+i);
 
     for(int j = 0; j < n2; j++)
-        R[j] = vetor[meio+1+j];
+        R[j] = vetor.at(meio+1+j);
 
     i = 0;
     j = 0;
@@ -324,13 +324,13 @@ void algoritmosOrdenacao::intercala(int vetor[], int inicio, int meio, int fim)
     {
         if(L[i] <= R[j])
         {
-            vetor[k] = L[i];
+            vetor.at(k) = L[i];
             i++;
         }
         else
         {
 
-            vetor[k] = R[j];
+            vetor.at(k) = R[j];
             j++;
         }
         k++;
@@ -341,7 +341,7 @@ void algoritmosOrdenacao::intercala(int vetor[], int inicio, int meio, int fim)
     while(i < n1)
     {
 
-        vetor[k] = L[i];
+        vetor.at(k) = L[i];
         i++;
         k++;
 
@@ -349,7 +349,7 @@ void algoritmosOrdenacao::intercala(int vetor[], int inicio, int meio, int fim)
     }
     while(j < n2)
     {
-        vetor[k] = R[j];
+        vetor.at(k) = R[j];
         j++;
         k++;
 
@@ -364,9 +364,9 @@ void algoritmosOrdenacao::countSort()
     //Encontra o maior valor do vetor
     for(int i = 0; i < tam1; i++)
     {
-        if(vetor1[i] > m)
+        if(vetor1.at(i) > m)
         {
-            m = vetor1[i];
+            m = vetor1.at(i);
         }
     }
 
@@ -382,7 +382,7 @@ void algoritmosOrdenacao::countSort()
     //Conta as ocorrencias de cada elemento do vetor
     for(int i = 0; i < tam1; i++)
     {
-        vetorAuxiliar[vetor1[i]]++;
+        vetorAuxiliar[vetor1.at(i)]++;
     }
 
     // Ordena os indices do vetor auxiliar
@@ -396,12 +396,12 @@ void algoritmosOrdenacao::countSort()
     int vetorOrdenado[tam1];
     for(int i = 0; i < tam1; i++)
     {
-        vetorOrdenado[vetorAuxiliar[vetor1[i]]] = vetor1[i];
-        vetorAuxiliar[vetor1[i]]++;
+        vetorOrdenado[vetorAuxiliar[vetor1.at(i)]] = vetor1.at(i);
+        vetorAuxiliar[vetor1.at(i)]++;
     }
     //Retorna os valores ordenados para o vetor de entrada
     for (int i = 0; i < tam1; i++)
     {
-        vetor1[i] = vetorOrdenado[i];
+        vetor1.at(i) = vetorOrdenado[i];
     }
 }
