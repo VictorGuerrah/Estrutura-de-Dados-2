@@ -14,7 +14,7 @@ class menu
         menu();
         ~menu();
         void exibirMenu();
-	void leituraArquivo(int N, list<registro>& lista, vector<int>& listaId);
+	void leituraArquivo(int N, vector<registro>& lista, vector<int>& listaId);
     private:
 };
 
