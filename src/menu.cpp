@@ -105,6 +105,25 @@ void menu::exibirMenu()
         {
         case 1: ///Cenario 1
         {
+            arquivo.open ("cenario1.txt");
+                vector<registro> regs;
+                vector<int> ids;
+                int tamanho;
+                cout<<"Escrever tamanho vetor"<<endl;
+                cin >> tamanho;
+                leituraArquivo(tamanho, regs, ids);
+                random_shuffle(ids.begin(), ids.end());
+                algoritmosOrdenacao a(ids, tamanho); //instanciando objeto para ordenação
+
+                auto start = std::chrono::high_resolution_clock::now();
+                a.quickSort();
+                auto finish = std::chrono::high_resolution_clock::now();
+                std::chrono::duration<long  double> elapsed = finish - start;
+                cout <<"Cenario 1a): "<<elapsed.count()<< endl;
+                arquivo<<"Tempo cenario 1a: "<<elapsed.count()<<endl;
+                arquivo<<"Comparacoes: "<<a.getComparacoes()<<endl;
+                arquivo<<"Trocas: "<<a.getTrocas()<<endl;
+
             break;
         }
         case 2: ///Cenario 2
