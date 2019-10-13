@@ -21,8 +21,9 @@ class algoritmosOrdenacao
         void randomiza();
         void quickSort(); //Camila
         void quickSortAux(vector<int>& vetor, int inicio, int fim); //Camila
+	void quickSortMediana(); //Camila
+        void quickSortMedianaAux(vector<int>& vetor, int inicio, int fim); //Camila
         void countSort(); //Victor
-
         void auxQuickSortHibrido();//Pedro
         void QuickSortHibrido(vector<int>& vetor,int inicio,int fim);//Pedro
         int particaoQuickSort(vector<int>& vetor,int inicio,int fim);//Pedro
