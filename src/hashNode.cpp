@@ -3,6 +3,10 @@
 
 using namespace std;
 
+hashNode::hashNode(){
+    //ctor
+}
+
 hashNode::hashNode(int chave, int indice, registro* reg){
     //ctor
     this->chave = chave;
@@ -10,11 +14,23 @@ hashNode::hashNode(int chave, int indice, registro* reg){
     this->reg = reg;
     prox = NULL;
     ant = NULL;
+    primeiro = NULL;
     proxChave = -1;
 }
 
-hashNode::~hashNode(){
-    //dtor
+hashNode::hashNode(int indice, registro* reg){
+    //ctor
+    chave = reg->getId();
+    this->indice = indice;
+    this->reg = reg;
+    prox = NULL;
+    ant = NULL;
+    primeiro = NULL;
+    proxChave = -1;
+}
+
+void hashNode::setKey(int chave){
+    this->chave = chave;
 }
 
 int hashNode::getKey(){
