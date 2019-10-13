@@ -12,7 +12,8 @@ algoritmosOrdenacao::algoritmosOrdenacao(vector<int>& vetor, int tam)
     tam1=tam;
     inicio1=0;
     fim1=tam;
-
+    comparacoes=0;
+    trocas=0;
 }
 
 ///Destrutor
