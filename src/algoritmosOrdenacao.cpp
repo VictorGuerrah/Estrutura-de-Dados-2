@@ -55,13 +55,14 @@ void algoritmosOrdenacao::randomiza()
 //*******************************************************************************************************************************
 
 ///Funções de Ordenação
+
 //*******************************************************************************************************************************
 
 ///BubbleSort
-//A ideia é percorrer o vetor diversas vezes, e a cada passagem fazer "flutuar" para o topo o maior elemento da sequência.
-//No melhor caso o algoritmo  de ordem n, no pior caso n^2.
-//A complexidade é quadratica, por isso ele não pe recomendado para programas que precisem de velocidade e operem com quantidade
-//elevada de dados
+/*A ideia é percorrer o vetor diversas vezes, e a cada passagem fazer "flutuar" para o topo o maior elemento da sequência.
+No melhor caso o algoritmo tem sua complexidade de ordem n, no pior caso n^2.
+A complexidade é quadratica, por isso ele não é recomendado para programas que precisem de velocidade e operem com quantidade
+elevada de dados*/
 void algoritmosOrdenacao::bubbleSort()
 {
     for(int i=0; i<tam1-1; i++)
@@ -77,9 +78,9 @@ void algoritmosOrdenacao::bubbleSort()
 }
 
 ///Selection Sort
-//A ideia é passar sempre o menor valor do vetor para a primeira posicao e assim sucessivamente
-//Complexidade no melhor caso O(n^2) - Complexidade no pior caso O(n^2)
-//É um dos mais lentos para vetores grandes. Não e estável
+/*A ideia é passar sempre o menor valor do vetor para a primeira posicao e assim sucessivamente
+Complexidade no melhor caso O(n^2) - Complexidade no pior caso O(n^2)
+É um dos mais lentos para vetores grandes. Não é estável */
 void algoritmosOrdenacao::selectionSort()
 {
     for(int i=0; i<tam1; i++)
@@ -99,9 +100,9 @@ void algoritmosOrdenacao::selectionSort()
 }
 
 ///Insertion sort
-//A ideia é percorrer as posicoes do vetor
-//Estavel, bom para pequenas entradas
-//Melhor caso O(n) - Pior caso O(n^2)
+/* A ideia é percorrer as posicoes do vetor
+Estável, bom para pequenas entradas
+Melhor caso O(n) - Pior caso O(n^2) */
 void algoritmosOrdenacao::insertionSort()
 {
     for(int i=1; i<tam1; i++)
@@ -118,14 +119,13 @@ void algoritmosOrdenacao::insertionSort()
 }
 
 
-//QuickSort recursivo
-//O algoritmo adota a estratégia de divisão e conquista. A estratégia consiste em rearranjar as chaves
-//de modo que as chaves menores precedam as maiores.
-//é um algoritmmo não estável
-//No pior caso possui complexidade O(n^2) - No melhor caso possui complexidade O(log2n)
+/*QuickSort recursivo
+O algoritmo adota a estratégia de divisão e conquista. A estratégia consiste em rearranjar as chaves
+de modo que as chaves menores precedam as maiores. 
+É um algoritmo não estável.
+No pior caso possui complexidade O(n^2) - No melhor caso possui complexidade O(log2n)*/
 void algoritmosOrdenacao::quickSort()
 {
-
     quickSortAux(vetor1,inicio1,fim1);
 }
 
@@ -164,7 +164,7 @@ void algoritmosOrdenacao::quickSortAux(vector<int>& vetor, int inicio, int fim)
     }
 }
 
-//Quicksort e Insertinsort
+///Quick sort e Insertion Sort
 int algoritmosOrdenacao::particaoQuickSort(vector<int>& vetor, int inicio, int fim)
 {
     int x = vetor.at(fim);
@@ -222,10 +222,35 @@ void algoritmosOrdenacao::QuickSortHibrido(vector<int>& vetor,int inicio,int fim
 
 }
 
+///Heap Sort
+/* A classificação de heap é uma técnica de classificação baseada em comparação com base na estrutura de dados de Heap Binário.
+É semelhante ao tipo de seleção, onde primeiro encontramos o elemento máximo e colocamos o elemento máximo no final. 
+Repetimos o mesmo processo para o elemento restante.
+A complexidade de tempo do heapify é O (Logn). A complexidade de tempo de createAndBuildHeap () é O (n),
+e a complexidade de tempo geral da Classificação de Heap é O (nLogn).*/
+
+void algoritmosOrdenacao::heapSort()
+{
+    int tamanho = tam1;
+    buildMaxHeap(vetor1);
+    //Extrai elemento da heap um por um
+    for(int i = tam1 - 1; i >= 0; i--)
+    {
+        //troca a raiz atual com o final da heap
+        int aux = vetor1.at(i);
+        vetor1.at(i) = vetor1.at(0);
+        vetor1.at(0) = aux;
+        //Diminui o tamanho da heap
+        tam1 -= 1;
+        //Chama heapfy na heap reduzida
+        heapfy(vetor1, 0);
+    }
+    tam1 = tamanho;
+}
 
 void algoritmosOrdenacao::heapfy(vector<int>& arvore, int indice)
 {
-    int maior = indice; //inicializaa maior como raiz
+    int maior = indice; //inicializa a maior como raiz
     int l = 2 * indice + 1;
     int r = 2 * indice + 2;
     int aux;
@@ -257,33 +282,12 @@ void algoritmosOrdenacao::buildMaxHeap(vector<int>& arvore)
         heapfy(arvore, i);
     }
 }
-///Heap Sortsrc
-void algoritmosOrdenacao::heapSort()
-{
-    int tamanho = tam1;
-    buildMaxHeap(vetor1);
-    //Extrai elemento da heap um por um
-    for(int i = tam1 - 1; i >= 0; i--)
-    {
-        //troca a raiz atual com o final da heap
-        int aux = vetor1.at(i);
-        vetor1.at(i) = vetor1.at(0);
-        vetor1.at(0) = aux;
-        //Diminui o tamanho da heap
-        tam1 -= 1;
-        //Chama heapfy na heap reduzida
-        heapfy(vetor1, 0);
-    }
-    tam1 = tamanho;
-}
 
-void algoritmosOrdenacao::mergeSortAux()
-{
-
-    mergeSort(vetor1,inicio1,fim1);
-
-}
-
+///Merge Sort
+/*Como o QuickSort , o Merge Sort é um algoritmo de divisão e conquista . 
+Ele divide a matriz de entrada em duas metades, chama-se pelas duas metades e depois mescla as duas metades classificadas.
+A complexidade de tempo da Merge Sort ocorre O(nLogn) nos três casos (pior, médio e melhor), 
+pois a classificação de mesclagem sempre divide a matriz em duas metades e leva um tempo linear para mesclar duas metades.*/
 
 void algoritmosOrdenacao::mergeSort(vector<int>& vetor, int inicio, int fim)
 {
@@ -300,6 +304,12 @@ void algoritmosOrdenacao::mergeSort(vector<int>& vetor, int inicio, int fim)
     }
 }
 
+void algoritmosOrdenacao::mergeSortAux()
+{
+
+    mergeSort(vetor1,inicio1,fim1);
+
+}
 
 void algoritmosOrdenacao::intercala(vector<int>& vetor, int inicio, int meio, int fim)
 {
@@ -356,6 +366,11 @@ void algoritmosOrdenacao::intercala(vector<int>& vetor, int inicio, int meio, in
 
     }
 }
+
+///Count Sort
+/*A classificação de contagem é uma técnica de classificação baseada em chaves entre um intervalo específico. 
+Ele funciona contando o número de objetos com valores-chave distintos (tipo de hash).
+A complexidade desse algoritno é O(n)*/
 
 void algoritmosOrdenacao::countSort()
 {
