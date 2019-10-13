@@ -156,7 +156,7 @@ void algoritmosOrdenacao::quickSortAux(vector<int>& vetor, int inicio, int fim)
     }
     if(j>inicio)
     {
-        quickSortAux(vetor,inicio,j+1);
+        quickSortAux(vetor,inicio,j);
     }
     if(i<fim)
     {
