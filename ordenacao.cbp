@@ -35,10 +35,14 @@
 			<Add option="-fexceptions" />
 		</Compiler>
 		<Unit filename="include/algoritmosOrdenacao.h" />
+		<Unit filename="include/hashMap.h" />
+		<Unit filename="include/hashNode.h" />
 		<Unit filename="include/menu.h" />
 		<Unit filename="include/registro.h" />
 		<Unit filename="main.cpp" />
 		<Unit filename="src/algoritmosOrdenacao.cpp" />
+		<Unit filename="src/hashMap.cpp" />
+		<Unit filename="src/hashNode.cpp" />
 		<Unit filename="src/menu.cpp" />
 		<Unit filename="src/registro.cpp" />
 		<Extensions>
