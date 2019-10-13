@@ -30,7 +30,7 @@ menu::~menu()
  *                                                                                            *
  **********************************************************************************************
  */
-void menu::leituraArquivo(int N, list<registro>& lista, vector<int>& listaId)
+void menu::leituraArquivo(int N, vector<registro>& lista, vector<int>& listaId)
 {
     fstream bbg;
     int linha=0;
@@ -66,8 +66,10 @@ void menu::leituraArquivo(int N, list<registro>& lista, vector<int>& listaId)
                 getline(s, palavra, ',');
                 reg.setUser(palavra);
                 getline(s, palavra, ',');
-                if(palavra>="0.0" && palavra<="10.0")
+                if(palavra>="0.0" && palavra<="10.0"){
                     reg.setRating(stoi(palavra));
+                    lista.push_back(reg);
+                }
                 else
                     contN--;
             }
@@ -116,7 +118,7 @@ void menu::exibirMenu()
             cin >> tamanho;
             for(int i=0; i < 5; i++)
             {
-                list<registro> regs;
+                vector<registro> regs;
                 vector<int> ids;
                 leituraArquivo(tamanho, regs, ids);
                 random_shuffle(ids.begin(), ids.end());
