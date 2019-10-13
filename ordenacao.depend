@@ -20,3 +20,66 @@
 	<stdlib.h>
 	<stack>
 
+1570995582 source:c:\users\principal\desktop\matérias\ed2\estrutura-de-dados-2-master\main.cpp
+	<iostream>
+	"algoritmosOrdenacao.h"
+	<stdio.h>
+	<stdlib.h>
+	"menu.h"
+
+1570993656 c:\users\principal\desktop\matérias\ed2\estrutura-de-dados-2-master\include\algoritmosordenacao.h
+	<iostream>
+	<vector>
+
+1570993656 c:\users\principal\desktop\matérias\ed2\estrutura-de-dados-2-master\include\menu.h
+	"registro.h"
+	<bits/stdc++.h>
+	<list>
+	<iterator>
+	<vector>
+
+1570993656 c:\users\principal\desktop\matérias\ed2\estrutura-de-dados-2-master\include\registro.h
+	<iostream>
+	<string.h>
+
+1571000326 source:c:\users\principal\desktop\matérias\ed2\estrutura-de-dados-2-master\src\algoritmosordenacao.cpp
+	"algoritmosOrdenacao.h"
+	"iostream"
+	<stdlib.h>
+	<stack>
+
+1570993656 source:c:\users\principal\desktop\matérias\ed2\estrutura-de-dados-2-master\src\registro.cpp
+	<stdlib.h>
+	"registro.h"
+
+1570993656 source:c:\users\principal\desktop\matérias\ed2\estrutura-de-dados-2-master\src\hashmap.cpp
+	"hashMap.h"
+	"hashNode.h"
+
+1570993656 c:\users\principal\desktop\matérias\ed2\estrutura-de-dados-2-master\include\hashmap.h
+	"hashNode.h"
+	<iostream>
+	"registro.h"
+	<vector>
+	<string>
+	"registro.h"
+	<cmath>
+
+1570993656 c:\users\principal\desktop\matérias\ed2\estrutura-de-dados-2-master\include\hashnode.h
+	<iostream>
+	<list>
+	"registro.h"
+
+1570993656 source:c:\users\principal\desktop\matérias\ed2\estrutura-de-dados-2-master\src\hashnode.cpp
+	"hashNode.h"
+	<iostream>
+
+1570999076 source:c:\users\principal\desktop\matérias\ed2\estrutura-de-dados-2-master\src\menu.cpp
+	"menu.h"
+	<bits/stdc++.h>
+	<iostream>
+	"algoritmosOrdenacao.h"
+	<stdlib.h>
+	<fstream>
+	<vector>
+

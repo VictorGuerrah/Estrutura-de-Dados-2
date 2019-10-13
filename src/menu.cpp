@@ -30,14 +30,17 @@ menu::~menu()
  *                                                                                            *
  **********************************************************************************************
  */
-void menu::leituraArquivo(int N, list<registro>& lista, vector<int>& listaId){
+void menu::leituraArquivo(int N, list<registro>& lista, vector<int>& listaId)
+{
     fstream bbg;
     int linha=0;
     bbg.open("bgg-13m-reviews.csv", ios::in);
-    if(bbg.is_open()){
+    if(bbg.is_open())
+    {
         int num = 0;//numero de linhas no arquivo
         string str,palavra;
-        while(bbg){
+        while(bbg)
+        {
             getline(bbg,str);
             num++;
         }
@@ -51,9 +54,11 @@ void menu::leituraArquivo(int N, list<registro>& lista, vector<int>& listaId){
         random = rand() % random;
         int cont = 0;
         int contN = 0;
-	while(getline(bbg, str)){
+        while(getline(bbg, str))
+        {
             stringstream s(str);
-            if(contN >= random && contN <=random+N){
+            if(contN >= random && contN <=random+N)
+            {
                 registro reg;
                 getline(s, palavra, ',');
                 reg.setId(stoi(palavra));
@@ -68,169 +73,99 @@ void menu::leituraArquivo(int N, list<registro>& lista, vector<int>& listaId){
             }
             contN++;
             s.clear();
-	}
-	cout<<endl;
+        }
+        cout<<endl;
     }
-    else{
-    	cout<<"erro ao abrir o arquivo"<<endl;
+    else
+    {
+        cout<<"erro ao abrir o arquivo"<<endl;
     }
 }
 
-void menu::exibirMenu(){
+void menu::exibirMenu()
+{
 
-    list<registro> regs;
-    vector<int> ids;
-    random_shuffle(ids.begin(), ids.end());
-    leituraArquivo(TAM, regs, ids);
+
     int escolha = -1;
-    int vet[TAMANHO]; // criando vetor
-    algoritmosOrdenacao a(ids, TAM); //instanciando objeto para ordenação
-    a.randomiza(); // aleatorizando elementos do vetor
-/*    for(vector<int>::iterator it = ids.begin(); it != ids.end(); ++it)
-	cout<<*it<< "  ";
-    cout<<endl;
-*/
     ofstream arquivo;
 
     cout << "Insira o que deseja fazer: " << endl;
-    while(escolha != 0){
-        cout << endl << "1. Bubble Sort" << endl;
-        cout << "2. Selection Sort" << endl;
-        cout << "3. Insertion Sort" << endl;
-        cout << "4. Heap Sort" << endl;
-        cout << "5. Quick Sort" << endl;
-        cout << "6. Quick Sort hibrido" << endl;
-        cout << "7. Merge Sort" << endl;
-        cout << "8. Count Sort(MeuSort)" << endl;
-        cout << "9. Cenario 1" << endl;
-        cout << "10. Cenario 2" << endl;
-        cout << "11. Cenario 3" << endl;
-        cout << "12. Cenario 4" << endl;
-        cout << "0. Encerrar o programa" << endl << endl;
+    while(escolha != 0)
+    {
+
+        cout << "1. Cenario 1" << endl;
+        cout << "2. Cenario 2" << endl;
+        cout << "3. Cenario 3" << endl;
+        cout << "4. Cenario 4" << endl;
+        cout << "0 Encerrar o programa" << endl << endl;
         cin >> escolha;
-        switch(escolha){
-        case 1:
+        switch(escolha)
         {
-            arquivo.open ("Sort.txt");
-            auto start = std::chrono::high_resolution_clock::now();
-            a.bubbleSort();
-            auto finish = std::chrono::high_resolution_clock::now();
-
-            std::chrono::duration<double> elapsed = finish - start;
-            arquivo<<"Tempo BubbleSort: "<<elapsed.count()<<endl;
-            cout<< "Fim Bubble Sort"<< endl;
+        case 1: ///Cenario 1
+        {
             break;
         }
-        case 2:
+        case 2: ///Cenario 2
         {
-            arquivo.open ("Sort.txt");
-            auto start = std::chrono::high_resolution_clock::now();
-            a.selectionSort();
-            auto finish = std::chrono::high_resolution_clock::now();
-
-            std::chrono::duration<double> elapsed = finish - start;
-            arquivo<<"Tempo SelectionSort: "<<elapsed.count()<<endl;
-            cout<< "Fim Selection Sort"<< endl;
-
-            break;
-        }
-        case 3:
-        {
-            arquivo.open ("Sort.txt");
-            auto start = std::chrono::high_resolution_clock::now();
-            a.insertionSort();
-            auto finish = std::chrono::high_resolution_clock::now();
-
-            std::chrono::duration<double> elapsed = finish - start;
-            arquivo<<"Tempo InsertionSort: "<<elapsed.count()<<endl;
-            cout<< "Insertion Sort"<< endl;
-            break;
-        }
-        case 4:
-        {
-            arquivo.open ("Sort.txt");
-            auto start = std::chrono::high_resolution_clock::now();
-            a.heapSort();
-            auto finish = std::chrono::high_resolution_clock::now();
-            std::chrono::duration<double> elapsed = finish - start;
-            arquivo<<"Tempo HeapSort: "<<elapsed.count()<<endl;
-            cout<< "Fim Heap Sort"<< endl;
 
         }
-            break;
-        case 5:
+        case 3: ///Cenario 3
         {
-            arquivo.open ("Sort.txt");
-            auto start = std::chrono::high_resolution_clock::now();
-            a.quickSort();
-            auto finish = std::chrono::high_resolution_clock::now();
-            std::chrono::duration<double> elapsed = finish - start;
-            arquivo<<"Tempo QuickSortRecursivo: "<<elapsed.count()<<endl;
-            cout<< "Fim Quick Sort Recursivo"<< endl;
-            break;
-        }
-        case 6:
-        {
-            arquivo.open ("Sort.txt");
-            auto start = std::chrono::high_resolution_clock::now();
-            a.auxQuickSortHibrido();
-            auto finish = std::chrono::high_resolution_clock::now();
-            std::chrono::duration<double> elapsed = finish - start;
-            arquivo<<"Tempo QuickSortHibrido: "<<elapsed.count()<<endl;
-            cout<< "Fim Quick Sort Hibrido"<< endl;
-            break;
-        }
-        case 7:
-        {
-            arquivo.open ("Sort.txt");
-            auto start = std::chrono::high_resolution_clock::now();
-            a.mergeSortAux();
-            auto finish = std::chrono::high_resolution_clock::now();
-            std::chrono::duration<double> elapsed = finish - start;
-            arquivo<<"Tempo MergeSort: "<<elapsed.count()<<endl;
-            cout<< "Fim Merge Sort"<< endl;
-            break;
-        }
-        case 8:
-        {
-            arquivo.open ("Sort.txt");
-            auto start = std::chrono::high_resolution_clock::now();
-            a.countSort();
-            auto finish = std::chrono::high_resolution_clock::now();
-            std::chrono::duration<double> elapsed = finish - start;
-            arquivo<<"Tempo CountSort: "<<elapsed.count()<<endl;
-            cout<< "Fim Count Sort"<< endl;
-            break;
-        }
-        case 9: ///Cenario 1
+            arquivo.open ("cenario3.txt");
+            int tamanho;
+            cin >> tamanho;
+            for(int i=0; i < 5; i++)
             {
-               break;
-            }
-        case 10: ///Cenario 2
-            {
-                arquivo.open ("cenario2.txt");
-                arquivo<<"Vetor de tamanho: "<<TAM<<endl;
+                list<registro> regs;
+                vector<int> ids;
+                leituraArquivo(tamanho, regs, ids);
+                random_shuffle(ids.begin(), ids.end());
+                algoritmosOrdenacao a(ids, tamanho); //instanciando objeto para ordenação
+                cout << "Quicksort: " << endl;
                 auto start = std::chrono::high_resolution_clock::now();
-                a.quickSort();
-                auto finish = std::chrono::high_resolution_clock::now();
-                std::chrono::duration<double> elapsed = finish - start;
-                arquivo<<"Tempo QuickSortRecursivo: "<<elapsed.count()<<endl;
-                auto start1 = std::chrono::high_resolution_clock::now();
                 a.auxQuickSortHibrido();
+                auto finish = std::chrono::high_resolution_clock::now();
+                std::chrono::duration<long  double> elapsed = finish - start;
+                arquivo<<"Tempo QuickSort: "<<elapsed.count()<<endl;
+
+                cout << "Insertionsort: " << endl;
+                auto start1 = std::chrono::high_resolution_clock::now();
+                a.insertionSort();
                 auto finish1 = std::chrono::high_resolution_clock::now();
-                std::chrono::duration<double> elapsed1 = finish1 - start1;
-                arquivo<<"Tempo QuickSortHibrido: "<<elapsed1.count()<<endl;
-                cout<< "Fim Cenario 2"<< endl;
-                break;
+                std::chrono::duration<long double> elapsed1 = finish1 - start1;
+                arquivo<<"Tempo Insertion: "<<elapsed1.count()<<endl;
+
+                cout <<"MergeSort: " << endl;
+                auto start2 = std::chrono::high_resolution_clock::now();
+                a.mergeSortAux();
+                auto finish2 = std::chrono::high_resolution_clock::now();
+                std::chrono::duration<long  double> elapsed2 = finish2 - start2;
+                arquivo<<"Tempo MergeSort: "<<elapsed2.count()<<endl;
+
+                cout <<"HeapSort " << endl;
+                auto start3 = std::chrono::high_resolution_clock::now();
+                a.heapSort();
+                auto finish3 = std::chrono::high_resolution_clock::now();
+                std::chrono::duration<long  double> elapsed3 = finish3 - start3;
+                arquivo<<"Tempo HeapSort: "<<elapsed3.count()<<endl;
+
+
+                cout <<"CountSort " << endl;
+                auto start4 = std::chrono::high_resolution_clock::now();
+                a.countSort();
+                auto finish4 = std::chrono::high_resolution_clock::now();
+                std::chrono::duration<long double> elapsed4 = finish4 - start4;
+                arquivo<<"Tempo CountSort: "<<elapsed4.count()<<endl;
+
             }
-        case 11: ///Cenario 3
-            {
-               break;
-            }
-        case 12: ///Cenario 4
-            {
-               break;
-            }
+            break;
+        }
+
+
+        case 4: ///Cenario 4
+        {
+            break;
+        }
 
         case 0:
             break;
