@@ -450,3 +450,18 @@ void algoritmosOrdenacao::countSort()
         vetor1.at(i) = vetorOrdenado[i];
     }
 }
+
+int algoritmosOrdenacao::getComparacoes(){
+
+
+    return comparacoes;
+
+}
+
+int algoritmosOrdenacao::getTrocas(){
+
+   return trocas;
+}
+
+
+
