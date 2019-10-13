@@ -35,7 +35,7 @@ class algoritmosOrdenacao
     private:
 	vector<int> vetor1;
         int tam1, inicio1, fim1;
-
+	int comparacoes,trocas;
 };
 
 #endif // ALGORITMOSORDENACAO_H
