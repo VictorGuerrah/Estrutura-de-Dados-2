@@ -133,7 +133,7 @@ void algoritmosOrdenacao::quickSortAux(vector<int>& vetor, int inicio, int fim)
 {
     int i, j, pivo, aux;
     i=inicio;
-    j=fim;
+    j=fim-1;
     pivo=vetor.at((inicio+fim)/2);
     while(i<=j)
     {
@@ -156,7 +156,7 @@ void algoritmosOrdenacao::quickSortAux(vector<int>& vetor, int inicio, int fim)
     }
     if(j>inicio)
     {
-        quickSortAux(vetor,inicio,j);
+        quickSortAux(vetor,inicio,j+1);
     }
     if(i<fim)
     {
