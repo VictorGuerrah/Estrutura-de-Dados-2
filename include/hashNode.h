@@ -10,31 +10,37 @@ using namespace std;
 class hashNode
 {
     private:
-	int chave;
-	registro* reg;
-	int indice;
-	//Tabela Encadeada
-	hashNode* prox;
-	hashNode* ant;
-	int proxChave;
+        int chave;
+        registro* reg;
+        int indice;
+
+        //Tabela Encadeada
+        hashNode* prox;
+        hashNode* ant;
+        hashNode* primeiro;
+
+        int proxChave;
 
    public:
-	hashNode(int chave, int indice, registro* reg);
-	~hashNode();
-	
-	int getKey();
-	
-	int getIndice();
-	void setIndice(int indice);
+        hashNode();
+        hashNode(int chave, registro* reg);
+        hashNode(int chave, int indice, registro* reg);
+        ~hashNode();
 
-	hashNode* getProx();
-	void setProx(hashNode* prox);
+        void setKey(int chave);
+        int getKey();
 
-	hashNode* getAnt();
-	void setAnt(hashNode* prox);
+        int getIndice();
+        void setIndice(int indice);
 
-	void setProxChave(int chave);
-	int getProxChave();
+        hashNode* getProx();
+        void setProx(hashNode* prox);
+
+        hashNode* getAnt();
+        void setAnt(hashNode* prox);
+
+        void setProxChave(int chave);
+        int getProxChave();
 };
 
 #endif //HASHNODE_H
