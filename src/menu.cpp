@@ -8,7 +8,7 @@
 #include <vector>
 
 //Tamanho do bloco a ser pego no arquivo:
-#define TAM 100 
+#define TAM 1000
 
 using namespace std;
 
@@ -56,8 +56,8 @@ void menu::leituraArquivo(int N, list<registro>& lista, vector<int>& listaId){
             if(contN >= random && contN <=random+N){
                 registro reg;
                 getline(s, palavra, ',');
-		reg.setId(stoi(palavra));
-		listaId.push_back(stoi(palavra));
+                reg.setId(stoi(palavra));
+                listaId.push_back(stoi(palavra));
                 getline(s, palavra, ',');
                 reg.setUser(palavra);
                 getline(s, palavra, ',');
@@ -86,7 +86,7 @@ void menu::exibirMenu(){
 /*    for(vector<int>::iterator it = ids.begin(); it != ids.end(); ++it)
 	cout<<*it<< "  ";
     cout<<endl;
-*/    
+*/
     ofstream arquivo;
 
     cout << "Insira o que deseja fazer: " << endl;
@@ -96,117 +96,139 @@ void menu::exibirMenu(){
         cout << "3. Insertion Sort" << endl;
         cout << "4. Heap Sort" << endl;
         cout << "5. Quick Sort" << endl;
-        cout << "6. Quick Sort iterativo" << endl;
+        cout << "6. Quick Sort hibrido" << endl;
         cout << "7. Merge Sort" << endl;
         cout << "8. Count Sort(MeuSort)" << endl;
+        cout << "9. Cenario 1" << endl;
+        cout << "10. Cenario 2" << endl;
+        cout << "11. Cenario 3" << endl;
+        cout << "12. Cenario 4" << endl;
         cout << "0. Encerrar o programa" << endl << endl;
         cin >> escolha;
         switch(escolha){
         case 1:
         {
-            cout << "Vetor: ";
-            a.imprime();
-            cout << "Bubble Sort: ";
-            arquivo.open ("bubbleSort.txt");
+            arquivo.open ("Sort.txt");
             auto start = std::chrono::high_resolution_clock::now();
             a.bubbleSort();
             auto finish = std::chrono::high_resolution_clock::now();
+
             std::chrono::duration<double> elapsed = finish - start;
-            std::cout << "Elapsed time: " << elapsed.count() << " s\n";
-            a.imprime();
+            arquivo<<"Tempo BubbleSort: "<<elapsed.count()<<endl;
+            cout<< "Fim Bubble Sort"<< endl;
             break;
         }
         case 2:
         {
-            cout << endl << "Vetor: ";
-            a.imprime();
-            cout << "Selection Sort: ";
+            arquivo.open ("Sort.txt");
             auto start = std::chrono::high_resolution_clock::now();
             a.selectionSort();
             auto finish = std::chrono::high_resolution_clock::now();
+
             std::chrono::duration<double> elapsed = finish - start;
-            std::cout << "Elapsed time: " << elapsed.count() << " s\n";
-            a.imprime();
+            arquivo<<"Tempo SelectionSort: "<<elapsed.count()<<endl;
+            cout<< "Fim Selection Sort"<< endl;
+
             break;
         }
         case 3:
         {
-            cout << endl << "Vetor: ";
-            a.imprime();
-            cout << "Insertion Sort: ";
+            arquivo.open ("Sort.txt");
             auto start = std::chrono::high_resolution_clock::now();
             a.insertionSort();
             auto finish = std::chrono::high_resolution_clock::now();
+
             std::chrono::duration<double> elapsed = finish - start;
-            std::cout << "Elapsed time: " << elapsed.count() << " s\n";
-            a.imprime();
+            arquivo<<"Tempo InsertionSort: "<<elapsed.count()<<endl;
+            cout<< "Insertion Sort"<< endl;
             break;
         }
         case 4:
         {
-            cout << endl << "Vetor: ";
-            a.imprime();
-            cout << "Heap Sort: ";
+            arquivo.open ("Sort.txt");
             auto start = std::chrono::high_resolution_clock::now();
             a.heapSort();
             auto finish = std::chrono::high_resolution_clock::now();
             std::chrono::duration<double> elapsed = finish - start;
-            std::cout << "Elapsed time: " << elapsed.count() << " s\n";
-            a.imprime();
+            arquivo<<"Tempo HeapSort: "<<elapsed.count()<<endl;
+            cout<< "Fim Heap Sort"<< endl;
+
         }
             break;
         case 5:
         {
-            cout << endl << "Vetor: ";
-            a.imprime();
-            cout<<"Quick Sort Recursivo: ";
+            arquivo.open ("Sort.txt");
             auto start = std::chrono::high_resolution_clock::now();
             a.quickSort();
             auto finish = std::chrono::high_resolution_clock::now();
             std::chrono::duration<double> elapsed = finish - start;
-            std::cout << "Elapsed time: " << elapsed.count() << " s\n";
-            a.imprime();
+            arquivo<<"Tempo QuickSortRecursivo: "<<elapsed.count()<<endl;
+            cout<< "Fim Quick Sort Recursivo"<< endl;
             break;
         }
         case 6:
         {
-            cout << endl << "Vetor: ";
-            a.imprime();
-            cout<<"Quick Sort Hibrido: ";
+            arquivo.open ("Sort.txt");
             auto start = std::chrono::high_resolution_clock::now();
             a.auxQuickSortHibrido();
             auto finish = std::chrono::high_resolution_clock::now();
             std::chrono::duration<double> elapsed = finish - start;
-            std::cout << "Elapsed time: " << elapsed.count() << " s\n";
-            a.imprime();
+            arquivo<<"Tempo QuickSortHibrido: "<<elapsed.count()<<endl;
+            cout<< "Fim Quick Sort Hibrido"<< endl;
             break;
         }
         case 7:
         {
-            cout << endl << "Vetor: ";
-            a.imprime();
-            cout<<"Merge Sort: ";
+            arquivo.open ("Sort.txt");
             auto start = std::chrono::high_resolution_clock::now();
             a.mergeSortAux();
             auto finish = std::chrono::high_resolution_clock::now();
             std::chrono::duration<double> elapsed = finish - start;
-            std::cout << "Elapsed time: " << elapsed.count() << " s\n";
-            a.imprime();
+            arquivo<<"Tempo MergeSort: "<<elapsed.count()<<endl;
+            cout<< "Fim Merge Sort"<< endl;
             break;
         }
         case 8:
         {
-            cout << endl << "Vetor: ";
-            a.imprime();
-            cout<<"Count Sort: ";
+            arquivo.open ("Sort.txt");
             auto start = std::chrono::high_resolution_clock::now();
             a.countSort();
             auto finish = std::chrono::high_resolution_clock::now();
             std::chrono::duration<double> elapsed = finish - start;
-            std::cout << "Elapsed time: " << elapsed.count() << " s\n";
-            a.imprime();
+            arquivo<<"Tempo CountSort: "<<elapsed.count()<<endl;
+            cout<< "Fim Count Sort"<< endl;
             break;
         }
+        case 9: ///Cenario 1
+            {
+               break;
+            }
+        case 10: ///Cenario 2
+            {
+                arquivo.open ("cenario2.txt");
+                arquivo<<"Vetor de tamanho: "<<TAM<<endl;
+                auto start = std::chrono::high_resolution_clock::now();
+                a.quickSort();
+                auto finish = std::chrono::high_resolution_clock::now();
+                std::chrono::duration<double> elapsed = finish - start;
+                arquivo<<"Tempo QuickSortRecursivo: "<<elapsed.count()<<endl;
+                auto start1 = std::chrono::high_resolution_clock::now();
+                a.auxQuickSortHibrido();
+                auto finish1 = std::chrono::high_resolution_clock::now();
+                std::chrono::duration<double> elapsed1 = finish1 - start1;
+                arquivo<<"Tempo QuickSortHibrido: "<<elapsed1.count()<<endl;
+                cout<< "Fim Cenario 2"<< endl;
+                break;
+            }
+        case 11: ///Cenario 3
+            {
+               break;
+            }
+        case 12: ///Cenario 4
+            {
+               break;
+            }
+
         case 0:
             break;
         default:
