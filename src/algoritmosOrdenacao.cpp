@@ -196,7 +196,7 @@ void algoritmosOrdenacao::QuickSortHibrido(vector<int>& vetor,int inicio,int fim
 
     while (inicio < fim)
     {
-// do insertion sort if 10 or smaller
+
         if(inicio - fim < 10)
         {
             insertionSort();
