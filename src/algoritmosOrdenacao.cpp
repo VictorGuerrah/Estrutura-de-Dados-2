@@ -164,6 +164,51 @@ void algoritmosOrdenacao::quickSortAux(vector<int>& vetor, int inicio, int fim)
     }
 }
 
+void algoritmosOrdenacao::quickSortMediana()
+{
+
+    quickSortMedianaAux(vetor1,inicio1,fim1);
+}
+
+void algoritmosOrdenacao::quickSortMedianaAux(vector<int>& vetor, int inicio, int fim)
+{
+    int i, j, pivo, aux;
+    i=inicio;
+    j=fim;
+
+    for(int i=0;i<K;i++){
+        pivo=vetor.at(i)+pivo;
+    }
+    pivo=pivo/K;
+    while(i<=j)
+    {
+        while(vetor.at(i)<pivo&&i<fim)
+        {
+            i++;
+        }
+        while(vetor.at(j)>pivo&&j>inicio)
+        {
+            j--;
+        }
+        if(i<=j)
+        {
+            aux=vetor.at(i);
+            vetor.at(i)=vetor.at(j);
+            vetor.at(j)=aux;
+            i++;
+            j--;
+        }
+    }
+    if(j>inicio)
+    {
+        quickSortMedianaAux(vetor,inicio,j);
+    }
+    if(i<fim)
+    {
+        quickSortMedianaAux(vetor,i,fim);
+    }
+}
+
 //Quicksort e Insertinsort
 int algoritmosOrdenacao::particaoQuickSort(vector<int>& vetor, int inicio, int fim)
 {
