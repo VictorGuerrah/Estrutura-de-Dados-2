@@ -477,6 +477,75 @@ void menu::exibirMenu()
 
         case 4: ///Cenario 4
         {
+             arquivo.open ("cenario4.txt");
+            int numN = 0; //armazena o número de N's do arquivo
+            ifstream infile ("entradaT.txt");
+            int i=0;
+
+            while(infile)
+            {
+                if(i==0)
+                {
+                    string s;
+                    getline(infile,s);
+                    numN = atoi(s.c_str()); //pega o número de N's que estão no arquivo.
+                    break;
+                }
+            }
+
+            int vetN[numN]; //cria um vetor para salvar os N's que são quantidades de números que serão testados.
+
+            while(infile)
+            {
+                string s;
+                if(i==0)  //nao pega o primeiro elemento, pois ele indica a quantidade de N's.
+                {
+                }
+                else
+                {
+                    if(!getline(infile,s))
+                        break;
+                    vetN[i-1]=atoi(s.c_str()); //pega o valor de N e salva no vetor vetN.
+                }
+                i++;
+            }
+            for(int i=0; i<numN; i++)
+            {
+                cout << "----------------------------" << endl;
+                arquivo << "----------------------------" << endl;
+                cout << "Comeco da iteracao: " << i + 1 << endl;
+                arquivo << "Comeco da iteracao: " << i + 1 << endl;
+                cout << "Tamanho do Vetor: " << vetN[i] << endl;
+                arquivo<< "Tamanho do Vetor: " << vetN[i] << endl;
+                cout << "----------------------------" << endl;
+                arquivo << "----------------------------" << endl;
+                for(int j=0; j<2; j++)
+                {
+                    vector<registro> regs;
+                    vector<int> ids;
+                    leituraArquivo(vetN[i], regs, ids);
+                    random_shuffle(ids.begin(), ids.end());
+                    hashMap *h = new hashMap(vetN[i]);
+
+                    h->insercaoLinear(&regs[j]);
+                    arquivo<< "Numero de comparaçoes Hash Linear: " << h->getComparacoes() << endl;
+                    cout << "teste1 ";
+                    h->insercaoDuploHash(&regs[j],0);
+                    arquivo<< "Numero de comparaçoes Duplo Hash: " << h->getComparacoes() << endl;
+                    cout << "teste2 ";
+                    //h->InsercaoQuadratica(&regs[j],0);
+                    //arquivo<< "Numero de comparaçoes Hash Quadratico: " << h->getComparacoes() << endl;
+                    //cout << "teste3 ";
+                    h->insereEncadSeparado(&regs[j],0);
+                    arquivo<< "Numero de comparaçoes Hash Encadeado simples: " << h->getComparacoes() << endl;
+                    cout << "teste4 ";
+                    //h->insercaoEncadCoalescido(&regs[j]);
+                    //arquivo<< "Numero de comparaçoes Hash Encadeado Coalescido: " << h->getComparacoes() << endl;
+                    //cout << "teste5 ";
+                }
+                cout << "Fim da iteracao: " << i + 1 << endl;
+                arquivo << "Fim da iteracao: " << i + 1 << endl;
+            }
             break;
         }
 
