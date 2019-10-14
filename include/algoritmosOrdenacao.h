@@ -25,7 +25,7 @@ class algoritmosOrdenacao
 
         void quickSortRegistro();
         void quickSortAuxRegistro(vector<registro>& vetor, int inicio, int fim);
-        int particaoQuickSortRegistro(vector<registro>& regs, int inicio, int fim);
+
 
 
 
