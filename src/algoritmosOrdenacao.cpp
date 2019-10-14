@@ -2,6 +2,7 @@
 #include "iostream"
 #include <stdlib.h>
 #include<stack>
+#include <bits/stdc++.h>
 #define K 3
 
 #include "registro.h"
@@ -56,12 +57,7 @@ void algoritmosOrdenacao::imprime()
 ///Radomiza a ordem dos elementos no vetor
 void algoritmosOrdenacao::randomiza()
 {
-    int indice;
-    for(vector<int>::iterator i = vetor1.begin(); i != vetor1.end(); ++i)
-    {
-        *i = rand() % 999;
-
-    }
+   random_shuffle(vetor1.begin(), vetor1.end());
 }
 
 //*******************************************************************************************************************************
