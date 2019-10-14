@@ -157,9 +157,6 @@ void menu::exibirMenu()
                 auto finish = std::chrono::high_resolution_clock::now();
                 std::chrono::duration<long  double> elapsed = finish - start;
 
-                vetorExecucao[x]=elapsed.count();
-                vetorComparacoes[x]=a.getComparacoes();
-                vetorTrocas[x]=a.getTrocas();
 
                 cout <<"Tempo Cenario 1(VETOR DE INTEIROS): "<<elapsed.count()<< endl;
                 cout<<"Iteracao: "<<j+1<<endl;
@@ -188,9 +185,6 @@ void menu::exibirMenu()
                 b.quickSortRegistro();
                 auto finish = std::chrono::high_resolution_clock::now();
                 std::chrono::duration<long  double> elapsed = finish - start;
-                vetorExecucaoRegistro[x]=elapsed.count();
-                vetorComparacoesRegistro[x]=b.getComparacoes();
-                vetorTrocasRegistro[x]=b.getTrocas();
 
                 cout <<"Tempo Cenario 1(VETOR DE OBJETOS)): "<<elapsed.count()<< endl;
                 cout<<"Iteracao: "<<j+1<<endl;
