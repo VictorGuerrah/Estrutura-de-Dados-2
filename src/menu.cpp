@@ -167,8 +167,9 @@ void menu::exibirMenu()
                     auto start = std::chrono::high_resolution_clock::now();
                     a.quickSort();
                     auto finish = std::chrono::high_resolution_clock::now();
-                    std::chrono::duration<long  double> elapsed = finish - start;
 
+                    std::chrono::duration<long  double> elapsed = finish - start;
+                    cout<<"VETOR DE INTEIROSSS"<<endl;
                     vetorExecucao[x]=elapsed.count();
                     vetorComparacoes[x]=a.getComparacoes();
                     vetorTrocas[x]=a.getTrocas();
@@ -203,6 +204,7 @@ void menu::exibirMenu()
                     auto start = std::chrono::high_resolution_clock::now();
                     b.quickSortRegistro();
                     auto finish = std::chrono::high_resolution_clock::now();
+
                     std::chrono::duration<long  double> elapsed = finish - start;
                     vetorExecucaoRegistro[x]=elapsed.count();
                     vetorComparacoesRegistro[x]=b.getComparacoes();
@@ -230,6 +232,7 @@ void menu::exibirMenu()
         }
         case 2: ///Cenario 2
         {
+
             arquivo.open ("cenario2.txt");
             int numN = 0; //armazena o número de N's do arquivo
             ifstream infile ("entradaY.txt");
@@ -272,7 +275,7 @@ void menu::exibirMenu()
                 arquivo<< "Tamanho do Vetor: " << vetN[i] << endl;
                 cout << "----------------------------" << endl;
                 arquivo << "----------------------------" << endl;
-                for(int j=0; j<5; j++)
+                for(int j=0; j<2; j++)
                 {
 
                     vector<registro> regs;
@@ -280,14 +283,16 @@ void menu::exibirMenu()
                     leituraArquivo(vetN[i], regs, ids);
                     random_shuffle(ids.begin(), ids.end());
                     algoritmosOrdenacao a(ids, vetN[i]); //instanciando objeto para ordenação
-
-                    auto start = std::chrono::high_resolution_clock::now();
                     a.zeraComparacoes();
                     a.zeraTrocas();
+
+
+                    auto start = std::chrono::high_resolution_clock::now();
                     a.quickSort();
-                    cout << "Quicksort Recursivo CONCLUIDO" << endl;
                     auto finish = std::chrono::high_resolution_clock::now();
                     std::chrono::duration<long  double> elapsed = finish - start;
+                    cout << "Quicksort Recursivo CONCLUIDO" << endl;
+                    a.imprime();
                     arquivo<<"Tempo QuickSort Recursivo: "<<elapsed.count()<<endl;
                     arquivo<<"Numero de comparacoes: ";
                     arquivo << a.getComparacoes() << endl;
@@ -297,10 +302,11 @@ void menu::exibirMenu()
                     a.randomiza();
                     arquivo << endl;
 
-                    auto start1 = std::chrono::high_resolution_clock::now();
                     a.zeraComparacoes();
                     a.zeraTrocas();
                     a.auxQuickSortHibrido();
+
+                    auto start1 = std::chrono::high_resolution_clock::now();
                     cout <<"QuickSort com Insercao CONCLUIDO " << endl;
                     auto finish1 = std::chrono::high_resolution_clock::now();
                     std::chrono::duration<long double> elapsed1 = finish1 - start1;
@@ -382,7 +388,7 @@ void menu::exibirMenu()
                 arquivo<< "Tamanho do Vetor: " << vetN[i] << endl;
                 cout << "----------------------------" << endl;
                 arquivo << "----------------------------" << endl;
-                for(int j=0; j<5; j++)
+                for(int j=0; j<2; j++)
                 {
 
                     vector<registro> regs;
@@ -390,25 +396,29 @@ void menu::exibirMenu()
                     leituraArquivo(vetN[i], regs, ids);
                     random_shuffle(ids.begin(), ids.end());
                     algoritmosOrdenacao a(ids, vetN[i]); //instanciando objeto para ordenação
-
+                    a.zeraComparacoes();
+                    a.zeraTrocas();
+                    a.randomiza();
                     auto start = std::chrono::high_resolution_clock::now();
                     a.quickSort();
-                    cout << "Quicksort CONCLUIDO" << endl;
                     auto finish = std::chrono::high_resolution_clock::now();
+                    cout << "Quicksort CONCLUIDO" << endl;
+                    a.imprime();
                     std::chrono::duration<long  double> elapsed = finish - start;
                     arquivo<<"Tempo QuickSort: "<<elapsed.count()<<endl;
                     arquivo<<"Numero de comparacoes: ";
                     arquivo << a.getComparacoes() << endl;
                     arquivo<<"Numero de trocas: ";
                     arquivo << a.getTrocas() << endl;
+
                     a.zeraComparacoes();
                     a.zeraTrocas();
                     a.randomiza();
 
                     auto start1 = std::chrono::high_resolution_clock::now();
                     a.insertionSort();
-                    cout <<"Insertion CONCLUIDO " << endl;
                     auto finish1 = std::chrono::high_resolution_clock::now();
+                    cout <<"Insertion CONCLUIDO " << endl;
                     std::chrono::duration<long double> elapsed1 = finish1 - start1;
                     arquivo<<"Tempo Insertion: "<<elapsed1.count()<<endl;
                     arquivo<<"Numero de comparacoes: ";
@@ -422,8 +432,8 @@ void menu::exibirMenu()
 
                     auto start2 = std::chrono::high_resolution_clock::now();
                     a.mergeSortAux();
-                    cout <<"MergeSort CONCLUIDO " << endl;
                     auto finish2 = std::chrono::high_resolution_clock::now();
+                     cout <<"MergeSort CONCLUIDO " << endl;
                     std::chrono::duration<long  double> elapsed2 = finish2 - start2;
                     arquivo<<"Tempo MergeSort: "<<elapsed2.count()<<endl;
                     arquivo<<"Numero de comparacoes: ";

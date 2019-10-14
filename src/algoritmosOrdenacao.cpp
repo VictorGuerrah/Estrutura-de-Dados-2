@@ -147,39 +147,13 @@ void algoritmosOrdenacao::quickSort()
 
 void algoritmosOrdenacao::quickSortAux(vector<int>& vetor, int inicio, int fim)
 {
-    int i, j, pivo, aux;
-    i=inicio;
-    j=fim;
-    pivo=vetor.at((inicio+fim)/2);
-    while(i<=j)
+  if (inicio < fim)
     {
-        comparacoes++;
-        while(vetor.at(i)<pivo&&i<fim)
-        {
-            i++;
-        }
-        comparacoes++;
-        while(vetor.at(j)>pivo&&j>inicio)
-        {
-            j--;
-        }
-        if(i<=j)
-        {
-            aux=vetor.at(i);
-            vetor.at(i)=vetor.at(j);
-            vetor.at(j)=aux;
-            i++;
-            j--;
-            trocas++;
-        }
-    }
-    if(j>inicio)
-    {
-        quickSortAux(vetor,inicio,j);
-    }
-    if(i<fim)
-    {
-        quickSortAux(vetor,i,fim);
+
+       int pi = particaoQuickSort(vetor, inicio, fim);
+
+        quickSortAux(vetor, inicio, pi - 1);
+        quickSortAux(vetor, pi + 1, fim);
     }
 }
 
@@ -273,17 +247,17 @@ void algoritmosOrdenacao::QuickSortHibrido(vector<int>& vetor,int inicio,int fim
         }
         else
         {
-            int pivo = particaoQuickSort(vetor1, inicio, fim);
+            int pivo = particaoQuickSort(vetor, inicio, fim);
 
 
             if (pivo - inicio < fim - pivo)
             {
-                QuickSortHibrido(vetor1, inicio, fim - 1);
+                QuickSortHibrido(vetor, inicio, fim - 1);
                 inicio1 = pivo + 1;
             }
             else
             {
-                QuickSortHibrido(vetor1, pivo + 1, fim);
+                QuickSortHibrido(vetor, pivo + 1, fim);
                 fim = pivo - 1;
             }
         }
