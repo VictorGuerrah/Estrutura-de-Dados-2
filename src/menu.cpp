@@ -141,20 +141,12 @@ void menu::exibirMenu()
                     i++;
                 }
 
-            int tamanhoImprimeVetor=numN*5;
-            int vetorComparacoes[tamanhoImprimeVetor];
-            int vetorTrocas[tamanhoImprimeVetor];
-            int vetorExecucao[tamanhoImprimeVetor];
-
-
-            int vetorComparacoesRegistro[tamanhoImprimeVetor];
-            int vetorTrocasRegistro[tamanhoImprimeVetor];
-            long double vetorExecucaoRegistro[tamanhoImprimeVetor];
+      
 
             int x=0; //variavel para aumenar indice do vetor;
             arquivo.open ("cenario1.txt");
             for(int i=0;i<numN;i++){
-                for(int j=0;j<1;j++){
+                for(int j=0;j<5;j++){
                 vector<registro> regs;
                 vector<int> ids;
                 leituraArquivo(vetN[i], regs, ids);
@@ -186,7 +178,7 @@ void menu::exibirMenu()
             }
                 x=0;
                 for(int i=0;i<numN;i++){
-                for(int j=0;j<1;j++){
+                for(int j=0;j<5;j++){
                 vector<registro> regs;
                 vector<int> ids;
                 leituraArquivo(vetN[i], regs, ids);
