@@ -3,37 +3,72 @@
 #include "hashNode.h"
 #include <iostream>
 #include "registro.h"
-#include <vector>
+#include <list>
 #include <string>
 #include "registro.h"
 #include <cmath>
+#include <vector>
 
 using namespace std;
 
 class hashMap{
 
     private:
-        int tamMax;
+        hashNode **table;
+	vector<int> primos;
+	int tamMax;
         int tam;
-        vector<int> primos;
-        hashNode** tabela; //tabela usada pela sondagem linear, sondagem quadratica e duplo hash
+	list<int> *tabela;
+	unsigned long int numComparacoes;
+	long colisoes;
 
     public:
-        //funcoes de hash
-        int hash(int chave);
-        int hash2(int chave, int i);
-        void primo(int t);
-        int buscaPrimo(int esq, int dir, int n);
+        hashMap(int n);
+	~hashMap();
+        
+	//sondagem linear
+	int buscaLinear(int chave);
+	void insercaoLinear(registro* reg);
+	void remocaoLinear(int chave);
+	int hashLinear(int chave, int i);
 
-        //tratamento de colisão
-        void sondagemLinear(registro* reg);
-        void sondagemQuadratica(registro* reg);
-        void duploHash(registro* reg);
-        void encadSeparado(registro* reg);
-        void encadCoalescido(registro* reg);
+	//sondagem quadratica
+	int buscaQuadratica(int chave);
+	void InsercaoQuadratica(registro* chave, int valor);
+	void remocaoQuadratica(int chave);
+	int hashQuadratica(int chave, int i);
+	
+	//duploHash
+	int buscaDuploHash(int chave);
+	void insercaoDuploHash(registro* chave, int valor);
+	void remocaoDuploHash(int chave, int i);
+	int hashDuploHash(int chave, int i);
+	int hashDuploHash2(int chave);
+	
+	//Encadeamento separado
+	int buscaEncadSeparado(int chave);
+	void insereEncadSeparado(registro* chave, int valor);
+	void remocaoEncadSeparado(int chave, int i);
+	int hashEncadSeparado(int chave, int i);
 
-        hashMap(int tamanho);
-        ~hashMap();
+	//Encadeamento coalescido
+	unsigned long int qtdColisoes();
+	void insercaoEncadCoalescido(registro *chave);
+	void buscaEncadCoalescido(registro* chave, int valor);
+	int hashEncadCoalescido(int chave);
+	int encontraProxPosicao();
+	
+	//funcoes auxiliares
+	void primo(int t);
+	int buscaPrimo(int esq, int dir, int n);
+	int tamanhoMap();
+	bool vazio();
+	void setTam(int novo){tam = novo;};
+	void imprimeHash();
+	void imprimeHashEncad();
+	int getTamanho(){return tam;};
+
+	unsigned long int getComparacoes(){return numComparacoes;};
 };
 
 #endif //HASH_MAP
