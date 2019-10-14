@@ -105,35 +105,74 @@ void menu::exibirMenu()
         {
         case 1: ///Cenario 1
         {
+
+                int numN = 0; //armazena o número de N's do arquivo
+                ifstream infile ("entrada.txt");
+                int i=0;
+
+                while(infile)
+                {
+
+                    if(i==0)
+                    {
+                        string s;
+                        getline(infile,s);
+                        numN = atoi(s.c_str()); //pega o número de N's que estão no arquivo.
+                        break;
+                    }
+                }
+
+                int vetN[numN]; //cria um vetor para salvar os N's que são quantidades de números que serão testados.
+
+                while(infile)
+                {
+
+                    string s;
+                    if(i==0)  //nao pega o primeiro elemento, pois ele indica a quantidade de N's.
+                    {
+                    }
+                    else
+                    {
+                        if(!getline(infile,s))
+                            break;
+                        vetN[i-1]=atoi(s.c_str()); //pega o valor de N e salva no vetor vetN.
+                    }
+                    i++;
+                }
+
             arquivo.open ("cenario1.txt");
+            for(int i=0;i<numN;i++){
+                for(int j=0;j<5;j++){
                 vector<registro> regs;
                 vector<int> ids;
-                int tamanho;
-                cout<<"Escrever tamanho vetor"<<endl;
-                cin >> tamanho;
-                leituraArquivo(tamanho, regs, ids);
+                leituraArquivo(vetN[i], regs, ids);
                 random_shuffle(ids.begin(), ids.end());
-                algoritmosOrdenacao a(ids, tamanho); //instanciando objeto para ordenação
-
+                algoritmosOrdenacao a(ids, vetN[i]); //instanciando objeto para ordenação
                 auto start = std::chrono::high_resolution_clock::now();
                 a.quickSort();
                 auto finish = std::chrono::high_resolution_clock::now();
                 std::chrono::duration<long  double> elapsed = finish - start;
-                cout <<"Cenario 1a): "<<elapsed.count()<< endl;
+                cout <<"Tempo Cenario 1a): "<<elapsed.count()<< endl;
+                cout<<"Iteracao: "<<j<<endl;
+                cout<<"Tamanho: "<<vetN[i]<<endl;
                 arquivo<<"Tempo cenario 1a: "<<elapsed.count()<<endl;
+                arquivo<<"Iteracao: "<<j<<endl;
+                arquivo<<"Tamanho: "<<vetN[i]<<endl;
                 arquivo<<"Comparacoes: "<<a.getComparacoes()<<endl;
                 arquivo<<"Trocas: "<<a.getTrocas()<<endl;
-
+                arquivo<<endl;
+                }
+            }
             break;
         }
         case 2: ///Cenario 2
         {
- arquivo.open ("cenario2.txt");
+            arquivo.open ("cenario2.txt");
             int tamanho[6]={1000,5000,10000,50000,100000,500000};
             for(int j=0;j<6;j++){
                 for(int i=0; i < 5; i++)
                 {
-                list<registro> regs;
+                    vector<registro> regs;
                     vector<int> ids;
                     leituraArquivo(tamanho[j], regs, ids);
                     random_shuffle(ids.begin(), ids.end());
