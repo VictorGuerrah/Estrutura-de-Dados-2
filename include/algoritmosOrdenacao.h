@@ -30,6 +30,8 @@ class algoritmosOrdenacao
         void mergeSort(vector<int>& vetor, int inicio, int fim); //Daniel
         void intercala(vector<int>& vetor, int inicio, int meio, int fim); //Daniel
         void mergeSortAux(); //Daniel
+	int getComparacoes();
+	int getTrocas();
     protected:
 
     private:
