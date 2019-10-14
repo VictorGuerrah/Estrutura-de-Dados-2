@@ -32,6 +32,7 @@ class algoritmosOrdenacao
         void mergeSortAux(); //Daniel
 	int getComparacoes();
 	int getTrocas();
+	void zeraTrocas(){trocas = 0};
     protected:
 
     private:
