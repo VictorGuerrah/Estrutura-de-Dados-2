@@ -29,6 +29,10 @@ hashNode::hashNode(int indice, registro* reg){
     proxChave = -1;
 }
 
+hashNode::~hashNode(){
+    //dtor
+}
+
 void hashNode::setKey(int chave){
     this->chave = chave;
 }
