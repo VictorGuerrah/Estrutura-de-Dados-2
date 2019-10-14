@@ -281,43 +281,47 @@ void algoritmosOrdenacao::quickSortRegistro()
     int fim2=fim1;
     vector<registro> vetorregs2=vetorregs1;
 
-    quickSortAuxRegistro(vetorregs2,inicio2,fim2);
+    quickSortAuxRegistro(vetorregs1,inicio1,fim1);
 }
 
 void algoritmosOrdenacao::quickSortAuxRegistro(vector<registro>& regs, int inicio, int fim)
 {
-    if (inicio < fim)
-    {
-
-       int pi = particaoQuickSortRegistro(regs, inicio, fim);
-
-        quickSortAuxRegistro(regs, inicio, pi - 1);
-        quickSortAuxRegistro(regs, pi + 1, fim);
-    }
-}
-
-
-int algoritmosOrdenacao::particaoQuickSortRegistro(vector<registro>& regs, int inicio, int fim)
-{
-    int x = regs.at(fim).getId();
-    int i = (inicio - 1);
-    int aux;
-    for (int j = inicio; j <= fim - 1; j++)
+    int i, j, pivo, aux;
+    i=inicio;
+    j=fim;
+    pivo=regs.at((inicio+fim)/2).getId();
+    while(i<=j)
     {
         comparacoes++;
-        if (regs.at(j).getId() <= x)
+        while(regs.at(i).getId()<pivo&&i<fim)
         {
             i++;
+        }
+        comparacoes++;
+        while(regs.at(j).getId()>pivo&&j>inicio)
+        {
+            j--;
+        }
+        if(i<=j)
+        {
             aux=regs.at(i).getId();
             regs.at(i).setId(regs.at(j).getId());
             regs.at(j).setId(aux);
-
+            i++;
+            j--;
             trocas++;
         }
     }
-
-    return (i + 1);
+    if(j>inicio)
+    {
+        quickSortAuxRegistro(regs,inicio,j);
+    }
+    if(i<fim)
+    {
+        quickSortAuxRegistro(regs,i,fim);
+    }
 }
+
 
 
 
@@ -385,8 +389,10 @@ void algoritmosOrdenacao::heapSort()
 
 void algoritmosOrdenacao::mergeSortAux()
 {
-
-    mergeSort(vetor1,inicio1,fim1);
+    vector<int>vetor2=vetor1;
+    int inicio2=inicio1;
+    int fim2=fim1;
+    mergeSort(vetor2,inicio2,fim2);
 
 }
 
@@ -469,53 +475,26 @@ void algoritmosOrdenacao::intercala(vector<int>& vetor, int inicio, int meio, in
 
 void algoritmosOrdenacao::countSort()
 {
-    int m = 0;
+    vector<int>vetor2=vetor1;
+    int max = *max_element(vetor2.begin(), vetor2.end());
+    int min = *min_element(vetor2.begin(), vetor2.end());
+    int range = max - min + 1;
 
-    //Encontra o maior valor do vetor
-    for(int i = 0; i < tam1; i++)
+    vector<int> count(range), output(vetor2.size());
+    for(int i = 0; i < vetor2.size(); i++)
+        count[vetor2[i]-min]++;
+
+    for(int i = 1; i < count.size(); i++)
+           count[i] += count[i-1];
+
+    for(int i = vetor2.size()-1; i >= 0; i--)
     {
-        comparacoes++;
-        if(vetor1.at(i) > m)
-        {
-            m = vetor1.at(i);
-        }
-    }
-
-    m += 1;
-
-    int vetorAuxiliar[m];
-
-    //Inicializa vetor auxiliar com 0
-    for(int i = 0; i < m; i++)
-    {
-        vetorAuxiliar[i] = 0;
-    }
-    //Conta as ocorrencias de cada elemento do vetor
-    for(int i = 0; i < tam1; i++)
-    {
-        vetorAuxiliar[vetor1.at(i)]++;
+         output[ count[vetor2[i]-min] -1 ] = vetor2[i];
+              count[vetor2[i]-min]--;
     }
 
-    // Ordena os indices do vetor auxiliar
-    int sum = 0;
-    for(int i = 1; i < m; i++)
-    {
-        int dum = vetorAuxiliar[i];
-        vetorAuxiliar[i] = sum;
-        sum += dum;
-        trocas++;
-    }
-    int vetorOrdenado[tam1];
-    for(int i = 0; i < tam1; i++)
-    {
-        vetorOrdenado[vetorAuxiliar[vetor1.at(i)]] = vetor1.at(i);
-        vetorAuxiliar[vetor1.at(i)]++;
-    }
-    //Retorna os valores ordenados para o vetor de entrada
-    for (int i = 0; i < tam1; i++)
-    {
-        vetor1.at(i) = vetorOrdenado[i];
-    }
+    for(int i=0; i < vetor2.size(); i++)
+            vetor2[i] = output[i];
 }
 
 int algoritmosOrdenacao::getComparacoes(){

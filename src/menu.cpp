@@ -142,8 +142,9 @@ void menu::exibirMenu()
             }
 
 
-            int x=0; //variavel para aumenar indice do vetor;
+            //variavel para aumenar indice do vetor;
             arquivo.open ("cenario1.txt");
+            /*
             for(int i=0; i<numN; i++)
             {
                 for(int j=0; j<2; j++)
@@ -174,13 +175,14 @@ void menu::exibirMenu()
                     arquivo<<"Comparacoes: "<<a.getComparacoes()<<endl;
                     arquivo<<"Trocas: "<<a.getTrocas()<<endl;
                     arquivo<<endl;
-                    x++;
+
                 }
             }
-            x=0;
+            */
+
             for(int i=0; i<numN; i++)
             {
-                for(int j=0; j<3; j++)
+                for(int j=0; j<5; j++)
                 {
                     vector<registro> regs;
                     vector<int> ids;
@@ -190,6 +192,7 @@ void menu::exibirMenu()
                     b.zeraTrocas();
                     b.zeraComparacoes();
                     auto start = std::chrono::high_resolution_clock::now();
+
                     b.quickSortRegistro();
                     auto finish = std::chrono::high_resolution_clock::now();
 
@@ -202,13 +205,13 @@ void menu::exibirMenu()
                     cout<<"Comparacoes: "<<b.getComparacoes()<<endl;
                     cout<<"Trocas: "<<b.getTrocas()<<endl;
 
-                    arquivo<<"Tempo cenario 1(VETOR DE OBJETOS): "<<elapsed.count()<<endl;
-                    arquivo<<"Iteracao: "<<j+1<<endl;
-                    arquivo<<"Tamanho: "<<vetN[i]<<endl;
-                    arquivo<<"Comparacoes: "<<b.getComparacoes()<<endl;
-                    arquivo<<"Trocas: "<<b.getTrocas()<<endl;
+                    arquivo<<"Tempo cenario 1(VETOR DE OBJETOS):"<<endl<<elapsed.count()<<endl;
+                    arquivo<<"Iteracao:"<<endl<<j+1<<endl;
+                    arquivo<<"Tamanho:"<<endl<<vetN[i]<<endl;
+                    arquivo<<"Comparacoes:"<<endl<<b.getComparacoes()<<endl;
+                    arquivo<<"Trocas:"<<endl<<b.getTrocas()<<endl;
                     arquivo<<endl;
-                    x++;
+
                 }
             }
 
@@ -302,8 +305,10 @@ void menu::exibirMenu()
                     arquivo << a.getTrocas() << endl;
                     a.randomiza();
                     arquivo << endl;
+                    a.zeraComparacoes();
+                    a.zeraTrocas();
+                    a.randomiza();
 
-/*
                     auto start2 = std::chrono::high_resolution_clock::now();
                     a.quickSortMediana();
                     cout <<"QuickSort Mediana CONCLUIDO " << endl;
@@ -317,7 +322,7 @@ void menu::exibirMenu()
                     a.zeraComparacoes();
                     a.zeraTrocas();
                     a.randomiza();
-*/
+
                     arquivo << endl;
                     cout << "//////////////////////////////" << endl;
                     arquivo << "//////////////////////////////" << endl;
@@ -373,7 +378,7 @@ void menu::exibirMenu()
                 arquivo<< "Tamanho do Vetor: " << vetN[i] << endl;
                 cout << "----------------------------" << endl;
                 arquivo << "----------------------------" << endl;
-                for(int j=0; j<2; j++)
+                for(int j=0; j<5; j++)
                 {
 
                     vector<registro> regs;
