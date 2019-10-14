@@ -198,8 +198,8 @@ void menu::exibirMenu()
                     leituraArquivo(vetN[i], regs, ids);
                     random_shuffle(regs.begin(), regs.end());
                     algoritmosOrdenacao b(regs,vetN[i]);
-                    a.zeraTrocas();
-                    a.zeraComparacoes();
+                    b.zeraTrocas();
+                    b.zeraComparacoes();
                     auto start = std::chrono::high_resolution_clock::now();
                     b.quickSortRegistro();
                     auto finish = std::chrono::high_resolution_clock::now();
@@ -282,6 +282,8 @@ void menu::exibirMenu()
                     algoritmosOrdenacao a(ids, vetN[i]); //instanciando objeto para ordenação
 
                     auto start = std::chrono::high_resolution_clock::now();
+                    a.zeraComparacoes();
+                    a.zeraTrocas();
                     a.quickSort();
                     cout << "Quicksort Recursivo CONCLUIDO" << endl;
                     auto finish = std::chrono::high_resolution_clock::now();
@@ -291,12 +293,13 @@ void menu::exibirMenu()
                     arquivo << a.getComparacoes() << endl;
                     arquivo<<"Numero de trocas: ";
                     arquivo << a.getTrocas() << endl;
-                    a.zeraComparacoes();
-                    a.zeraTrocas();
+
                     a.randomiza();
                     arquivo << endl;
 
                     auto start1 = std::chrono::high_resolution_clock::now();
+                    a.zeraComparacoes();
+                    a.zeraTrocas();
                     a.auxQuickSortHibrido();
                     cout <<"QuickSort com Insercao CONCLUIDO " << endl;
                     auto finish1 = std::chrono::high_resolution_clock::now();
@@ -306,8 +309,6 @@ void menu::exibirMenu()
                     arquivo << a.getComparacoes() << endl;
                     arquivo<<"Numero de trocas: ";
                     arquivo << a.getTrocas() << endl;
-                    a.zeraComparacoes();
-                    a.zeraTrocas();
                     a.randomiza();
                     arquivo << endl;
 
