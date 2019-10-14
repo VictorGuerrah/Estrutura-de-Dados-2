@@ -128,36 +128,36 @@ void menu::exibirMenu()
         }
         case 2: ///Cenario 2
         {
-            arquivo.open ("cenario2.txt");
-            int tamanho;
-            cout<<"Digite o tamanho do vetor: ";
-            cin >> tamanho;
-            for(int i=0; i < 5; i++)
-            {
-            list<registro> regs;
-                vector<int> ids;
-                leituraArquivo(tamanho, regs, ids);
-                random_shuffle(ids.begin(), ids.end());
-                algoritmosOrdenacao a(ids, tamanho); //instanciando objeto para ordenação
+ arquivo.open ("cenario2.txt");
+            int tamanho[6]={1000,5000,10000,50000,100000,500000};
+            for(int j=0;j<6;j++){
+                for(int i=0; i < 5; i++)
+                {
+                list<registro> regs;
+                    vector<int> ids;
+                    leituraArquivo(tamanho[j], regs, ids);
+                    random_shuffle(ids.begin(), ids.end());
+                    algoritmosOrdenacao a(ids, tamanho[j]); //instanciando objeto para ordenação
 
-                auto start = std::chrono::high_resolution_clock::now();
-                a.quickSort();
-                auto finish = std::chrono::high_resolution_clock::now();
-                std::chrono::duration<long  double> elapsed = finish - start;
-                arquivo<<"Tempo QuickSort: "<<elapsed.count()<<"Iteracao: "<<i<<endl;
+                    auto start = std::chrono::high_resolution_clock::now();
+                    a.quickSort();
+                    auto finish = std::chrono::high_resolution_clock::now();
+                    std::chrono::duration<long  double> elapsed = finish - start;
+                    arquivo<<"Tempo QuickSort: "<<elapsed.count()<<"Iteracao: "<<i<<"Tamanho"<<tamanho[j]<<endl;
 
-                auto start1 = std::chrono::high_resolution_clock::now();
-                a.quickSortMediana();
-                auto finish1 = std::chrono::high_resolution_clock::now();
-                std::chrono::duration<long  double> elapsed1 = finish1 - start1;
-                arquivo<<"Tempo QuickSortMediana: "<<elapsed1.count()<<"Iteracao: "<<i<<endl;
+                    auto start1 = std::chrono::high_resolution_clock::now();
+                    a.quickSortMediana();
+                    auto finish1 = std::chrono::high_resolution_clock::now();
+                    std::chrono::duration<long  double> elapsed1 = finish1 - start1;
+                    arquivo<<"Tempo QuickSortMediana: "<<elapsed1.count()<<"Iteracao: "<<i<<"Tamanho"<<tamanho[j]<<endl;
 
-                auto start2 = std::chrono::high_resolution_clock::now();
-                a.auxQuickSortHibrido();
-                auto finish2 = std::chrono::high_resolution_clock::now();
-                std::chrono::duration<long  double> elapsed2 = finish2 - start2;
-                arquivo<<"Tempo QuickSorthibrido: "<<elapsed2.count()<<"Iteracao: "<<i<<endl;
+                    auto start2 = std::chrono::high_resolution_clock::now();
+                    a.auxQuickSortHibrido();
+                    auto finish2 = std::chrono::high_resolution_clock::now();
+                    std::chrono::duration<long  double> elapsed2 = finish2 - start2;
+                    arquivo<<"Tempo QuickSorthibrido: "<<elapsed2.count()<<"Iteracao: "<<i<<"Tamanho"<<tamanho[j]<<endl;
 
+                }
             }
             arquivo.close();
             break;
