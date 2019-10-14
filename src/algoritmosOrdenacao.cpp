@@ -71,6 +71,8 @@ void algoritmosOrdenacao::bubbleSort()
         {
             if(vetor1.at(j)>vetor1.at(j+1))
             {
+                comparacoes++;
+                trocas++;
                 swap(&vetor1[j],&vetor1[j+1]);
             }
         }
@@ -90,12 +92,15 @@ void algoritmosOrdenacao::selectionSort()
         {
             if(vetor1.at(iseg)<vetor1.at(imen))
             {
+                comparacoes++;
                 imen=iseg;
             }
         }
         int aux=vetor1.at(i);
         vetor1.at(i)=vetor1.at(imen);
         vetor1.at(imen)=aux;
+      
+         trocas++;
     }
 }
 
@@ -109,12 +114,15 @@ void algoritmosOrdenacao::insertionSort()
     {
         int escolhido = vetor1.at(i);
         int j=i-1;
+        comparacoes++;
         while((j>=0)&&(vetor1.at(j)>escolhido))
         {
             vetor1.at(j+1)=vetor1.at(j);
             j--;
+            trocas++;
         }
         vetor1.at(j+1)=escolhido;
+        trocas++;
     }
 }
 
@@ -138,10 +146,12 @@ void algoritmosOrdenacao::quickSortAux(vector<int>& vetor, int inicio, int fim)
     pivo=vetor.at((inicio+fim)/2);
     while(i<=j)
     {
+        comparacoes++;
         while(vetor.at(i)<pivo&&i<fim)
         {
             i++;
         }
+        comparacoes++;
         while(vetor.at(j)>pivo&&j>inicio)
         {
             j--;
@@ -153,6 +163,7 @@ void algoritmosOrdenacao::quickSortAux(vector<int>& vetor, int inicio, int fim)
             vetor.at(j)=aux;
             i++;
             j--;
+            trocas++;
         }
     }
     if(j>inicio)
@@ -183,10 +194,12 @@ void algoritmosOrdenacao::quickSortMedianaAux(vector<int>& vetor, int inicio, in
     pivo=pivo/K;
     while(i<=j)
     {
+        comparacoes++;
         while(vetor.at(i)<pivo&&i<fim)
         {
             i++;
         }
+        comparacoes++;
         while(vetor.at(j)>pivo&&j>inicio)
         {
             j--;
@@ -198,6 +211,7 @@ void algoritmosOrdenacao::quickSortMedianaAux(vector<int>& vetor, int inicio, in
             vetor.at(j)=aux;
             i++;
             j--;
+            trocas++;
         }
     }
     if(j>inicio)
@@ -218,10 +232,12 @@ int algoritmosOrdenacao::particaoQuickSort(vector<int>& vetor, int inicio, int f
 
     for (int j = inicio; j <= fim - 1; j++)
     {
+        comparacoes++;
         if (vetor.at(j) <= x)
         {
             i++;
             swap(&vetor[i], &vetor[j]);
+            trocas++;
         }
     }
     swap(&vetor[i+1], &vetor[fim]);
@@ -279,11 +295,13 @@ void algoritmosOrdenacao::heapfy(vector<int>& arvore, int indice)
     // Se o filho da esquerda for maior que a raiz
     if(l  < tam1 && arvore.at(l) > arvore.at(maior))
     {
+        comparacoes++;
         maior = l;
     }
     // Se o filho da direita for o maior até agora
     if(r < tam1 && arvore.at(r) > arvore.at(maior))
     {
+        comparacoes++;
         maior = r;
     }
     //Se o maior não for a raiz
@@ -293,6 +311,7 @@ void algoritmosOrdenacao::heapfy(vector<int>& arvore, int indice)
         arvore.at(maior) = arvore.at(indice);
         arvore.at(indice) = aux;
         heapfy(arvore, maior);
+        trocas++;
     }
 }
 //Constrói a heap
@@ -319,6 +338,7 @@ void algoritmosOrdenacao::heapSort()
         tam1 -= 1;
         //Chama heapfy na heap reduzida
         heapfy(vetor1, 0);
+        trocas++;
     }
     tam1 = tamanho;
 }
@@ -368,14 +388,17 @@ void algoritmosOrdenacao::intercala(vector<int>& vetor, int inicio, int meio, in
 
     while(i < n1 && j < n2)
     {
+        comparacoes++;
+                
         if(L[i] <= R[j])
         {
+            trocas++;
             vetor.at(k) = L[i];
             i++;
         }
         else
         {
-
+            trocas++
             vetor.at(k) = R[j];
             j++;
         }
@@ -386,7 +409,7 @@ void algoritmosOrdenacao::intercala(vector<int>& vetor, int inicio, int meio, in
 
     while(i < n1)
     {
-
+        trocas++;
         vetor.at(k) = L[i];
         i++;
         k++;
@@ -395,6 +418,7 @@ void algoritmosOrdenacao::intercala(vector<int>& vetor, int inicio, int meio, in
     }
     while(j < n2)
     {
+        trocas++;
         vetor.at(k) = R[j];
         j++;
         k++;
@@ -410,6 +434,7 @@ void algoritmosOrdenacao::countSort()
     //Encontra o maior valor do vetor
     for(int i = 0; i < tam1; i++)
     {
+        comparacoes++;
         if(vetor1.at(i) > m)
         {
             m = vetor1.at(i);
@@ -438,6 +463,7 @@ void algoritmosOrdenacao::countSort()
         int dum = vetorAuxiliar[i];
         vetorAuxiliar[i] = sum;
         sum += dum;
+        trocas++;
     }
     int vetorOrdenado[tam1];
     for(int i = 0; i < tam1; i++)
