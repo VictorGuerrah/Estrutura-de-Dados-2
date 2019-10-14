@@ -141,8 +141,11 @@ void algoritmosOrdenacao::insertionSort()
 //No pior caso possui complexidade O(n^2) - No melhor caso possui complexidade O(log2n)
 void algoritmosOrdenacao::quickSort()
 {
+    vector<int> vetor2=vetor1;
+    int inicio2=inicio1;
+    int fim2=fim1;
 
-    quickSortAux(vetor1,inicio1,fim1);
+    quickSortAux(vetor2,inicio2,fim2);
 }
 
 void algoritmosOrdenacao::quickSortAux(vector<int>& vetor, int inicio, int fim)
@@ -155,12 +158,16 @@ void algoritmosOrdenacao::quickSortAux(vector<int>& vetor, int inicio, int fim)
         quickSortAux(vetor, inicio, pi - 1);
         quickSortAux(vetor, pi + 1, fim);
     }
+
 }
 
 void algoritmosOrdenacao::quickSortMediana()
 {
+    vector<int> vetor2=vetor1;
+    int inicio2=inicio1;
+    int fim2=fim1;
 
-    quickSortMedianaAux(vetor1,inicio1,fim1);
+    quickSortMedianaAux(vetor2,inicio2,fim2);
 }
 
 void algoritmosOrdenacao::quickSortMedianaAux(vector<int>& vetor, int inicio, int fim)
@@ -230,7 +237,8 @@ void algoritmosOrdenacao::auxQuickSortHibrido()
 
     int inicio2=inicio1;
     int fim2=fim1;
-    QuickSortHibrido(vetor1,inicio2,fim2);
+    vector<int> vetor2=vetor1;
+    QuickSortHibrido(vetor2,inicio2,fim2);
 
 
 }
@@ -269,50 +277,47 @@ void algoritmosOrdenacao::QuickSortHibrido(vector<int>& vetor,int inicio,int fim
 
 void algoritmosOrdenacao::quickSortRegistro()
 {
+    int inicio2=inicio2;
+    int fim2=fim1;
+    vector<registro> vetorregs2=vetorregs1;
 
-    quickSortAuxRegistro(vetorregs1,inicio1,fim1);
+    quickSortAuxRegistro(vetorregs2,inicio2,fim2);
 }
 
 void algoritmosOrdenacao::quickSortAuxRegistro(vector<registro>& regs, int inicio, int fim)
 {
-    int i, j, pivo, aux;
-    i=inicio;
-    j=fim;
-    pivo=regs.at((inicio+fim)/2).getId();
-    while(i<=j)
+    if (inicio < fim)
     {
-        comparacoes++;
-        while(regs.at(i).getId()<pivo&&i<fim)
-        {
-            i++;
-        }
-        comparacoes++;
-        while(regs.at(j).getId()>pivo&&j>inicio)
-        {
-            j--;
-        }
-        if(i<=j)
-        {
-            aux=regs.at(i).getId();
-            regs.at(i).setId(regs.at(j).getId());
-            regs.at(j).setId(aux);
-            i++;
-            j--;
-            trocas++;
-        }
-    }
-    if(j>inicio)
-    {
-        quickSortAuxRegistro(regs,inicio,j);
-    }
-    if(i<fim)
-    {
-        quickSortAuxRegistro(regs,i,fim);
+
+       int pi = particaoQuickSortRegistro(regs, inicio, fim);
+
+        quickSortAuxRegistro(regs, inicio, pi - 1);
+        quickSortAuxRegistro(regs, pi + 1, fim);
     }
 }
 
 
+int algoritmosOrdenacao::particaoQuickSortRegistro(vector<registro>& regs, int inicio, int fim)
+{
+    int x = regs.at(fim).getId();
+    int i = (inicio - 1);
+    int aux;
+    for (int j = inicio; j <= fim - 1; j++)
+    {
+        comparacoes++;
+        if (regs.at(j).getId() <= x)
+        {
+            i++;
+            aux=regs.at(i).getId();
+            regs.at(i).setId(regs.at(j).getId());
+            regs.at(j).setId(aux);
 
+            trocas++;
+        }
+    }
+
+    return (i + 1);
+}
 
 
 

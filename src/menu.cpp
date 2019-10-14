@@ -141,21 +141,12 @@ void menu::exibirMenu()
                 i++;
             }
 
-            int tamanhoImprimeVetor=numN*5;
-            int vetorComparacoes[tamanhoImprimeVetor];
-            int vetorTrocas[tamanhoImprimeVetor];
-            int vetorExecucao[tamanhoImprimeVetor];
-
-
-            int vetorComparacoesRegistro[tamanhoImprimeVetor];
-            int vetorTrocasRegistro[tamanhoImprimeVetor];
-            long double vetorExecucaoRegistro[tamanhoImprimeVetor];
 
             int x=0; //variavel para aumenar indice do vetor;
             arquivo.open ("cenario1.txt");
             for(int i=0; i<numN; i++)
             {
-                for(int j=0; j<5; j++)
+                for(int j=0; j<2; j++)
                 {
                     vector<registro> regs;
                     vector<int> ids;
@@ -167,12 +158,9 @@ void menu::exibirMenu()
                     auto start = std::chrono::high_resolution_clock::now();
                     a.quickSort();
                     auto finish = std::chrono::high_resolution_clock::now();
-
                     std::chrono::duration<long  double> elapsed = finish - start;
                     cout<<"VETOR DE INTEIROSSS"<<endl;
-                    vetorExecucao[x]=elapsed.count();
-                    vetorComparacoes[x]=a.getComparacoes();
-                    vetorTrocas[x]=a.getTrocas();
+
 
                     cout <<"Tempo Cenario 1(VETOR DE INTEIROS): "<<elapsed.count()<< endl;
                     cout<<"Iteracao: "<<j+1<<endl;
@@ -192,7 +180,7 @@ void menu::exibirMenu()
             x=0;
             for(int i=0; i<numN; i++)
             {
-                for(int j=0; j<5; j++)
+                for(int j=0; j<3; j++)
                 {
                     vector<registro> regs;
                     vector<int> ids;
@@ -206,9 +194,7 @@ void menu::exibirMenu()
                     auto finish = std::chrono::high_resolution_clock::now();
 
                     std::chrono::duration<long  double> elapsed = finish - start;
-                    vetorExecucaoRegistro[x]=elapsed.count();
-                    vetorComparacoesRegistro[x]=b.getComparacoes();
-                    vetorTrocasRegistro[x]=b.getTrocas();
+
 
                     cout <<"Tempo Cenario 1(VETOR DE OBJETOS)): "<<elapsed.count()<< endl;
                     cout<<"Iteracao: "<<j+1<<endl;
@@ -292,7 +278,6 @@ void menu::exibirMenu()
                     auto finish = std::chrono::high_resolution_clock::now();
                     std::chrono::duration<long  double> elapsed = finish - start;
                     cout << "Quicksort Recursivo CONCLUIDO" << endl;
-                    a.imprime();
                     arquivo<<"Tempo QuickSort Recursivo: "<<elapsed.count()<<endl;
                     arquivo<<"Numero de comparacoes: ";
                     arquivo << a.getComparacoes() << endl;
@@ -304,11 +289,11 @@ void menu::exibirMenu()
 
                     a.zeraComparacoes();
                     a.zeraTrocas();
-                    a.auxQuickSortHibrido();
 
                     auto start1 = std::chrono::high_resolution_clock::now();
-                    cout <<"QuickSort com Insercao CONCLUIDO " << endl;
+                     a.auxQuickSortHibrido();
                     auto finish1 = std::chrono::high_resolution_clock::now();
+                    cout <<"QuickSort com Insercao CONCLUIDO " << endl;
                     std::chrono::duration<long double> elapsed1 = finish1 - start1;
                     arquivo<<"Tempo QuickSort com Insercao: "<<elapsed1.count()<<endl;
                     arquivo<<"Numero de comparacoes: ";
@@ -403,7 +388,6 @@ void menu::exibirMenu()
                     a.quickSort();
                     auto finish = std::chrono::high_resolution_clock::now();
                     cout << "Quicksort CONCLUIDO" << endl;
-                    a.imprime();
                     std::chrono::duration<long  double> elapsed = finish - start;
                     arquivo<<"Tempo QuickSort: "<<elapsed.count()<<endl;
                     arquivo<<"Numero de comparacoes: ";
