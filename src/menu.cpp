@@ -241,7 +241,8 @@ void menu::exibirMenu()
             }
             for(int i=0; i<numN; i++)
             {
-                for(int j=0; j<6; j++)
+                cout << "Começo da iteração: " << i + 1 << endl;
+                for(int j=0; j<5; j++)
                 {
 
                     vector<registro> regs;
@@ -260,6 +261,8 @@ void menu::exibirMenu()
                     arquivo << a.getComparacoes() << endl;
                     arquivo<<"Numero de trocas: ";
                     arquivo << a.getTrocas() << endl;
+                    a.zeraComparacoes();
+                    a.zeraTrocas();
                     a.randomiza();
 
                     auto start1 = std::chrono::high_resolution_clock::now();
@@ -268,9 +271,12 @@ void menu::exibirMenu()
                     auto finish1 = std::chrono::high_resolution_clock::now();
                     std::chrono::duration<long double> elapsed1 = finish1 - start1;
                     arquivo<<"Tempo Insertion: "<<elapsed1.count()<<endl;
+                    arquivo<<"Numero de comparacoes: ";
                     arquivo << a.getComparacoes() << endl;
                     arquivo<<"Numero de trocas: ";
                     arquivo << a.getTrocas() << endl;
+                    a.zeraComparacoes();
+                    a.zeraTrocas();
                     a.randomiza();
 
 
@@ -280,9 +286,12 @@ void menu::exibirMenu()
                     auto finish2 = std::chrono::high_resolution_clock::now();
                     std::chrono::duration<long  double> elapsed2 = finish2 - start2;
                     arquivo<<"Tempo MergeSort: "<<elapsed2.count()<<endl;
+                    arquivo<<"Numero de comparacoes: ";
                     arquivo << a.getComparacoes() << endl;
                     arquivo<<"Numero de trocas: ";
                     arquivo << a.getTrocas() << endl;
+                    a.zeraComparacoes();
+                    a.zeraTrocas();
                     a.randomiza();
 
 
@@ -292,9 +301,12 @@ void menu::exibirMenu()
                     auto finish3 = std::chrono::high_resolution_clock::now();
                     std::chrono::duration<long  double> elapsed3 = finish3 - start3;
                     arquivo<<"Tempo HeapSort: "<<elapsed3.count()<<endl;
+                    arquivo<<"Numero de comparacoes: ";
                     arquivo << a.getComparacoes() << endl;
                     arquivo<<"Numero de trocas: ";
                     arquivo << a.getTrocas() << endl;
+                    a.zeraComparacoes();
+                    a.zeraTrocas();
                     a.randomiza();
 
 
@@ -304,11 +316,16 @@ void menu::exibirMenu()
                     auto finish4 = std::chrono::high_resolution_clock::now();
                     std::chrono::duration<long double> elapsed4 = finish4 - start4;
                     arquivo<<"Tempo CountSort: "<<elapsed4.count()<<endl;
+                    arquivo<<"Numero de comparacoes: ";
                     arquivo << a.getComparacoes() << endl;
                     arquivo<<"Numero de trocas: ";
                     arquivo << a.getTrocas() << endl;
                     a.randomiza();
+                    a.zeraComparacoes();
+                    a.zeraTrocas();
                     arquivo << endl;
+                    cout << "//////////////////////////////" << endl;
+                    arquivo << "//////////////////////////////" << endl;
 
                 }
             }

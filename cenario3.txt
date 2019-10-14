@@ -1,163 +1,425 @@
-Tempo QuickSort: 0.0010516
-Numero de comparacoes: 5676
-Numero de trocas: 2546
-Tempo Insertion: 0.0092
-6675
-Numero de trocas: 246331
-Tempo MergeSort: 0
-15384
-Numero de trocas: 256318
-Tempo HeapSort: 0.0010356
-27150
-Numero de trocas: 265445
-Tempo CountSort: 0.0010004
-28150
-Numero de trocas: 266443
+Tempo QuickSort: 0.0010057
+Numero de comparacoes: 5834
+Numero de trocas: 2614
+Tempo Insertion: 0.0090009
+Numero de comparacoes: 6833
+Numero de trocas: 251754
+Tempo MergeSort: 0.0009998
+Numero de comparacoes: 15542
+Numero de trocas: 261741
+Tempo HeapSort: 0.0009997
+Numero de comparacoes: 27123
+Numero de trocas: 270786
+Tempo CountSort: 0.0009987
+Numero de comparacoes: 28123
+Numero de trocas: 271784
 
-Tempo QuickSort: 0
-Numero de comparacoes: 5816
-Numero de trocas: 2631
-Tempo Insertion: 0.0090601
-6815
-Numero de trocas: 257740
-Tempo MergeSort: 0
-15519
-Numero de trocas: 267727
-Tempo HeapSort: 0.0010001
-27259
-Numero de trocas: 276836
+//////////////////////////////
+Tempo QuickSort: 0.0009996
+Numero de comparacoes: 5748
+Numero de trocas: 2571
+Tempo Insertion: 0.0099993
+Numero de comparacoes: 6747
+Numero de trocas: 261731
+Tempo MergeSort: 0.0009999
+Numero de comparacoes: 15455
+Numero de trocas: 271718
+Tempo HeapSort: 0.0009995
+Numero de comparacoes: 27100
+Numero de trocas: 280793
 Tempo CountSort: 0
-28259
-Numero de trocas: 277832
+Numero de comparacoes: 28100
+Numero de trocas: 281790
 
-Tempo QuickSort: 0.0029963
-Numero de comparacoes: 34058
-Numero de trocas: 15614
-Tempo Insertion: 0.224023
-39057
-Numero de trocas: 6322998
-Tempo MergeSort: 0.0019993
-94297
-Numero de trocas: 6384820
-Tempo HeapSort: 0.005947
-169954
-Numero de trocas: 6441952
-Tempo CountSort: 0.0009945
-174954
-Numero de trocas: 6442950
+//////////////////////////////
+Tempo QuickSort: 0.0010001
+Numero de comparacoes: 5750
+Numero de trocas: 2583
+Tempo Insertion: 0.0099998
+Numero de comparacoes: 6749
+Numero de trocas: 262709
+Tempo MergeSort: 0
+Numero de comparacoes: 15485
+Numero de trocas: 272696
+Tempo HeapSort: 0.0009999
+Numero de comparacoes: 27129
+Numero de trocas: 281764
+Tempo CountSort: 0.0009994
+Numero de comparacoes: 28129
+Numero de trocas: 282758
 
-Tempo QuickSort: 0.0019403
-Numero de comparacoes: 34466
-Numero de trocas: 15800
-Tempo Insertion: 0.220962
-39465
-Numero de trocas: 6199748
-Tempo MergeSort: 0.0030048
-94714
-Numero de trocas: 6261570
-Tempo HeapSort: 0.007
-170265
-Numero de trocas: 6318627
+//////////////////////////////
+Tempo QuickSort: 0.0009968
+Numero de comparacoes: 5660
+Numero de trocas: 2556
+Tempo Insertion: 0.0089922
+Numero de comparacoes: 6659
+Numero de trocas: 246607
+Tempo MergeSort: 0.0010001
+Numero de comparacoes: 15371
+Numero de trocas: 256594
+Tempo HeapSort: 0.0009997
+Numero de comparacoes: 27066
+Numero de trocas: 265669
 Tempo CountSort: 0
-175265
-Numero de trocas: 6319625
+Numero de comparacoes: 28066
+Numero de trocas: 266666
 
-Tempo QuickSort: 0.0050517
-Numero de comparacoes: 73334
-Numero de trocas: 33842
-Tempo Insertion: 0.886005
-83333
-Numero de trocas: 25119284
-Tempo MergeSort: 0.0050004
-203764
-Numero de trocas: 25252915
-Tempo HeapSort: 0.0130574
-369785
-Numero de trocas: 25376977
-Tempo CountSort: 0.0009986
-379785
-Numero de trocas: 25377975
+//////////////////////////////
+Tempo QuickSort: 0.0009495
+Numero de comparacoes: 5772
+Numero de trocas: 2580
+Tempo Insertion: 0.0100035
+Numero de comparacoes: 6771
+Numero de trocas: 253394
+Tempo MergeSort: 0.0009467
+Numero de comparacoes: 15501
+Numero de trocas: 263381
+Tempo HeapSort: 0.0010003
+Numero de comparacoes: 27225
+Numero de trocas: 272474
+Tempo CountSort: 0
+Numero de comparacoes: 28225
+Numero de trocas: 273471
 
-Tempo QuickSort: 0.0049995
-Numero de comparacoes: 73146
-Numero de trocas: 33661
-Tempo Insertion: 0.893947
-83145
-Numero de trocas: 24553799
-Tempo MergeSort: 0.0050013
-203642
-Numero de trocas: 24687430
-Tempo HeapSort: 0.0130008
-369696
-Numero de trocas: 24811588
-Tempo CountSort: 0.0009988
-379696
-Numero de trocas: 24812586
+//////////////////////////////
+Tempo QuickSort: 0.003005
+Numero de comparacoes: 34230
+Numero de trocas: 15681
+Tempo Insertion: 0.231993
+Numero de comparacoes: 39229
+Numero de trocas: 6293622
+Tempo MergeSort: 0.0020074
+Numero de comparacoes: 94451
+Numero de trocas: 6355444
+Tempo HeapSort: 0.0069957
+Numero de comparacoes: 170101
+Numero de trocas: 6412516
+Tempo CountSort: 0.0010003
+Numero de comparacoes: 175101
+Numero de trocas: 6413514
 
-Tempo QuickSort: 0.0270568
-Numero de comparacoes: 429372
-Numero de trocas: 200315
-Tempo Insertion: 22.3339
-479371
-Numero de trocas: 623551897
-Tempo MergeSort: 0.0290121
-1197595
-Numero de trocas: 624336378
-Tempo HeapSort: 0.0759941
-2203043
-Numero de trocas: 625073506
-Tempo CountSort: 0.0039993
-2253043
-Numero de trocas: 625074504
+//////////////////////////////
+Tempo QuickSort: 0.0020062
+Numero de comparacoes: 33722
+Numero de trocas: 15450
+Tempo Insertion: 0.234002
+Numero de comparacoes: 38721
+Numero de trocas: 6207367
+Tempo MergeSort: 0.0019991
+Numero de comparacoes: 93894
+Numero de trocas: 6269189
+Tempo HeapSort: 0.0069943
+Numero de comparacoes: 169678
+Numero de trocas: 6326303
+Tempo CountSort: 0.0009999
+Numero de comparacoes: 174678
+Numero de trocas: 6327301
 
-Tempo QuickSort: 0.0299994
-Numero de comparacoes: 433270
-Numero de trocas: 202369
-Tempo Insertion: 23.1961
-483269
-Numero de trocas: 622950862
-Tempo MergeSort: 0.0290564
-1201443
-Numero de trocas: 623735343
-Tempo HeapSort: 0.0770003
-2206488
-Numero de trocas: 624472189
-Tempo CountSort: 0.0050075
-2256488
-Numero de trocas: 624473187
+//////////////////////////////
+Tempo QuickSort: 0.0040062
+Numero de comparacoes: 33730
+Numero de trocas: 15462
+Tempo Insertion: 0.277999
+Numero de comparacoes: 38729
+Numero de trocas: 6333930
+Tempo MergeSort: 0.0030004
+Numero de comparacoes: 94003
+Numero de trocas: 6395752
+Tempo HeapSort: 0.008001
+Numero de comparacoes: 169732
+Numero de trocas: 6452884
+Tempo CountSort: 0
+Numero de comparacoes: 174732
+Numero de trocas: 6453882
 
-Tempo QuickSort: 0.0590093
-Numero de comparacoes: 892516
-Numero de trocas: 417702
-Tempo Insertion: 93.0694
-992515
-Numero de trocas: -1796133656
-Tempo MergeSort: 0.0549999
-2528553
-Numero de trocas: -1794464710
-Tempo HeapSort: 0.157637
-4689061
-Numero de trocas: -1792890777
-Tempo CountSort: 0.0079994
-4789061
-Numero de trocas: -1792889779
+//////////////////////////////
+Tempo QuickSort: 0.0029992
+Numero de comparacoes: 34118
+Numero de trocas: 15617
+Tempo Insertion: 0.239515
+Numero de comparacoes: 39117
+Numero de trocas: 6241119
+Tempo MergeSort: 0.0020007
+Numero de comparacoes: 94359
+Numero de trocas: 6302941
+Tempo HeapSort: 0.0059982
+Numero de comparacoes: 170030
+Numero de trocas: 6360070
+Tempo CountSort: 0
+Numero de comparacoes: 175030
+Numero de trocas: 6361068
 
-Tempo QuickSort: 0.061002
-Numero de comparacoes: 912092
-Numero de trocas: 427391
-Tempo Insertion: 92.0378
-1012091
-Numero de trocas: -1797429131
-Tempo MergeSort: 0.0580017
-2548186
-Numero de trocas: -1795760185
-Tempo HeapSort: 0.162999
-4708141
-Numero de trocas: -1794186219
-Tempo CountSort: 0.0089302
-4808141
-Numero de trocas: -1794185221
+//////////////////////////////
+Tempo QuickSort: 0.0030002
+Numero de comparacoes: 33900
+Numero de trocas: 15547
+Tempo Insertion: 0.262006
+Numero de comparacoes: 38899
+Numero de trocas: 6299598
+Tempo MergeSort: 0.0019997
+Numero de comparacoes: 94095
+Numero de trocas: 6361420
+Tempo HeapSort: 0.0060519
+Numero de comparacoes: 169802
+Numero de trocas: 6418551
+Tempo CountSort: 0.0009997
+Numero de comparacoes: 174802
+Numero de trocas: 6419549
 
-Tempo QuickSort: 0.301053
-Numero de comparacoes: 4669176
-Numero de trocas: 2191564
+//////////////////////////////
+Tempo QuickSort: 0.0049996
+Numero de comparacoes: 72716
+Numero de trocas: 33483
+Tempo Insertion: 0.970999
+Numero de comparacoes: 82715
+Numero de trocas: 25194685
+Tempo MergeSort: 0.0050061
+Numero de comparacoes: 203155
+Numero de trocas: 25328316
+Tempo HeapSort: 0.0140002
+Numero de comparacoes: 369346
+Numero de trocas: 25452489
+Tempo CountSort: 0.0009948
+Numero de comparacoes: 379346
+Numero de trocas: 25453487
+
+//////////////////////////////
+Tempo QuickSort: 0.0050009
+Numero de comparacoes: 73142
+Numero de trocas: 33726
+Tempo Insertion: 0.958999
+Numero de comparacoes: 83141
+Numero de trocas: 25302339
+Tempo MergeSort: 0.0059945
+Numero de comparacoes: 203692
+Numero de trocas: 25435970
+Tempo HeapSort: 0.014002
+Numero de comparacoes: 369991
+Numero de trocas: 25560214
+Tempo CountSort: 0.0009977
+Numero de comparacoes: 379991
+Numero de trocas: 25561212
+
+//////////////////////////////
+Tempo QuickSort: 0.0049999
+Numero de comparacoes: 72450
+Numero de trocas: 33408
+Tempo Insertion: 0.967998
+Numero de comparacoes: 82449
+Numero de trocas: 25286790
+Tempo MergeSort: 0.0050002
+Numero de comparacoes: 202951
+Numero de trocas: 25420421
+Tempo HeapSort: 0.0150014
+Numero de comparacoes: 369145
+Numero de trocas: 25544552
+Tempo CountSort: 0.0009997
+Numero de comparacoes: 379145
+Numero de trocas: 25545550
+
+//////////////////////////////
+Tempo QuickSort: 0.005001
+Numero de comparacoes: 72932
+Numero de trocas: 33620
+Tempo Insertion: 0.963001
+Numero de comparacoes: 82931
+Numero de trocas: 25063238
+Tempo MergeSort: 0.0060005
+Numero de comparacoes: 203454
+Numero de trocas: 25196869
+Tempo HeapSort: 0.0140059
+Numero de comparacoes: 369524
+Numero de trocas: 25321041
+Tempo CountSort: 0.0009937
+Numero de comparacoes: 379524
+Numero de trocas: 25322039
+
+//////////////////////////////
+Tempo QuickSort: 0.0070073
+Numero de comparacoes: 72420
+Numero de trocas: 33324
+Tempo Insertion: 1.027
+Numero de comparacoes: 82419
+Numero de trocas: 24998862
+Tempo MergeSort: 0.0060074
+Numero de comparacoes: 202963
+Numero de trocas: 25132493
+Tempo HeapSort: 0.0139994
+Numero de comparacoes: 369128
+Numero de trocas: 25256654
+Tempo CountSort: 0.0009996
+Numero de comparacoes: 379128
+Numero de trocas: 25257652
+
+//////////////////////////////
+Tempo QuickSort: 0.0289978
+Numero de comparacoes: 424844
+Numero de trocas: 198239
+Tempo Insertion: 23.5477
+Numero de comparacoes: 474843
+Numero de trocas: 622377449
+Tempo MergeSort: 0.0300008
+Numero de comparacoes: 1193383
+Numero de trocas: 623161930
+Tempo HeapSort: 0.0790012
+Numero de comparacoes: 2198473
+Numero de trocas: 623898997
+Tempo CountSort: 0.0050033
+Numero de comparacoes: 2248473
+Numero de trocas: 623899995
+
+//////////////////////////////
+Tempo QuickSort: 0.0300012
+Numero de comparacoes: 431734
+Numero de trocas: 201420
+Tempo Insertion: 24.9408
+Numero de comparacoes: 481733
+Numero de trocas: 627339445
+Tempo MergeSort: 0.0290001
+Numero de comparacoes: 1199893
+Numero de trocas: 628123926
+Tempo HeapSort: 0.0850005
+Numero de comparacoes: 2204976
+Numero de trocas: 628860828
+Tempo CountSort: 0.0050004
+Numero de comparacoes: 2254976
+Numero de trocas: 628861826
+
+//////////////////////////////
+Tempo QuickSort: 0.0309939
+Numero de comparacoes: 427780
+Numero de trocas: 199567
+Tempo Insertion: 24.278
+Numero de comparacoes: 477779
+Numero de trocas: 619926104
+Tempo MergeSort: 0.0329991
+Numero de comparacoes: 1195797
+Numero de trocas: 620710585
+Tempo HeapSort: 0.0840071
+Numero de comparacoes: 2201193
+Numero de trocas: 621447478
+Tempo CountSort: 0.0049942
+Numero de comparacoes: 2251193
+Numero de trocas: 621448476
+
+//////////////////////////////
+Tempo QuickSort: 0.0310001
+Numero de comparacoes: 431680
+Numero de trocas: 201619
+Tempo Insertion: 25.0984
+Numero de comparacoes: 481679
+Numero de trocas: 627730169
+Tempo MergeSort: 0.0310235
+Numero de comparacoes: 1199784
+Numero de trocas: 628514650
+Tempo HeapSort: 0.0869945
+Numero de comparacoes: 2205159
+Numero de trocas: 629251805
+Tempo CountSort: 0.0049959
+Numero de comparacoes: 2255159
+Numero de trocas: 629252803
+
+//////////////////////////////
+Tempo QuickSort: 0.0300022
+Numero de comparacoes: 428418
+Numero de trocas: 199989
+Tempo Insertion: 24.8124
+Numero de comparacoes: 478417
+Numero de trocas: 625810011
+Tempo MergeSort: 0.0300007
+Numero de comparacoes: 1196792
+Numero de trocas: 626594492
+Tempo HeapSort: 0.0769998
+Numero de comparacoes: 2201745
+Numero de trocas: 627331404
+Tempo CountSort: 0.0049992
+Numero de comparacoes: 2251745
+Numero de trocas: 627332402
+
+//////////////////////////////
+Tempo QuickSort: 0.0569998
+Numero de comparacoes: 909858
+Numero de trocas: 426453
+Tempo Insertion: 95.9221
+Numero de comparacoes: 1009857
+Numero de trocas: -1801544710
+Tempo MergeSort: 0.0570003
+Numero de comparacoes: 2546249
+Numero de trocas: -1799875764
+Tempo HeapSort: 0.169001
+Numero de comparacoes: 4705992
+Numero de trocas: -1798301950
+Tempo CountSort: 0.0089999
+Numero de comparacoes: 4805992
+Numero de trocas: -1798300952
+
+//////////////////////////////
+Tempo QuickSort: 0.0660002
+Numero de comparacoes: 901586
+Numero de trocas: 422260
+Tempo Insertion: 95.9854
+Numero de comparacoes: 1001585
+Numero de trocas: -1797462977
+Tempo MergeSort: 0.0590003
+Numero de comparacoes: 2537533
+Numero de trocas: -1795794031
+Tempo HeapSort: 0.171
+Numero de comparacoes: 4697069
+Numero de trocas: -1794220532
+Tempo CountSort: 0.009001
+Numero de comparacoes: 4797069
+Numero de trocas: -1794219534
+
+//////////////////////////////
+Tempo QuickSort: 0.0709993
+Numero de comparacoes: 901826
+Numero de trocas: 422685
+Tempo Insertion: 94.0467
+Numero de comparacoes: 1001825
+Numero de trocas: -1792099769
+Tempo MergeSort: 0.062
+Numero de comparacoes: 2538066
+Numero de trocas: -1790430823
+Tempo HeapSort: 0.169
+Numero de comparacoes: 4698916
+Numero de trocas: -1788856621
+Tempo CountSort: 0.009001
+Numero de comparacoes: 4798916
+Numero de trocas: -1788855623
+
+//////////////////////////////
+Tempo QuickSort: 0.0568762
+Numero de comparacoes: 900770
+Numero de trocas: 421881
+Tempo Insertion: 99.0168
+Numero de comparacoes: 1000769
+Numero de trocas: -1798786869
+Tempo MergeSort: 0.0580032
+Numero de comparacoes: 2536825
+Numero de trocas: -1797117923
+Tempo HeapSort: 0.174
+Numero de comparacoes: 4698106
+Numero de trocas: -1795543495
+Tempo CountSort: 0.0090029
+Numero de comparacoes: 4798106
+Numero de trocas: -1795542497
+
+//////////////////////////////
+Tempo QuickSort: 0.0602995
+Numero de comparacoes: 912400
+Numero de trocas: 427750
+Tempo Insertion: 95.9654
+Numero de comparacoes: 1012399
+Numero de trocas: -1803906620
+Tempo MergeSort: 0.0565522
+Numero de comparacoes: 2548919
+Numero de trocas: -1802237674
+Tempo HeapSort: 0.169
+Numero de comparacoes: 4708501
+Numero de trocas: -1800663902
+Tempo CountSort: 0.0089991
+Numero de comparacoes: 4808501
+Numero de trocas: -1800662904
+
+//////////////////////////////
