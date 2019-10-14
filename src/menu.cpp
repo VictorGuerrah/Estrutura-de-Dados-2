@@ -152,6 +152,8 @@ void menu::exibirMenu()
                 leituraArquivo(vetN[i], regs, ids);
                 random_shuffle(ids.begin(), ids.end());
                 algoritmosOrdenacao a(ids, vetN[i]); //instanciando objeto para ordenação
+                a.zeraTrocas();
+                a.zeraComparacoes();
                 auto start = std::chrono::high_resolution_clock::now();
                 a.quickSort();
                 auto finish = std::chrono::high_resolution_clock::now();
@@ -181,6 +183,8 @@ void menu::exibirMenu()
                 leituraArquivo(vetN[i], regs, ids);
                 random_shuffle(regs.begin(), regs.end());
                 algoritmosOrdenacao b(regs,vetN[i]);
+                b.zeraComparacoes();
+                b.zeraTrocas();
                 auto start = std::chrono::high_resolution_clock::now();
                 b.quickSortRegistro();
                 auto finish = std::chrono::high_resolution_clock::now();
