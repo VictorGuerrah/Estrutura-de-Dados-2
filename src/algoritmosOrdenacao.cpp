@@ -2,7 +2,7 @@
 #include "iostream"
 #include <stdlib.h>
 #include<stack>
-
+#define K 3
 using namespace std;
 
 ///Construtor
@@ -99,7 +99,7 @@ void algoritmosOrdenacao::selectionSort()
         int aux=vetor1.at(i);
         vetor1.at(i)=vetor1.at(imen);
         vetor1.at(imen)=aux;
-      
+
          trocas++;
     }
 }
@@ -389,7 +389,7 @@ void algoritmosOrdenacao::intercala(vector<int>& vetor, int inicio, int meio, in
     while(i < n1 && j < n2)
     {
         comparacoes++;
-                
+
         if(L[i] <= R[j])
         {
             trocas++;
@@ -398,7 +398,7 @@ void algoritmosOrdenacao::intercala(vector<int>& vetor, int inicio, int meio, in
         }
         else
         {
-            trocas++
+            trocas++;
             vetor.at(k) = R[j];
             j++;
         }
