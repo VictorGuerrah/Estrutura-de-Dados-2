@@ -3,12 +3,23 @@
 #include <stdlib.h>
 #include<stack>
 #define K 3
+
+#include "registro.h"
 using namespace std;
 
 ///Construtor
 algoritmosOrdenacao::algoritmosOrdenacao(vector<int>& vetor, int tam)
 {
     vetor1=vetor;
+    tam1=tam;
+    inicio1=0;
+    fim1=tam;
+    comparacoes=0;
+    trocas=0;
+}
+algoritmosOrdenacao::algoritmosOrdenacao(vector<registro>& vetorregs, int tam)
+{
+    vetorregs1=vetorregs;
     tam1=tam;
     inicio1=0;
     fim1=tam;
@@ -284,6 +295,60 @@ void algoritmosOrdenacao::QuickSortHibrido(vector<int>& vetor,int inicio,int fim
 
 }
 
+///////////
+
+void algoritmosOrdenacao::quickSortRegistro()
+{
+
+    quickSortAuxRegistro(vetorregs1,inicio1,fim1);
+}
+
+void algoritmosOrdenacao::quickSortAuxRegistro(vector<registro>& regs, int inicio, int fim)
+{
+    int i, j, pivo, aux;
+    i=inicio;
+    j=fim;
+    pivo=regs.at((inicio+fim)/2).getId();
+    while(i<=j)
+    {
+        comparacoes++;
+        while(regs.at(i).getId()<pivo&&i<fim)
+        {
+            i++;
+        }
+        comparacoes++;
+        while(regs.at(j).getId()>pivo&&j>inicio)
+        {
+            j--;
+        }
+        if(i<=j)
+        {
+            aux=regs.at(i).getId();
+            regs.at(i).setId(regs.at(j).getId());
+            regs.at(j).setId(aux);
+            i++;
+            j--;
+            trocas++;
+        }
+    }
+    if(j>inicio)
+    {
+        quickSortAuxRegistro(regs,inicio,j);
+    }
+    if(i<fim)
+    {
+        quickSortAuxRegistro(regs,i,fim);
+    }
+}
+
+
+
+
+
+
+
+
+/////////////////////
 
 void algoritmosOrdenacao::heapfy(vector<int>& arvore, int indice)
 {
