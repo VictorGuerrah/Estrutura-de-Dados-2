@@ -83,3 +83,66 @@
 	<fstream>
 	<vector>
 
+1571055753 source:c:\users\principal\desktop\matérias\ed2 - recente\estrutura-de-dados-2-master\main.cpp
+	<iostream>
+	"algoritmosOrdenacao.h"
+	<stdio.h>
+	<stdlib.h>
+	"menu.h"
+
+1571055753 c:\users\principal\desktop\matérias\ed2 - recente\estrutura-de-dados-2-master\include\algoritmosordenacao.h
+	<iostream>
+	<vector>
+
+1571055753 c:\users\principal\desktop\matérias\ed2 - recente\estrutura-de-dados-2-master\include\menu.h
+	"registro.h"
+	<bits/stdc++.h>
+	<list>
+	<iterator>
+	<vector>
+
+1571055753 c:\users\principal\desktop\matérias\ed2 - recente\estrutura-de-dados-2-master\include\registro.h
+	<iostream>
+	<string.h>
+
+1571055753 source:c:\users\principal\desktop\matérias\ed2 - recente\estrutura-de-dados-2-master\src\algoritmosordenacao.cpp
+	"algoritmosOrdenacao.h"
+	"iostream"
+	<stdlib.h>
+	<stack>
+
+1571055753 source:c:\users\principal\desktop\matérias\ed2 - recente\estrutura-de-dados-2-master\src\hashmap.cpp
+	"hashMap.h"
+	"hashNode.h"
+
+1571055753 c:\users\principal\desktop\matérias\ed2 - recente\estrutura-de-dados-2-master\include\hashmap.h
+	"hashNode.h"
+	<iostream>
+	"registro.h"
+	<vector>
+	<string>
+	"registro.h"
+	<cmath>
+
+1571055753 c:\users\principal\desktop\matérias\ed2 - recente\estrutura-de-dados-2-master\include\hashnode.h
+	<iostream>
+	<list>
+	"registro.h"
+
+1571055753 source:c:\users\principal\desktop\matérias\ed2 - recente\estrutura-de-dados-2-master\src\hashnode.cpp
+	"hashNode.h"
+	<iostream>
+
+1571056182 source:c:\users\principal\desktop\matérias\ed2 - recente\estrutura-de-dados-2-master\src\menu.cpp
+	"menu.h"
+	<bits/stdc++.h>
+	<iostream>
+	"algoritmosOrdenacao.h"
+	<stdlib.h>
+	<fstream>
+	<vector>
+
+1571055753 source:c:\users\principal\desktop\matérias\ed2 - recente\estrutura-de-dados-2-master\src\registro.cpp
+	<stdlib.h>
+	"registro.h"
+

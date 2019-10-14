@@ -66,7 +66,8 @@ void menu::leituraArquivo(int N, vector<registro>& lista, vector<int>& listaId)
                 getline(s, palavra, ',');
                 reg.setUser(palavra);
                 getline(s, palavra, ',');
-                if(palavra>="0.0" && palavra<="10.0"){
+                if(palavra>="0.0" && palavra<="10.0")
+                {
                     reg.setRating(stoi(palavra));
                     lista.push_back(reg);
                 }
@@ -106,61 +107,63 @@ void menu::exibirMenu()
         case 1: ///Cenario 1
         {
 
-                int numN = 0; //armazena o número de N's do arquivo
-                ifstream infile ("entrada.txt");
-                int i=0;
+            int numN = 0; //armazena o número de N's do arquivo
+            ifstream infile ("entrada.txt");
+            int i=0;
 
-                while(infile)
+            while(infile)
+            {
+
+                if(i==0)
                 {
-
-                    if(i==0)
-                    {
-                        string s;
-                        getline(infile,s);
-                        numN = atoi(s.c_str()); //pega o número de N's que estão no arquivo.
-                        break;
-                    }
-                }
-
-                int vetN[numN]; //cria um vetor para salvar os N's que são quantidades de números que serão testados.
-
-                while(infile)
-                {
-
                     string s;
-                    if(i==0)  //nao pega o primeiro elemento, pois ele indica a quantidade de N's.
-                    {
-                    }
-                    else
-                    {
-                        if(!getline(infile,s))
-                            break;
-                        vetN[i-1]=atoi(s.c_str()); //pega o valor de N e salva no vetor vetN.
-                    }
-                    i++;
+                    getline(infile,s);
+                    numN = atoi(s.c_str()); //pega o número de N's que estão no arquivo.
+                    break;
                 }
+            }
+
+            int vetN[numN]; //cria um vetor para salvar os N's que são quantidades de números que serão testados.
+
+            while(infile)
+            {
+
+                string s;
+                if(i==0)  //nao pega o primeiro elemento, pois ele indica a quantidade de N's.
+                {
+                }
+                else
+                {
+                    if(!getline(infile,s))
+                        break;
+                    vetN[i-1]=atoi(s.c_str()); //pega o valor de N e salva no vetor vetN.
+                }
+                i++;
+            }
 
             arquivo.open ("cenario1.txt");
-            for(int i=0;i<numN;i++){
-                for(int j=0;j<5;j++){
-                vector<registro> regs;
-                vector<int> ids;
-                leituraArquivo(vetN[i], regs, ids);
-                random_shuffle(ids.begin(), ids.end());
-                algoritmosOrdenacao a(ids, vetN[i]); //instanciando objeto para ordenação
-                auto start = std::chrono::high_resolution_clock::now();
-                a.quickSort();
-                auto finish = std::chrono::high_resolution_clock::now();
-                std::chrono::duration<long  double> elapsed = finish - start;
-                cout <<"Tempo Cenario 1a): "<<elapsed.count()<< endl;
-                cout<<"Iteracao: "<<j<<endl;
-                cout<<"Tamanho: "<<vetN[i]<<endl;
-                arquivo<<"Tempo cenario 1a: "<<elapsed.count()<<endl;
-                arquivo<<"Iteracao: "<<j<<endl;
-                arquivo<<"Tamanho: "<<vetN[i]<<endl;
-                arquivo<<"Comparacoes: "<<a.getComparacoes()<<endl;
-                arquivo<<"Trocas: "<<a.getTrocas()<<endl;
-                arquivo<<endl;
+            for(int i=0; i<numN; i++)
+            {
+                for(int j=0; j<5; j++)
+                {
+                    vector<registro> regs;
+                    vector<int> ids;
+                    leituraArquivo(vetN[i], regs, ids);
+                    random_shuffle(ids.begin(), ids.end());
+                    algoritmosOrdenacao a(ids, vetN[i]); //instanciando objeto para ordenação
+                    auto start = std::chrono::high_resolution_clock::now();
+                    a.quickSort();
+                    auto finish = std::chrono::high_resolution_clock::now();
+                    std::chrono::duration<long  double> elapsed = finish - start;
+                    cout <<"Tempo Cenario 1a): "<<elapsed.count()<< endl;
+                    cout<<"Iteracao: "<<j<<endl;
+                    cout<<"Tamanho: "<<vetN[i]<<endl;
+                    arquivo<<"Tempo cenario 1a: "<<elapsed.count()<<endl;
+                    arquivo<<"Iteracao: "<<j<<endl;
+                    arquivo<<"Tamanho: "<<vetN[i]<<endl;
+                    arquivo<<"Comparacoes: "<<a.getComparacoes()<<endl;
+                    arquivo<<"Trocas: "<<a.getTrocas()<<endl;
+                    arquivo<<endl;
                 }
             }
             break;
@@ -168,8 +171,9 @@ void menu::exibirMenu()
         case 2: ///Cenario 2
         {
             arquivo.open ("cenario2.txt");
-            int tamanho[6]={1000,5000,10000,50000,100000,500000};
-            for(int j=0;j<6;j++){
+            int tamanho[6]= {1000,5000,10000,50000,100000,500000};
+            for(int j=0; j<6; j++)
+            {
                 for(int i=0; i < 5; i++)
                 {
                     vector<registro> regs;
@@ -204,54 +208,113 @@ void menu::exibirMenu()
         case 3: ///Cenario 3
         {
             arquivo.open ("cenario3.txt");
-            int tamanho;
-            cin >> tamanho;
-            for(int i=0; i < 5; i++)
+            int numN = 0; //armazena o número de N's do arquivo
+            ifstream infile ("entradaT.txt");
+            int i=0;
+
+            while(infile)
             {
-                vector<registro> regs;
-                vector<int> ids;
-                leituraArquivo(tamanho, regs, ids);
-                random_shuffle(ids.begin(), ids.end());
-                algoritmosOrdenacao a(ids, tamanho); //instanciando objeto para ordenação
-                cout << "Quicksort: " << endl;
-                auto start = std::chrono::high_resolution_clock::now();
-                a.auxQuickSortHibrido();
-                auto finish = std::chrono::high_resolution_clock::now();
-                std::chrono::duration<long  double> elapsed = finish - start;
-                arquivo<<"Tempo QuickSort: "<<elapsed.count()<<endl;
+                if(i==0)
+                {
+                    string s;
+                    getline(infile,s);
+                    numN = atoi(s.c_str()); //pega o número de N's que estão no arquivo.
+                    break;
+                }
+            }
 
-                cout << "Insertionsort: " << endl;
-                auto start1 = std::chrono::high_resolution_clock::now();
-                a.insertionSort();
-                auto finish1 = std::chrono::high_resolution_clock::now();
-                std::chrono::duration<long double> elapsed1 = finish1 - start1;
-                arquivo<<"Tempo Insertion: "<<elapsed1.count()<<endl;
+            int vetN[numN]; //cria um vetor para salvar os N's que são quantidades de números que serão testados.
 
-                cout <<"MergeSort: " << endl;
-                auto start2 = std::chrono::high_resolution_clock::now();
-                a.mergeSortAux();
-                auto finish2 = std::chrono::high_resolution_clock::now();
-                std::chrono::duration<long  double> elapsed2 = finish2 - start2;
-                arquivo<<"Tempo MergeSort: "<<elapsed2.count()<<endl;
+            while(infile)
+            {
+                string s;
+                if(i==0)  //nao pega o primeiro elemento, pois ele indica a quantidade de N's.
+                {
+                }
+                else
+                {
+                    if(!getline(infile,s))
+                        break;
+                    vetN[i-1]=atoi(s.c_str()); //pega o valor de N e salva no vetor vetN.
+                }
+                i++;
+            }
+            for(int i=0; i<numN; i++)
+            {
+                for(int j=0; j<6; j++)
+                {
 
-                cout <<"HeapSort " << endl;
-                auto start3 = std::chrono::high_resolution_clock::now();
-                a.heapSort();
-                auto finish3 = std::chrono::high_resolution_clock::now();
-                std::chrono::duration<long  double> elapsed3 = finish3 - start3;
-                arquivo<<"Tempo HeapSort: "<<elapsed3.count()<<endl;
+                    vector<registro> regs;
+                    vector<int> ids;
+                    leituraArquivo(vetN[i], regs, ids);
+                    random_shuffle(ids.begin(), ids.end());
+                    algoritmosOrdenacao a(ids, vetN[i]); //instanciando objeto para ordenação
+
+                    auto start = std::chrono::high_resolution_clock::now();
+                    a.quickSort();
+                    cout << "Quicksort CONCLUIDO" << endl;
+                    auto finish = std::chrono::high_resolution_clock::now();
+                    std::chrono::duration<long  double> elapsed = finish - start;
+                    arquivo<<"Tempo QuickSort: "<<elapsed.count()<<endl;
+                    arquivo<<"Numero de comparacoes: ";
+                    arquivo << a.getComparacoes() << endl;
+                    arquivo<<"Numero de trocas: ";
+                    arquivo << a.getTrocas() << endl;
+                    a.randomiza();
+
+                    auto start1 = std::chrono::high_resolution_clock::now();
+                    a.insertionSort();
+                    cout <<"Insertion CONCLUIDO " << endl;
+                    auto finish1 = std::chrono::high_resolution_clock::now();
+                    std::chrono::duration<long double> elapsed1 = finish1 - start1;
+                    arquivo<<"Tempo Insertion: "<<elapsed1.count()<<endl;
+                    arquivo << a.getComparacoes() << endl;
+                    arquivo<<"Numero de trocas: ";
+                    arquivo << a.getTrocas() << endl;
+                    a.randomiza();
 
 
-                cout <<"CountSort " << endl;
-                auto start4 = std::chrono::high_resolution_clock::now();
-                a.countSort();
-                auto finish4 = std::chrono::high_resolution_clock::now();
-                std::chrono::duration<long double> elapsed4 = finish4 - start4;
-                arquivo<<"Tempo CountSort: "<<elapsed4.count()<<endl;
+                    auto start2 = std::chrono::high_resolution_clock::now();
+                    a.mergeSortAux();
+                    cout <<"MergeSort CONCLUIDO " << endl;
+                    auto finish2 = std::chrono::high_resolution_clock::now();
+                    std::chrono::duration<long  double> elapsed2 = finish2 - start2;
+                    arquivo<<"Tempo MergeSort: "<<elapsed2.count()<<endl;
+                    arquivo << a.getComparacoes() << endl;
+                    arquivo<<"Numero de trocas: ";
+                    arquivo << a.getTrocas() << endl;
+                    a.randomiza();
 
+
+                    auto start3 = std::chrono::high_resolution_clock::now();
+                    a.heapSort();
+                    cout <<"HeapSort CONCLUIDO" << endl;
+                    auto finish3 = std::chrono::high_resolution_clock::now();
+                    std::chrono::duration<long  double> elapsed3 = finish3 - start3;
+                    arquivo<<"Tempo HeapSort: "<<elapsed3.count()<<endl;
+                    arquivo << a.getComparacoes() << endl;
+                    arquivo<<"Numero de trocas: ";
+                    arquivo << a.getTrocas() << endl;
+                    a.randomiza();
+
+
+                    auto start4 = std::chrono::high_resolution_clock::now();
+                    a.countSort();
+                    cout <<"CountSort CONCLUIDO" << endl;
+                    auto finish4 = std::chrono::high_resolution_clock::now();
+                    std::chrono::duration<long double> elapsed4 = finish4 - start4;
+                    arquivo<<"Tempo CountSort: "<<elapsed4.count()<<endl;
+                    arquivo << a.getComparacoes() << endl;
+                    arquivo<<"Numero de trocas: ";
+                    arquivo << a.getTrocas() << endl;
+                    a.randomiza();
+                    arquivo << endl;
+
+                }
             }
             break;
         }
+
 
 
         case 4: ///Cenario 4

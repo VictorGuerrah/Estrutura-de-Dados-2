@@ -1,0 +1,48 @@
+Tempo cenario 1a: 0
+Iteracao: 0
+Tamanho: 1000
+Comparacoes: 5758
+Trocas: 2607
+
+Tempo cenario 1a: 0.0010009
+Iteracao: 1
+Tamanho: 1000
+Comparacoes: 5804
+Trocas: 2638
+
+Tempo cenario 1a: 0.000999
+Iteracao: 2
+Tamanho: 1000
+Comparacoes: 5780
+Trocas: 2591
+
+Tempo cenario 1a: 0.0010038
+Iteracao: 3
+Tamanho: 1000
+Comparacoes: 5692
+Trocas: 2590
+
+Tempo cenario 1a: 0
+Iteracao: 4
+Tamanho: 1000
+Comparacoes: 5656
+Trocas: 2555
+
+Tempo cenario 1a: 0.0019999
+Iteracao: 0
+Tamanho: 5000
+Comparacoes: 34078
+Trocas: 15544
+
+Tempo cenario 1a: 0.0020799
+Iteracao: 1
+Tamanho: 5000
+Comparacoes: 33820
+Trocas: 15498
+
+Tempo cenario 1a: 0.002006
+Iteracao: 2
+Tamanho: 5000
+Comparacoes: 34360
+Trocas: 15764
+
