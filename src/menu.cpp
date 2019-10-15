@@ -333,7 +333,7 @@ void menu::exibirMenu()
             }
             break;
         }
-
+        
         case 3: ///Cenario 3
         {
             arquivo.open ("cenario3.txt");
@@ -474,10 +474,10 @@ void menu::exibirMenu()
         }
 
 
-
+        
         case 4: ///Cenario 4
         {
-             arquivo.open ("cenario4.txt");
+                       arquivo.open ("cenario4-1.txt");
             int numN = 0; //armazena o número de N's do arquivo
             ifstream infile ("entradaT.txt");
             int i=0;
@@ -509,17 +509,10 @@ void menu::exibirMenu()
                 }
                 i++;
             }
+            arquivo<<"Algoritmo,Interação,Tamanho do Vetor(N),No de Comparações"<<endl;
             for(int i=0; i<numN; i++)
             {
-                cout << "----------------------------" << endl;
-                arquivo << "----------------------------" << endl;
-                cout << "Comeco da iteracao: " << i + 1 << endl;
-                arquivo << "Comeco da iteracao: " << i + 1 << endl;
-                cout << "Tamanho do Vetor: " << vetN[i] << endl;
-                arquivo<< "Tamanho do Vetor: " << vetN[i] << endl;
-                cout << "----------------------------" << endl;
-                arquivo << "----------------------------" << endl;
-                for(int j=0; j<2; j++)
+                for(int j=0; j<5; j++)
                 {
                     vector<registro> regs;
                     vector<int> ids;
@@ -528,23 +521,16 @@ void menu::exibirMenu()
                     hashMap *h = new hashMap(vetN[i]);
 
                     h->insercaoLinear(&regs[j]);
-                    arquivo<< "Numero de comparaçoes Hash Linear: " << h->getComparacoes() << endl;
-                    cout << "teste1 ";
+                    arquivo<< "Hash Linear,"<<j<<","<<i<<","<< h->getComparacoes()<< endl;
                     h->insercaoDuploHash(&regs[j],0);
-                    arquivo<< "Numero de comparaçoes Duplo Hash: " << h->getComparacoes() << endl;
-                    cout << "teste2 ";
+                    arquivo<< "Duplo Hash," <<j<<","<<vetN[i]<<","<< h->getComparacoes() << endl;
                     //h->InsercaoQuadratica(&regs[j],0);
                     //arquivo<< "Numero de comparaçoes Hash Quadratico: " << h->getComparacoes() << endl;
-                    //cout << "teste3 ";
                     h->insereEncadSeparado(&regs[j],0);
-                    arquivo<< "Numero de comparaçoes Hash Encadeado simples: " << h->getComparacoes() << endl;
-                    cout << "teste4 ";
-                    //h->insercaoEncadCoalescido(&regs[j]);
-                    //arquivo<< "Numero de comparaçoes Hash Encadeado Coalescido: " << h->getComparacoes() << endl;
-                    //cout << "teste5 ";
+                    arquivo<< "Hash Encadeado Separado," <<j<<","<<i<<","<< h->getComparacoes() << endl;
+                    h->insercaoEncadCoalescido(&regs[j]);
+                    arquivo<< "Hash Encadeado Coalescido," <<j<<","<<i<<","<< h->getComparacoes() << endl;
                 }
-                cout << "Fim da iteracao: " << i + 1 << endl;
-                arquivo << "Fim da iteracao: " << i + 1 << endl;
             }
             break;
         }
