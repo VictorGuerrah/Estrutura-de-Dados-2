@@ -249,8 +249,16 @@ void menu::exibirMenu()
                 }
                 i++;
             }
+
+
+
+
+            arquivo<<endl<<endl;
+            arquivo<<"Algoritmo,Iteracao,Tamanho do Vetor(N),No de Comparacoes,No de Trocas,Tempo"<<endl;
+
             for(int i=0; i<numN; i++)
             {
+                /*
                 cout << "----------------------------" << endl;
                 arquivo << "----------------------------" << endl;
                 cout << "Comeco da iteracao: " << i + 1 << endl;
@@ -259,7 +267,8 @@ void menu::exibirMenu()
                 arquivo<< "Tamanho do Vetor: " << vetN[i] << endl;
                 cout << "----------------------------" << endl;
                 arquivo << "----------------------------" << endl;
-                for(int j=0; j<2; j++)
+                */
+                for(int j=0; j<5; j++)
                 {
 
                     vector<registro> regs;
@@ -275,15 +284,17 @@ void menu::exibirMenu()
                     a.quickSort();
                     auto finish = std::chrono::high_resolution_clock::now();
                     std::chrono::duration<long  double> elapsed = finish - start;
+                     arquivo<<"QuickSort,"<<j+1<<","<<vetN[i]<<","<<a.getComparacoes()<<","<<a.getTrocas()<<","<<elapsed.count()<<endl;
+                    /*
                     cout << "Quicksort Recursivo CONCLUIDO" << endl;
                     arquivo<<"Tempo QuickSort Recursivo: "<<elapsed.count()<<endl;
                     arquivo<<"Numero de comparacoes: ";
                     arquivo << a.getComparacoes() << endl;
                     arquivo<<"Numero de trocas: ";
                     arquivo << a.getTrocas() << endl;
-
+                        */
                     a.randomiza();
-                    arquivo << endl;
+                   // arquivo << endl;
 
                     a.zeraComparacoes();
                     a.zeraTrocas();
@@ -291,41 +302,48 @@ void menu::exibirMenu()
                     auto start1 = std::chrono::high_resolution_clock::now();
                      a.auxQuickSortHibrido();
                     auto finish1 = std::chrono::high_resolution_clock::now();
-                    cout <<"QuickSort com Insercao CONCLUIDO " << endl;
+                   // cout <<"QuickSort com Insercao CONCLUIDO " << endl;
                     std::chrono::duration<long double> elapsed1 = finish1 - start1;
+                     arquivo<<"QuickSort com Insercao,"<<j+1<<","<<vetN[i]<<","<<a.getComparacoes()<<","<<a.getTrocas()<<","<<elapsed1.count()<<endl;
+                    /*
                     arquivo<<"Tempo QuickSort com Insercao: "<<elapsed1.count()<<endl;
                     arquivo<<"Numero de comparacoes: ";
                     arquivo << a.getComparacoes() << endl;
                     arquivo<<"Numero de trocas: ";
                     arquivo << a.getTrocas() << endl;
+                    */
                     a.randomiza();
-                    arquivo << endl;
+                   // arquivo << endl;
                     a.zeraComparacoes();
                     a.zeraTrocas();
                     a.randomiza();
 
                     auto start2 = std::chrono::high_resolution_clock::now();
                     a.quickSortMediana();
-                    cout <<"QuickSort Mediana CONCLUIDO " << endl;
+                    //cout <<"QuickSort Mediana CONCLUIDO " << endl;
                     auto finish2 = std::chrono::high_resolution_clock::now();
                     std::chrono::duration<long  double> elapsed2 = finish2 - start2;
+                     arquivo<<"QuickSort Mediana com 3,"<<j+1<<","<<vetN[i]<<","<<a.getComparacoes()<<","<<a.getTrocas()<<","<<elapsed2.count()<<endl;
+                    /*
                     arquivo<<"Tempo QuickSort Mediana: "<<elapsed2.count()<<endl;
                     arquivo<<"Numero de comparacoes: ";
                     arquivo << a.getComparacoes() << endl;
                     arquivo<<"Numero de trocas: ";
                     arquivo << a.getTrocas() << endl;
+                    */
                     a.zeraComparacoes();
                     a.zeraTrocas();
                     a.randomiza();
-
+                    /*
                     arquivo << endl;
                     cout << "//////////////////////////////" << endl;
                     arquivo << "//////////////////////////////" << endl;
-
+                    */
                 }
-                cout << "Fim da iteracao: " << i + 1 << endl;
-                arquivo << "Fim da iteracao: " << i + 1 << endl;
+               // cout << "Fim da iteracao: " << i + 1 << endl;
+              //  arquivo << "Fim da iteracao: " << i + 1 << endl;
             }
+            arquivo.close();
             break;
         }
         
