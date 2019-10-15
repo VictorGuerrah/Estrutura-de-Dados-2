@@ -144,10 +144,12 @@ void menu::exibirMenu()
 
             //variavel para aumenar indice do vetor;
             arquivo.open ("cenario1.txt");
-            /*
+
+            arquivo<<"Interação,Tamanho do Vetor(N),No de Comparações,No de Trocas,Tempo"<<endl;
+            
             for(int i=0; i<numN; i++)
             {
-                for(int j=0; j<2; j++)
+                for(int j=0; j<5; j++)
                 {
                     vector<registro> regs;
                     vector<int> ids;
@@ -160,26 +162,18 @@ void menu::exibirMenu()
                     a.quickSort();
                     auto finish = std::chrono::high_resolution_clock::now();
                     std::chrono::duration<long  double> elapsed = finish - start;
-                    cout<<"VETOR DE INTEIROSSS"<<endl;
-
-
-                    cout <<"Tempo Cenario 1(VETOR DE INTEIROS): "<<elapsed.count()<< endl;
-                    cout<<"Iteracao: "<<j+1<<endl;
-                    cout<<"Tamanho: "<<vetN[i]<<endl;
-                    cout<<"Comparacoes: "<<a.getComparacoes()<<endl;
-                    cout<<"Trocas: "<<a.getTrocas()<<endl;
-
-                    arquivo<<"Tempo cenario 1(VETOR DE INTEIROS): "<<elapsed.count()<<endl;
-                    arquivo<<"Iteracao: "<<j+1<<endl;
-                    arquivo<<"Tamanho: "<<vetN[i]<<endl;
-                    arquivo<<"Comparacoes: "<<a.getComparacoes()<<endl;
-                    arquivo<<"Trocas: "<<a.getTrocas()<<endl;
-                    arquivo<<endl;
+                    arquivo<<j+1<<","<<vetN[i]<<","<<a.getComparacoes()<<","<<a.getTrocas()<<","<<elapsed.count()<<endl;
+                    /*arquivo<<"Tempo cenario 1(VETOR DE INTEIROS): "<<endl<<elapsed.count()<<endl;
+                    arquivo<<"Iteracao: "<<endl<<j+1<<endl;
+                    arquivo<<"Tamanho: "<<endl<<vetN[i]<<endl;
+                    arquivo<<"Comparacoes: "<<endl<<a.getComparacoes()<<endl;
+                    arquivo<<"Trocas: "<<endl<<a.getTrocas()<<endl;
+                    arquivo<<endl;*/
 
                 }
             }
-            */
-
+            arquivo<<endl<<endl;
+            arquivo<<"Interação,Tamanho do Vetor(N),No de Comparações,No de Trocas,Tempo"<<endl;
             for(int i=0; i<numN; i++)
             {
                 for(int j=0; j<5; j++)
@@ -198,19 +192,20 @@ void menu::exibirMenu()
 
                     std::chrono::duration<long  double> elapsed = finish - start;
 
+                    arquivo<<j+1<<","<<vetN[i]<<","<<b.getComparacoes()<<","<<b.getTrocas()<<","<<elapsed.count()<<endl;
 
-                    cout <<"Tempo Cenario 1(VETOR DE OBJETOS)): "<<elapsed.count()<< endl;
-                    cout<<"Iteracao: "<<j+1<<endl;
-                    cout<<"Tamanho: "<<vetN[i]<<endl;
-                    cout<<"Comparacoes: "<<b.getComparacoes()<<endl;
-                    cout<<"Trocas: "<<b.getTrocas()<<endl;
+                    /*cout <<"Tempo Cenario 1(VETOR DE OBJETOS)): "<<endl<<elapsed.count()<< endl;
+                    cout<<"Iteracao: "<<endl<<j+1<<endl;
+                    cout<<"Tamanho: "<<endl<<vetN[i]<<endl;
+                    cout<<"Comparacoes: "<<endl<<b.getComparacoes()<<endl;
+                    cout<<"Trocas: "<<endl<<b.getTrocas()<<endl;
 
                     arquivo<<"Tempo cenario 1(VETOR DE OBJETOS):"<<endl<<elapsed.count()<<endl;
                     arquivo<<"Iteracao:"<<endl<<j+1<<endl;
                     arquivo<<"Tamanho:"<<endl<<vetN[i]<<endl;
                     arquivo<<"Comparacoes:"<<endl<<b.getComparacoes()<<endl;
                     arquivo<<"Trocas:"<<endl<<b.getTrocas()<<endl;
-                    arquivo<<endl;
+                    arquivo<<endl;*/
 
                 }
             }
@@ -368,16 +363,18 @@ void menu::exibirMenu()
                 }
                 i++;
             }
+            arquivo<<"Algoritmo,Interação,Tamanho do Vetor(N),No de Comparações,No de Trocas,Tempo"<<endl;
             for(int i=0; i<numN; i++)
             {
-                cout << "----------------------------" << endl;
+                /*cout << "----------------------------" << endl;
                 arquivo << "----------------------------" << endl;
                 cout << "Comeco da iteracao: " << i + 1 << endl;
                 arquivo << "Comeco da iteracao: " << i + 1 << endl;
                 cout << "Tamanho do Vetor: " << vetN[i] << endl;
                 arquivo<< "Tamanho do Vetor: " << vetN[i] << endl;
                 cout << "----------------------------" << endl;
-                arquivo << "----------------------------" << endl;
+                arquivo << "----------------------------" << endl;*/
+
                 for(int j=0; j<5; j++)
                 {
 
@@ -392,14 +389,15 @@ void menu::exibirMenu()
                     auto start = std::chrono::high_resolution_clock::now();
                     a.quickSort();
                     auto finish = std::chrono::high_resolution_clock::now();
-                    cout << "Quicksort CONCLUIDO" << endl;
+                    //cout << "Quicksort CONCLUIDO" << endl;
                     std::chrono::duration<long  double> elapsed = finish - start;
-                    arquivo<<"Tempo QuickSort: "<<elapsed.count()<<endl;
-                    arquivo<<"Numero de comparacoes: ";
+                    arquivo<<"QuickSort,"<<j+1<<","<<vetN[i]<<","<<a.getComparacoes()<<","<<a.getTrocas()<<","<<elapsed.count()<<endl;
+                    /*arquivo<<"Tempo QuickSort:"<<endl<<elapsed.count()<<endl;
+                    arquivo<<"Numero de comparacoes:"<<endl;
                     arquivo << a.getComparacoes() << endl;
-                    arquivo<<"Numero de trocas: ";
+                    arquivo<<"Numero de trocas:"<<endl;
                     arquivo << a.getTrocas() << endl;
-
+*/
                     a.zeraComparacoes();
                     a.zeraTrocas();
                     a.randomiza();
@@ -407,13 +405,15 @@ void menu::exibirMenu()
                     auto start1 = std::chrono::high_resolution_clock::now();
                     a.insertionSort();
                     auto finish1 = std::chrono::high_resolution_clock::now();
-                    cout <<"Insertion CONCLUIDO " << endl;
+                    //cout <<"Insertion CONCLUIDO " << endl;
                     std::chrono::duration<long double> elapsed1 = finish1 - start1;
-                    arquivo<<"Tempo Insertion: "<<elapsed1.count()<<endl;
-                    arquivo<<"Numero de comparacoes: ";
+                    arquivo<<"InsertionSort,"<<j+1<<","<<vetN[i]<<","<<a.getComparacoes()<<","<<a.getTrocas()<<","<<elapsed.count()<<endl;
+                    /*arquivo<<"Tempo Insertion:"<<endl<<elapsed1.count()<<endl;
+                    arquivo<<"Numero de comparacoes:"<<endl;
                     arquivo << a.getComparacoes() << endl;
-                    arquivo<<"Numero de trocas: ";
+                    arquivo<<"Numero de trocas:"<<endl;
                     arquivo << a.getTrocas() << endl;
+                    */
                     a.zeraComparacoes();
                     a.zeraTrocas();
                     a.randomiza();
@@ -422,13 +422,15 @@ void menu::exibirMenu()
                     auto start2 = std::chrono::high_resolution_clock::now();
                     a.mergeSortAux();
                     auto finish2 = std::chrono::high_resolution_clock::now();
-                     cout <<"MergeSort CONCLUIDO " << endl;
+                    //cout <<"MergeSort CONCLUIDO " << endl;
                     std::chrono::duration<long  double> elapsed2 = finish2 - start2;
-                    arquivo<<"Tempo MergeSort: "<<elapsed2.count()<<endl;
-                    arquivo<<"Numero de comparacoes: ";
+                    arquivo<<"MergeSort,"<<j+1<<","<<vetN[i]<<","<<a.getComparacoes()<<","<<a.getTrocas()<<","<<elapsed.count()<<endl;
+                    /*arquivo<<"Tempo MergeSort: "<<endl<<elapsed2.count()<<endl;
+                    arquivo<<"Numero de comparacoes:"<<endl;
                     arquivo << a.getComparacoes() << endl;
-                    arquivo<<"Numero de trocas: ";
+                    arquivo<<"Numero de trocas:"<<endl;
                     arquivo << a.getTrocas() << endl;
+                    */
                     a.zeraComparacoes();
                     a.zeraTrocas();
                     a.randomiza();
@@ -436,14 +438,16 @@ void menu::exibirMenu()
 
                     auto start3 = std::chrono::high_resolution_clock::now();
                     a.heapSort();
-                    cout <<"HeapSort CONCLUIDO" << endl;
+                    //cout <<"HeapSort CONCLUIDO" << endl;
                     auto finish3 = std::chrono::high_resolution_clock::now();
                     std::chrono::duration<long  double> elapsed3 = finish3 - start3;
-                    arquivo<<"Tempo HeapSort: "<<elapsed3.count()<<endl;
-                    arquivo<<"Numero de comparacoes: ";
+                    /*arquivo<<"Tempo HeapSort: "<<endl<<elapsed3.count()<<endl;
+                    arquivo<<"Numero de comparacoes: "<<endl;
                     arquivo << a.getComparacoes() << endl;
-                    arquivo<<"Numero de trocas: ";
+                    arquivo<<"Numero de trocas: "<<endl;
                     arquivo << a.getTrocas() << endl;
+                    */
+                    arquivo<<"HeapSort,"<<j+1<<","<<vetN[i]<<","<<a.getComparacoes()<<","<<a.getTrocas()<<","<<elapsed.count()<<endl;
                     a.zeraComparacoes();
                     a.zeraTrocas();
                     a.randomiza();
@@ -451,25 +455,26 @@ void menu::exibirMenu()
 
                     auto start4 = std::chrono::high_resolution_clock::now();
                     a.countSort();
-                    cout <<"CountSort CONCLUIDO" << endl;
+                    //cout <<"CountSort CONCLUIDO" << endl;
                     auto finish4 = std::chrono::high_resolution_clock::now();
                     std::chrono::duration<long double> elapsed4 = finish4 - start4;
-                    arquivo<<"Tempo CountSort: "<<elapsed4.count()<<endl;
-                    arquivo<<"Numero de comparacoes: ";
+                    /*arquivo<<"Tempo CountSort: "<<endl<<elapsed4.count()<<endl;
+                    arquivo<<"Numero de comparacoes: "<<endl;
                     arquivo << a.getComparacoes() << endl;
-                    arquivo<<"Numero de trocas: ";
+                    arquivo<<"Numero de trocas: "<<endl;
                     arquivo << a.getTrocas() << endl;
+*/
+                    arquivo<<"CountSort,"<<j+1<<","<<vetN[i]<<","<<a.getComparacoes()<<","<<a.getTrocas()<<","<<elapsed.count()<<endl;
                     a.randomiza();
                     a.zeraComparacoes();
                     a.zeraTrocas();
-                    arquivo << endl;
-                    cout << "//////////////////////////////" << endl;
+                    //arquivo << endl;
+                    /*cout << "//////////////////////////////" << endl;
                     arquivo << "//////////////////////////////" << endl;
-
+*/
                 }
-                cout << "Fim da iteracao: " << i + 1 << endl;
-                arquivo << "Fim da iteracao: " << i + 1 << endl;
             }
+            arquivo.close();
             break;
         }
 
@@ -532,6 +537,7 @@ void menu::exibirMenu()
                     arquivo<< "Hash Encadeado Coalescido," <<j<<","<<i<<","<< h->getComparacoes() << endl;
                 }
             }
+            arquivo.close()
             break;
         }
 
