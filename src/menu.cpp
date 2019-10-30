@@ -6,6 +6,7 @@
 #include <stdlib.h>
 #include <fstream>
 #include <vector>
+#include "hashMap.h"
 
 //Tamanho do bloco a ser pego no arquivo:
 #define TAM 1000
@@ -146,7 +147,7 @@ void menu::exibirMenu()
             arquivo.open ("cenario1.txt");
 
             arquivo<<"Interação,Tamanho do Vetor(N),No de Comparações,No de Trocas,Tempo"<<endl;
-            
+
             for(int i=0; i<numN; i++)
             {
                 for(int j=0; j<5; j++)
@@ -346,7 +347,7 @@ void menu::exibirMenu()
             arquivo.close();
             break;
         }
-        
+
         case 3: ///Cenario 3
         {
             arquivo.open ("cenario3.txt");
@@ -497,7 +498,7 @@ void menu::exibirMenu()
         }
 
 
-        
+
         case 4: ///Cenario 4
         {
                        arquivo.open ("cenario4-1.txt");
@@ -555,7 +556,7 @@ void menu::exibirMenu()
                     arquivo<< "Hash Encadeado Coalescido," <<j<<","<<i<<","<< h->getComparacoes() << endl;
                 }
             }
-            arquivo.close()
+            arquivo.close();
             break;
         }
 
