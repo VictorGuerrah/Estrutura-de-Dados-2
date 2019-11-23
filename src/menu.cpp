@@ -61,12 +61,12 @@ void menu::leituraArquivo(int N, vector<registro>& lista, vector<int>& listaId)
             if(contN >= random && contN <=random+N)
             {
                 registro reg;
-                getline(s, palavra, ',');
+                getline(s, palavra, ';');
                 reg.setId(stoi(palavra));
                 listaId.push_back(stoi(palavra));
-                getline(s, palavra, ',');
+                getline(s, palavra, ';');
                 reg.setUser(palavra);
-                getline(s, palavra, ',');
+                getline(s, palavra, ';');
                 if(palavra>="0.0" && palavra<="10.0")
                 {
                     reg.setRating(stoi(palavra));
