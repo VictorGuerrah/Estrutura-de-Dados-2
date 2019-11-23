@@ -19,12 +19,15 @@ class registro{
             void setRating(int rating);
             int getRating();
 
+	    void setDescricao(string descricao);
+	    string getDescricao();
     protected:
 
     private:
             int id;
             string user;
             int rating;
+	    string descricao;
 };
 
 #endif // REGISTRO_H
