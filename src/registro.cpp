@@ -37,3 +37,10 @@ int registro::getRating(){
     return rating;
 }
 
+void registro::setDescricao(string descricao){
+    this->descricao = descricao;
+}
+
+string registro::getDescricao(){
+   return descricao;
+}
